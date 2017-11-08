@@ -1,0 +1,112 @@
+package helper;
+
+public class DataUrls {
+	
+	// 传统期次
+	public static final String ct_issue = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=zqissue&lotteryid=10&playid=1001";
+	// 传统对阵 issue = 17126
+	public static final String ct_qlive =  "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryid=10&playid=1001&pts=0&issue=";
+	// 传统实况
+	public static final String ct_live =  "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=live&lotteryid=10&playid=1001&pts=0&issue=";
+	
+	// 竞足期次
+	public static final String ft_issue = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=zqissue&lotteryid=90&playid=9001";
+	// 竞足对阵  issue = 2017-09-04
+	public static final String ft_qlive =  "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryid=90&playid=9001&pts=0&issue=";
+	// 竞足实况
+	public static final String ft_live =  "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=live&lotteryid=10&playid=1001&pts=0&issue=";
+	// 我的关注
+	public static final String ft_collect =  "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryId=90&pts=0&matchids=";
+	// 积分榜
+	public static final String ft_teamrank = "http://smc.jdd.com/api/scoredetail/getssmatchrankinginfo?lotteryId=90&pcode=h5&pts=0&version=v2.1&mid=";
+	// 基础数据URL
+	public static final String bd_url = "http://bd-api.jdd.com/basedata/public/securityMobileHandler.do";
+	public static final String act_url = "http://activity-api.jdd.com/activity/public/mobileHandler.do";
+	public static final String market_url = "http://market-api.jdd.com/market/public/safeMobileHandler.do";
+	// 竞足202接口参数
+	public static final String params_202 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"202\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{}\"}";
+	// 竞篮2031接口参数
+	public static final String params_2031 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"2031\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{}\"}";
+	// 传统204接口参数
+	public static final String params_204 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"204\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{\\\"LottID\\\":1}\"}";
+	
+	// 北单229接口参数
+	public static final String params_229 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"229\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{}\"}";
+	public static final String params_90332 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":90332,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{}\"}";
+	public static final String params_200_5 = "{\"header\":{\"appVersion\":\"3.9.0\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"200\",\"cmdName\":\"app_zz\",\"userType\":\"1\",\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{'LottID':5}\"}";
+	public static final String params_200_39 = "{\"header\":{\"appVersion\":\"3.9.0\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"200\",\"cmdName\":\"app_zz\",\"userType\":\"1\",\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{'LottID':39}\"}";
+	public static final String params_9009 = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.5\",\"idfa\":\"43DDFBD4-5AE0-42FE-BF06-E5F693ED93B5\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"4C98D64157704EE8AE9070D06499A258\",\"token\":\"\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.3.2\",\"action\":\"9009\",\"imei\":\"\",\"phoneName\":\"iPhone 7\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{\\n  'appId' : '94558726'\\n}\"}";
+	public static final String params_100 = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.7\",\"idfa\":\"8E9B817E-2267-455A-86FD-3E347122B8C3\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"4E579AA2B12C4A57AD8DE42C3EB7C83B\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.3.2\",\"action\":\"100\",\"imei\":\"\",\"platformCode\":\"IPHONE\",\"phoneName\":\"iPhone 5\",\"ts\":\"\"},\"body\":\"{\\n  'CmdID' : 0,\\n  'Pw' : 'aaaaaa',\\n  'Registype' : 2,\\n  'Name' : '18811110001'\\n}\"}";
+	public static final String params_1034 = "{\"header\":{\"appVersion\":\"3.9.3\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"token\":\"\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"1034\",\"imei\":\"861759032966847\",\"userType\":1,\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\"},\"body\":\"{'mobile':'13811110020','verifycode':'570426'}\"}";
+	public static final String params_1011 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"1011\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{'name':'1','pw':'a','usertype':'1'}\"}";
+	public static final String params_7050 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":7050,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actTypeId':'78674','redemptionCode':'2630fbde6bf977e0'}\"}";
+	public static final String params_20018 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":20018,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'mobile':'13811110001'}\"}";
+	public static final String params_2142 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":2142,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{}\"}";
+	public static final String params_102 = "{\"header\":{\"appVersion\":\"3.8.6\",\"cmdID\":\"1173636\",\"platformVersion\":\"7.0\",\"action\":\"102\",\"cmdName\":\"app_wdj\",\"userType\":\"1\",\"userID\":\"MTAwMDAwNDc5Ng==\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\",\"token\":\"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJqc2NwIiwiaXNzIjoiamRkLmNvbSJ9.eyJ1c2VyVHlwZSI6MSwidXNlcmlkIjoxMDAwMDA0Nzk2LCJ1dWlkIjoiMDAwMDAwMDAtNDVmZS0zNjliLTA3NjAtODEyZjAwMzNjNTg3In0.7a37c4913e1940192f3249cf3b5f10f5.YjE0ZjFkNzEtZDI3My00ZmQwLWFjMTMtMDU3ZTEzYjhiNDgy\"},\"body\":\"{'RName':'\u54C8\u54C8','IDCard':'202112198911031104','NickName':''}\"}";
+	public static final String params_107 = "{\"header\":{\"appVersion\":\"3.8.6\",\"cmdID\":\"1173636\",\"platformVersion\":\"7.0\",\"action\":\"107\",\"cmdName\":\"app_wdj\",\"userType\":\"1\",\"userID\":\"MTAwMDAwNDk0MQ==\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\",\"token\":\"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJqc2NwIiwiaXNzIjoiamRkLmNvbSJ9.eyJ1c2VyVHlwZSI6MSwidXNlcmlkIjoxMDAwMDA0OTQxLCJ1dWlkIjoiMDAwMDAwMDAtNDVmZS0zNjliLTA3NjAtODEyZjAwMzNjNTg3In0.7a37c4913e1940192f3249cf3b5f10f5.MWYzMmQ0MTQtNWVlYy00OWVhLWEyMjAtOTJiZGU1OWI1MDBl\"},\"body\":\"{}\"}";
+	public static final String params_6000 = " {\"header\":{\"platformVersion\":\"10.3.2\",\"platformCode\":\"IPHONE\",\"cmdID\": 3,\"cmdName\": \"app_ios_zz\",\"token\": \"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJqc2NwIiwiaXNzIjoiamRkLmNvbSJ9.eyJ1c2VyVHlwZSI6MSwidXNlcmlkIjoxMDAwMDA0Nzk2LCJ1dWlkIjoiMDAwMDAwMDAtNDVmZS0zNjliLTA3NjAtODEyZjAwMzNjNTg3In0.7a37c4913e1940192f3249cf3b5f10f5.YjE0ZjFkNzEtZDI3My00ZmQwLWFjMTMtMDU3ZTEzYjhiNDgy\",\"appVersion\": \"5.1.6\",\"userID\": \"MTA4MjEwMzc=\",\"userGuid\": \"\",\"userType\": 1,\"uuid\": \"4C98D64157704EE8AE9070D06499A258\",\"ts\": \"\",\"traceID\": \"\",\"action\": 6000,\"phoneName\": \"iPhone 7\"},\"body\": \"{'wapName':'4g','wapPower':'12','ipAddress':'10.22.23.65','serverIp':'10.22.23.65','pingDelay':'4','dns':'3dns','route':'4rr'}\"}";
+	
+	// 竞篮期次
+	public static final String jl_issue = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=lqissue&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0";
+	// 竞篮对阵  issue = 2017-09-04
+	public static final String jl_qlive =  "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0&issue=";
+	// 竞篮实况
+	public static final String jl_live =   "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0&issue=";
+
+	public static final String user_url = "http://user-api.jdd.com/user/public/securityMobileHandler.do";	
+	
+	public static final String info_url = "https://info-api.jdd.com/info/public/safeMobileHandler.do";
+	public static final String appadmin_url = "https://appadmin-api.jdd.com/appadmin/public/safeMobileHandler.do";
+	
+	public static final String ft_head = "https://smc.jdddata.com/api/scoredetail/head?lotteryId=90&pts=0&pcode=h5&version=v2.1&matchid=";
+	public static final String ft_matchhis = "https://smc.jdddata.com/api/scoredetail/ssmatchhis?version=v2.1&pts=0&pcode=h5&lotteryId=90&mid=";
+	public static final String ft_sslive = "https://smc.jdddata.com/api/scoredetail/sslive?pcode=h5&version=v2.1&pts=1506665233025&lotteryId=90&isNotLoading=true&mid=";
+	public static final String ft_batteArray = "https://saishi.jdd.com/Ajax/Soccer.ashx?cmsm=teamCallback&action=getBattleArray&pcode=h5&lotteryId=90&callback=teamCallback&mid=11914100";
+	public static final String ft_teamRank = "https://smc.jdddata.com/api/scoredetail/getssmatchrankinginfo?version=v2.1&pts=0&pcode=h5&lotteryId=90&mid=";
+	public static final String ft_oddsPlateinfo_euro = "https://smc.jdddata.com/api/odds/getoddsplateinfo?pcode=h5&version=v2.1&pts=0&type=69&lotteryId=90&matchid=";
+	public static final String ft_oddsPlateinfo_asia = "https://smc.jdddata.com/api/odds/getoddsplateinfo?pcode=h5&version=v2.1&pts=0&type=48&lotteryId=90&matchid=";
+	public static final String ft_oddsPlateinfo_handicap = "https://smc.jdddata.com/api/odds/getoddsplateinfo?pcode=h5&version=v2.1&pts=0&type=8&lotteryId=90&matchid=";
+	public static final String ft_oddsPlateinfo_under = "https://smc.jdddata.com/api/odds/getoddsplateinfo?pcode=h5&version=v2.1&pts=0&type=47&lotteryId=90&matchid=";
+	public static final String ft_saishiSslive = "https://saishi.jdd.com/Ajax/Soccer.ashx?cmsm=sk_jsonpCallback&action=sslive&pcode=h5&lotteryId=90&isNotLoading=false&callback=sk_jsonpCallback&mid=";
+	public static final String ft_matchAnalze = "https://forecast.databiger.com/odds/forecast/getSsMatchAnalyzeInfo?version=v2.1&pts=0&pcode=h5&lotteryId=90&platform=trade&matchId=";
+	public static final String ft_matchAnalze_B  = "https://smc.jdddata.com/api/scoredetail/getSsMatchAnalyzeInfoVerB?version=v2.1&pts=0&pcode=h5&lotteryId=90&mid=";
+	public static final String ft_matchInfo = "https://smc.jdddata.com/api/scoredetail/getMatchFullViewInfo?version=v2.1&pts=0&pcode=h5&lotteryId=90&matchId=";
+	
+	public static final String ft_asiaList = "https://smc.jdddata.com/api/odds/getasiaoddslist?pcode=h5&version=v2.1&pts=0&lotteryId=90&matchid=";
+	public static final String ft_asiaDetail = "https://smc.jdddata.com/api/odds/getasiadetail?pcode=h5&version=v2.1&pts=0&lotteryId=90&matchid="; //&matchid=11914100&bookid=3000048
+	public static final String ft_euroChart = "https://smc.jdddata.com/api/odds/geteurochartdatalist?pcode=h5&version=v2.1&pts=0&lotteryId=90&isNotLoading=false&matchid=";	//&bookid=1000&matchid=11914100
+	public static final String ft_euroList = "https://smc.jdddata.com/api/odds/geteurooddslist?pcode=h5&version=v2.1&pts=0&lotteryId=90&matchid=";
+	public static final String ft_euroDetail = "https://smc.jdddata.com/api/odds/geteurodetail?pcode=h5&version=v2.1&pts=0&lotteryId=90&matchid=";	//&bookid=1000
+	public static final String ft_handicapList = "https://smc.jdddata.com/api/odds/gethandicapoddslist?pcode=h5&version=v2.1&pts=0&lotteryId=90&matchid=";
+	public static final String ft_handicapDetail = "https://smc.jdddata.com/api/odds/geteurodetail?pcode=h5&version=v2.1&pts=0&lotteryId=90&matchid=";	//&bookid=
+	public static final String ft_overunderList = "https://smc.jdddata.com/api/odds/getoverunderoddslist?pcode=h5&version=v2.1&pts=0&lotteryId=90&matchid=";
+	public static final String ft_overunderDetail = "https://smc.jdddata.com/api/odds/getoverunderdetail?pcode=h5&version=v2.1&pts=0&lotteryId=90&matchid=";	//&bookid=undefined
+	public static final String ft_bifa = "https://smc.jdddata.com/api/betfair/getbftradeinfo?type=1&version=v2.1&pts=0&pcode=h5&lotteryId=90&matchid=";
+	public static final String ft_bifaBig = "https://smc.jdddata.com/api/betfair/getbfblocktradeinfo?version=v2.1&pts=0&pcode=h5&lotteryId=90&matchid=";
+	
+	public static final String ft_teamInfo = "https://saishi.jdd.com/Ajax/Soccer.ashx?cmsm=teamDetailCallback&action=ssteam&pcode=h5&version=v1.0.0&lotteryId=90&callback=teamDetailCallback";	//&teamId=2530
+	
+	public static final String bs_issue = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=lqissue&lotteryid=91&playid=9101";	// 竞篮期次
+	public static final String bs_match = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryid=91&playid=9101&pts=0&issue=";	// 竞篮期次对阵
+	public static final String bs_qlive = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryid=91&playid=9101&pts=0&issue=";	// 竞篮期次实况
+	public static final String bs_matchs = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&matchids=12460620&lotteryid=91&pts=0&r=1507691882278";	// 竞篮关注
+	public static final String bs_bsdetail = "https://smc.jdd.com/api/scoredetail/bsdetail?lotteryid=91&matchid=11483949&pcode=h5&pts=0&version=v2.1";	// NBA比赛详情
+	public static final String bs_bsmatchhis = "https://smc.jdd.com/api/scoredetail/bsmatchhis?lotteryid=91&matchid=11483949&pcode=h5&pts=0&version=v2.1&isNBA=1";	// NBA历史战绩
+	public static final String bs_bsteamrank = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsteamrank&pcode=h5&version=v1.0.0&cmsm=rankingListCallback&IsNBA=1&lotteryId=91&seasonId=10001&tournamentId=10000";	// NBA球队排名
+	public static final String bs_bsstats = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsstats&pcode=h5&version=v1.0.0&cmsm=pkCallback&IsNBA=1&lotteryId=91&matchId=11483949&pts=0";	// NBA实况
+	public static final String bs_bsbattlearray = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsbattlearray&pcode=h5&version=v1.0.0&cmsm=zrCallback&IsNBA=1&lotteryId=91&matchId=11483949";	// NBA球队阵容
+	public static final String bs_bsteam = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016";	// NBA球队详情
+	public static final String bs_overunder = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016";	// 胜负赔率
+	public static final String bs_overunderdetail = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016";	// 胜负赔率详情
+	public static final String bs_asianodds = "https://saishi.jdd.com/ajax/soccer.ashx?action=asianodds&pcode=h5&version=v1.0.0&cmsm=asianOddsCallback&IsNBA=1&lotteryId=91&matchid=11483949";	// 让分赔率
+	public static final String bs_asianoddsdetail= "https://saishi.jdd.com/ajax/soccer.ashx?action=asianoddsdetail&pcode=h5&version=v1.0.0&cmsm=dzCallback&isnba=1&lotteryId=91&matchid=11483949&bookid=-99999";	// 让分赔率详情
+	public static final String bs_handicap = "https://saishi.jdd.com/ajax/soccer.ashx?action=handicap&pcode=h5&version=v1.0.0&cmsm=handicapCallback&IsNBA=1&lotteryId=91&matchid=11483949";	// 大小分赔率
+	public static final String bs_handicapdetail = "https://saishi.jdd.com/ajax/soccer.ashx?action=handicapdetail&pcode=h5&version=v1.0.0&cmsm=dzCallback&isnba=1&lotteryId=91&matchid=11483949&bookid=-99999&handicap=20";	// 大小分赔率
+	public static final String params_7051 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":7051,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actTypeId':'78674','redemptionCode':'2c3c67cb3ca8114f','mobile':'13811110001','verifyCode':'660727'}\"}";
+	
+	
+	public static void main(String[] args) {
+		
+	}
+
+}
