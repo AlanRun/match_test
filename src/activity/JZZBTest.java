@@ -9,6 +9,7 @@ import helper.DataUrls;
 import helper.SmsTest;
 import helper.UserInfo;
 import interfaceTest.LoginTest;
+import interfaceTest.UserBaseInfo;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -242,6 +243,12 @@ public class JZZBTest {
 	}
 	
 	public static void main(String[] args) throws Exception {
+		String phone = "13811110001";
+		String password = "aaaaaa";
+		UserInfo user = UserBaseInfo.getUserInfo(phone, password);
+		System.out.println(user);
+		
+		
 //		String type = "zz";
 //		String mobile = "13322221101";
 //		buySSQ(mobile);
@@ -292,25 +299,24 @@ public class JZZBTest {
 //			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
 //		}
 		
-		for (int i = 0; i < 1005; i++) {
-			String mobile = "1332222";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if ( i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			
-			if (i > 1000) {
-				buyJZ(mobile, 1000);				
-			} else {
-				buyJZ(mobile, i);
-			}
-		}
-		
+//		for (int i = 0; i < 1005; i++) {
+//			String mobile = "1332222";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if ( i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			
+//			if (i > 1000) {
+//				buyJZ(mobile, 1000);				
+//			} else {
+//				buyJZ(mobile, i);
+//			}
+//		}
 	}
 
 }

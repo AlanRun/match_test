@@ -8,7 +8,7 @@ import helper.SmsTest;
 import helper.UserInfo;
 import net.sf.json.JSONObject;
 
-public class LoginTest {
+public class UserBaseInfo {
 	
 	public static UserInfo getUserInfo(String name, String pw) throws AesException, IOException{
 		String url = DataUrls.user_url;
