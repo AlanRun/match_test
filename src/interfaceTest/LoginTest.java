@@ -27,7 +27,7 @@ public class LoginTest {
 		if (json == null || json.equals("")) {
 			System.out.println("empty content!!!");
 		} else {
-
+			System.out.println(json);
 		}
 		
 		obj = JSONObject.fromObject(json);
@@ -277,25 +277,23 @@ public class LoginTest {
 	public static void main(String[] args) throws AesException, IOException {
 		String pwd = "aaaaaa";
 //		for (int i = 1; i < 10; i++) {
-//			String num = "1301111000";
+			String num = "13811110030";
 //			getUserBaseInfo(num+i, pwd);
 //		}
 //		
-		for (int i = 0; i < 10; i++) {
-			String num = "1301111002";
-			getUserBaseInfo(num+i, pwd);
-		}
+//		for (int i = 0; i < 10; i++) {
+//			String num = "1301111002";
+//			getUserBaseInfo(num+i, pwd);
+//		}
 		
 //		String IDCard = "320721199110292827";
 //		String RName = "王二";
-//		
-//		String cmdName = "app_ios_zz";
-//		String type = "zz";
-//		String uuid = "1C98D64157704EE8AE9070D06499A257";
-//		String platformCode = "IPHONE";
 		
-//		registerUseCmdName(type, num, pwd, cmdName);
-//		registerUseCmdName(type, num, pwd, cmdName, uuid, platformCode);
-//		setUserIDCardNum(num, pwd, RName, IDCard);
+		String cmdName = "app_zz";
+		String type = "aoying";
+		String uuid = "1C98D64157704EE8AE9070D06499A257";
+		String platformCode = "IPHONE";
+		registerUseCmdName(type, num, pwd, cmdName, uuid, platformCode);
+		getUserBaseInfo(num, pwd);
 	}
 }
