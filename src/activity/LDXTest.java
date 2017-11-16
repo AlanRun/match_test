@@ -1,4 +1,4 @@
-package interfaceTest;
+package activity;
 
 import java.io.IOException;
 
@@ -8,6 +8,7 @@ import helper.AppReq;
 import helper.DataUrls;
 import helper.SmsTest;
 import helper.UserInfo;
+import interfaceTest.LoginTest;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
