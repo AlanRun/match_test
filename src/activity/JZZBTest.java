@@ -174,6 +174,40 @@ public class JZZBTest {
 	}
 	
 	/**
+	 * 使用红包购买双色球
+	 * @param mobile
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean buySSQ(String mobile) throws AesException, IOException{
+		String url = DataUrls.order_url;
+		String params = DataUrls.params_207;
+		String suc = "操作成功";
+		
+		UserInfo user = LoginTest.getUserInfo(mobile, "aaaaaa");
+		
+		String token = user.getToken();
+		String userId = user.getUserId();
+		
+		String HongBaoSelectID = getUserRedpackage(userId,token);
+		
+		String hParams = "userID," + userId + ";token," + token;
+		String bParams = "HongBaoSelectID," + HongBaoSelectID;
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		System.out.println(params);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
 	 * 购买竞足
 	 * @param mobile
 	 * @param Multiple
