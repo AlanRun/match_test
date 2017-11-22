@@ -21,7 +21,7 @@ public class NewListTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static ArrayList<FootballMatch> getNewJZMatchLists(String issue) throws AesException, IOException{
+	public static ArrayList<FootballMatch> getNewJZMatchLists(String issue) throws Exception{
 		ArrayList<FootballMatch> list = new ArrayList<FootballMatch>();
 		
 		String url = DataUrls.url_jzmatchlist;
