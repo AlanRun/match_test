@@ -14,7 +14,7 @@ public class FootballMatch {
 	private String NUM;
 
 	// 比赛ID
-	private int MId;
+	private String MId;
 
 	// 赛事简称
 	private String TABS;
@@ -78,6 +78,26 @@ public class FootballMatch {
 
 	// 数据源， 1 雷达， 2 opta 3 NBA
 	private int SO;
+	
+	private String scoreHalf;
+	
+	private String scoreNormal;
+
+	public String getScoreHalf() {
+		return scoreHalf;
+	}
+
+	public void setScoreHalf(String scoreHalf) {
+		this.scoreHalf = scoreHalf;
+	}
+
+	public String getScoreNormal() {
+		return scoreNormal;
+	}
+
+	public void setScoreNormal(String scoreNormal) {
+		this.scoreNormal = scoreNormal;
+	}
 
 	public String getI() {
 		return I;
@@ -111,11 +131,11 @@ public class FootballMatch {
 		NUM = nUM;
 	}
 
-	public int getMId() {
+	public String getMId() {
 		return MId;
 	}
 
-	public void setMId(int mId) {
+	public void setMId(String mId) {
 		MId = mId;
 	}
 
@@ -287,14 +307,12 @@ public class FootballMatch {
 		SO = sO;
 	}
 
-	
-	
 	@Override
 	public String toString() {
-		return "Match [I=" + I + ", LId=" + LId + ", NO=" + NO + ", NUM=" + NUM + ", MId=" + MId + ", TABS=" + TABS
-				+ ", MD=" + MD + ", SMD=" + SMD + ", SC=" + SC + ", IC=" + IC + ", SS=" + SS + ", HT=" + HT + ", HTD="
-				+ HTD + ", HR=" + HR + ", HY=" + HY + ", HS=" + HS + ", AT=" + AT + ", ATD=" + ATD + ", AR=" + AR
-				+ ", AY=" + AY + ", AS=" + AS + ", HHS=" + HHS + ", AHS=" + AHS + ", IT=" + IT + ", IR=" + IR + ", SO="
-				+ SO + "]";
+		return "FootballMatch [I=" + I + ", LId=" + LId + ", NUM=" + NUM + ", MId=" + MId + ", TABS="
+				+ TABS + ", SMD=" + SMD + ", SC=" + SC + ", IC=" + IC + ", SS=" + SS + ", HT=" + HT + ", HTD=" + HTD
+				+ ", AT=" + AT + ", ATD=" + ATD + ", IT=" + IT + ", IR=" + IR + ", SO=" + SO + ", scoreHalf="
+				+ scoreHalf + ", scoreNormal=" + scoreNormal + "]";
 	}
+	
 }

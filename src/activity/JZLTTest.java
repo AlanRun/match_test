@@ -18,7 +18,7 @@ import net.sf.json.JSONObject;
  * @author jdd
  *
  */
-public class JZZBTest {
+public class JZLTTest {
 	
 	/**
 	 * 忘记密码重置密码
@@ -209,6 +209,64 @@ public class JZZBTest {
 	}
 	
 	/**
+	 * 老带新活动新用户注册
+	 * @param type
+	 * @param mobile
+	 * @param userId
+	 * @param actTypeId
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean register7054Use(String type, String mobile, String userId, String actTypeId) throws AesException, IOException{
+		String params = DataUrls.params_20018;
+		String url = DataUrls.user_url;
+		String suc = "发送验证码成功";
+		
+		String hParams = "";
+		String bParams = "mobile," + mobile;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			String verifyCode = SmsTest.getSmsCode(type, mobile);
+			System.out.println(verifyCode);
+			result = verify7054Code(actTypeId, userId, mobile, verifyCode);
+		}
+		
+		System.out.println("register result =" + result);
+		return result;
+	}
+	
+	/**
+	 * 7054接口验证
+	 * @param actTypeId：活动typeID
+	 * @param userId：老用户ID（加密）
+	 * @param mobile：新用户手机号
+	 * @param verifyCode：验证码
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean verify7054Code(String actTypeId, String userId, String mobile, String verifyCode) throws AesException, IOException{
+		String params = DataUrls.params_7054;
+		String url = DataUrls.act_url;
+		String suc = "注册成功";
+		
+		String hParams = "";
+		String bParams = "actTypeId," + actTypeId + ";userId," + userId + ";mobile," + mobile + ";verifyCode," + verifyCode;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
 	 * 购买竞足
 	 * @param mobile
 	 * @param Multiple
@@ -243,18 +301,19 @@ public class JZZBTest {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		String phone = "13811110001";
-		String password = "aaaaaa";
-		UserInfo user = UserBaseInfo.getUserInfo(phone, password);
-		System.out.println(user);
+//		String phone = "13811110001";
+//		String password = "aaaaaa";
+//		UserInfo user = UserBaseInfo.getUserInfo(phone, password);
+//		System.out.println(user);
 		
 		
 //		String type = "zz";
-//		String mobile = "13322221101";
+//		String actTypeId = "48484";
+//		String mobile = "13422221101";
 //		buySSQ(mobile);
 		
-//		for (int i = 1100; i < 1102; i++) {
-//			String mobile = "1332222";
+//		for (int i = 0; i < 1005; i++) {
+//			String mobile = "1342222";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
 //			} else if ( i < 100) {
@@ -267,8 +326,8 @@ public class JZZBTest {
 //			register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C", actTypeId);
 //		}
 //		
-//		for (int i = 1100; i < 1102; i++) {
-//			String mobile = "1332222";
+//		for (int i = 0; i < 1005; i++) {
+//			String mobile = "1342222";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
 //			} else if ( i < 100) {
@@ -280,27 +339,27 @@ public class JZZBTest {
 //			}
 //			resetPwd(type, mobile);
 //		}
+//		
+		for (int i = 0; i < 1005; i++) {
+			String mobile = "1342222";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if ( i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+			String token = user.getToken();
+			String userId = user.getUserId();
+			
+			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
+		}
 		
 //		for (int i = 0; i < 1005; i++) {
-//			String mobile = "1332222";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if ( i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//			UserInfo user = LoginTest.getUserInfo(mobile, "aaaaaa");
-//			String token = user.getToken();
-//			String userId = user.getUserId();
-//			
-//			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
-//		}
-		
-//		for (int i = 0; i < 1005; i++) {
-//			String mobile = "1332222";
+//			String mobile = "1342222";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
 //			} else if ( i < 100) {

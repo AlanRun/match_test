@@ -9,7 +9,7 @@ import helper.DataUrls;
 import helper.SmsTest;
 
 /**
- * 华为商城兑换码活动
+ * 华为商城活动
  * @author jdd
  *
  */

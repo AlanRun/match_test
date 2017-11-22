@@ -43,6 +43,9 @@ public class SmsTest {
 				ret = db1.pst.executeQuery();
 				while (ret.next()) {
 					String body = ret.getString(1);
+					if (body.contains("您的初始密码")) {
+						continue;
+					}
 					System.out.println(body);
 					if (body.contains(",")) {
 						String s1 = body.split(",")[0];

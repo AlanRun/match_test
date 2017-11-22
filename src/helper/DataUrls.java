@@ -23,6 +23,27 @@ public class DataUrls {
 	public static final String bd_url = "http://bd-api.jdd.com/basedata/public/securityMobileHandler.do";
 	public static final String act_url = "http://activity-api.jdd.com/activity/public/mobileHandler.do";
 	public static final String market_url = "http://market-api.jdd.com/market/public/safeMobileHandler.do";
+	
+	//竞足
+	public static final String url_jzissuelist = "https://smc.jdddata.com/api/matchlist/jzissuelist";
+	public static final String url_jzmatchlist = "https://smc.jdddata.com/api/matchlist/jzmatchlist";
+	public static final String url_jzmatchlivelist = "https://smc.jdddata.com/api/matchlist/jzmatchlivelist";
+	
+	//竞篮
+	public static final String url_jlissuelist = "https://smc.jdddata.com/api/matchlist/jlissuelist";
+	public static final String url_jlmatchlist = "https://smc.jdddata.com/api/matchlist/jlmatchlist";
+	public static final String url_jlmatchlivelist = "https://smc.jdddata.com/api/matchlist/jlmatchlivelist";
+	
+	//足彩
+	public static final String url_zcissuelist = "https://smc.jdddata.com/api/matchlist/zcissuelist";
+	public static final String url_zcmatchlist = "https://smc.jdddata.com/api/matchlist/zcmatchlist";
+	public static final String url_zcmatchlivelist = "https://smc.jdddata.com/api/matchlist/zcmatchlivelist";
+
+	
+	public static final String params_issuelist = "{\"header\":{\"appVersion\":\"3.9.6\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"userID\":\"\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"0\",\"platformVersion\":\"7.0\",\"action\":\"\",\"imei\":\"356156074527318\",\"userType\":1,\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"\"}";
+	public static final String params_matchlist = "{\"header\":{\"appVersion\":\"3.9.6\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"userID\":\"\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"0\",\"platformVersion\":\"7.0\",\"action\":\"\",\"imei\":\"356156074527318\",\"userType\":1,\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'issue':'2017-11-21'}\"}";
+	public static final String params_matchlivelist = "{\"header\":{\"appVersion\":\"3.9.6\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"userID\":\"\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"0\",\"platformVersion\":\"7.0\",\"action\":\"\",\"imei\":\"356156074527318\",\"userType\":1,\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'issue':'2017-11-21'}\"}";
+	
 	// 竞足202接口参数
 	public static final String params_202 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"202\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{}\"}";
 	// 竞篮2031接口参数
@@ -41,6 +62,9 @@ public class DataUrls {
 	public static final String params_1011 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"1011\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{'name':'1','pw':'a','usertype':'1'}\"}";
 	public static final String params_7050 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":7050,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actTypeId':'78674','redemptionCode':'2630fbde6bf977e0'}\"}";
 	public static final String params_20018 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":20018,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'mobile':'13811110001'}\"}";
+	public static final String params_7059 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":7059,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\"},\"body\":\"{'actTypeId':'100004','mobile':'15034163010','cmdName':'h5_zz','verifyCode':'959077'}\"}";
+	public static final String params_7058 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":7058,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\"},\"body\":\"{'actTypeId':'100004','mobile':'15034163010','cmdName':'h5_zz'}\"}";
+	public static final String params_7060 = "{\"header\":{\"appVersion\":\"5.1.6\",\"cmdId\":\"1\",\"platformVersion\":\"10.2.1\",\"action\":\"7060\",\"cmdName\":\"app_ios_zz\",\"userType\":1,\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"userID\":\"\",\"platformCode\":\"IPHONE\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{'actTypeId':'100004'}\"}";
 	public static final String params_2142 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":2142,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{}\"}";
 	public static final String params_102 = "{\"header\":{\"appVersion\":\"3.8.6\",\"cmdID\":\"1173636\",\"platformVersion\":\"7.0\",\"action\":\"102\",\"cmdName\":\"app_wdj\",\"userType\":\"1\",\"userID\":\"MTAwMDAwNDc5Ng==\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\",\"token\":\"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJqc2NwIiwiaXNzIjoiamRkLmNvbSJ9.eyJ1c2VyVHlwZSI6MSwidXNlcmlkIjoxMDAwMDA0Nzk2LCJ1dWlkIjoiMDAwMDAwMDAtNDVmZS0zNjliLTA3NjAtODEyZjAwMzNjNTg3In0.7a37c4913e1940192f3249cf3b5f10f5.YjE0ZjFkNzEtZDI3My00ZmQwLWFjMTMtMDU3ZTEzYjhiNDgy\"},\"body\":\"{'RName':'\u54C8\u54C8','IDCard':'202112198911031104','NickName':''}\"}";
 	public static final String params_107 = "{\"header\":{\"appVersion\":\"3.8.6\",\"cmdID\":\"1173636\",\"platformVersion\":\"7.0\",\"action\":\"107\",\"cmdName\":\"app_wdj\",\"userType\":\"1\",\"userID\":\"MTAwMDAwNDk0MQ==\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\",\"token\":\"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJqc2NwIiwiaXNzIjoiamRkLmNvbSJ9.eyJ1c2VyVHlwZSI6MSwidXNlcmlkIjoxMDAwMDA0OTQxLCJ1dWlkIjoiMDAwMDAwMDAtNDVmZS0zNjliLTA3NjAtODEyZjAwMzNjNTg3In0.7a37c4913e1940192f3249cf3b5f10f5.MWYzMmQ0MTQtNWVlYy00OWVhLWEyMjAtOTJiZGU1OWI1MDBl\"},\"body\":\"{}\"}";

@@ -38,6 +38,93 @@ public class UserBaseInfo {
 		UserInfo user = new UserInfo(name, pw, userId, token);
 		return  user;
 	}
+	
+	/**
+	 * 忘记密码重置密码
+	 * @param type
+	 * @param mobile
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean resetPwd(String type, String mobile) throws AesException, IOException{
+		String params = DataUrls.params_1030;
+		String url = DataUrls.user_url;
+		
+		String suc = "发送验证码成功";
+		
+		String hParams = "";
+		String bParams = "mobile," + mobile;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			String id = data.getString("id"); 
+			
+			String verifyCode = SmsTest.getSmsCode(type, mobile);
+			result = verify1032Code(id, mobile, verifyCode);
+		}
+		
+		System.out.println("register result =" + result);
+		return result;
+	}
+	
+	/**
+	 * 忘记密码验证码验证
+	 * @param id
+	 * @param mobile
+	 * @param verifyCode
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean verify1032Code (String id, String mobile, String verifyCode) throws AesException, IOException{
+		String params = DataUrls.params_1032;
+		String url = DataUrls.user_url;
+		String suc = "验证成功";
+		String newpwd = "aaaaaa";
+		
+		String hParams = "";
+		String bParams = "id," + id + ";verifycode," + verifyCode + ";username," + mobile;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			result = resetPwd1061(mobile, id, mobile, newpwd);
+		}
+		return result;
+	}
+	
+	/**
+	 * 忘记密码重置密码
+	 * @param username
+	 * @param id
+	 * @param mobile
+	 * @param newpwd
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean resetPwd1061(String username, String id, String mobile, String newpwd) throws AesException, IOException{
+		String params = DataUrls.params_1061;
+		String url = DataUrls.user_url;
+		String suc = "修改密码成功";
+		
+		String hParams = "";
+		String bParams = "username," + username + ";id," + id + ";mobile," + mobile+ ";newpwd," + newpwd;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			result = true;
+		}
+		return result;
+	}
 
 	/**
 	 * 校验验证码
@@ -140,13 +227,14 @@ public class UserBaseInfo {
 		String url = DataUrls.user_url;
 		String params = DataUrls.params_107;
 		String suc = num;
+		String uuid = "04FCEE6BDE0F461FACD85";
 		
 		UserInfo user = getUserInfo(num, pwd);
 		
 		String token = user.getToken();
 		String userId = user.getUserId();
 		
-		String hParams = "userID," + userId + ";token," + token;
+		String hParams = "userID," + userId + ";token," + token + ";uuid," + num + uuid;
 		String bParams = "";
 		
 		params = AppReq.setParmas(params, hParams, bParams);
@@ -187,7 +275,7 @@ public class UserBaseInfo {
 	public static void main(String[] args) throws AesException, IOException {
 		String pwd = "aaaaaa";
 //		for (int i = 1; i < 10; i++) {
-			String num = "13898760002";
+//			String mobile = "13898760002";
 //			getUserBaseInfo(num+i, pwd);
 //		}
 //		
@@ -199,11 +287,25 @@ public class UserBaseInfo {
 //		String IDCard = "320721199110292827";
 //		String RName = "王二";
 		
-		String cmdName = "app_zz";
-		String type = "zz";
-		String uuid = "1C98D64157704EE8AE9070D06499A257";
-		String platformCode = "IPHONE";
-		registerUseCmdName(type, num, pwd, cmdName, uuid, platformCode);
-		getUserBaseInfo(num, pwd);
+//		String cmdName = "app_zz";
+//		String type = "zz";
+//		String uuid = mobile + "04FCEE6BDE0F461FACD85";
+//		String platformCode = "IPHONE";
+//		registerUseCmdName(type, mobile, pwd, cmdName, uuid, platformCode);
+//		getUserBaseInfo(mobile, pwd);
+		
+		for (int i = 0; i < 1005; i++) {
+			String mobile = "1342222";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if (i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			getUserBaseInfo(mobile, pwd);
+		}
 	}
 }

@@ -200,7 +200,7 @@ public class LoginTest {
 //		String RName = "王二";
 		
 		String cmdName = "app_zz";
-		String type = "zz";
+		String type = "aoying";
 		String uuid = "1C98D64157704EE8AE9070D06499A257";
 		String platformCode = "IPHONE";
 		registerUseCmdName(type, num, pwd, cmdName, uuid, platformCode);

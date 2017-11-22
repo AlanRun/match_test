@@ -58,6 +58,12 @@ public class JzMatchs {
 		return matchs;
 	}
 	
+	/**
+	 * 获取指定期次dcds比分列表接口期次对阵
+	 * @param issue
+	 * @return
+	 * @throws IOException
+	 */
 	public static ArrayList<FootballMatch> getMatchList(String issue) throws IOException {
 		ArrayList<FootballMatch> list = new ArrayList<FootballMatch>();
 		HttpRequester request = new HttpRequester();
@@ -70,7 +76,7 @@ public class JzMatchs {
 			System.out.println("empty content!!!");
 			return list;
 		} else {
-
+			System.out.println(json);
 		}
 
 		JSONObject obj = JSONObject.fromObject(json);
@@ -88,18 +94,54 @@ public class JzMatchs {
 				m.setI(M.getString("I"));
 				m.setLId(M.getInt("LId"));
 				m.setNUM(M.getString("NUM"));
-				m.setMId(M.getInt("MId"));
+				m.setMId("" + M.getInt("MId"));
 				m.setTABS(M.getString("TABS"));
-				m.setSMD(M.getString("SMD"));
+				m.setSMD(M.getString("SMD") + ":00");
 				m.setSC(M.getInt("SC"));
-				m.setIC(M.getInt("IC"));
-				m.setSS(M.getString("SS"));
+				
+				
+				//(-2)其他，无对应转码；
+				//(-1)无直播；
+				//(0)未开始；
+				//(1)完成；
+				//(2)进行中
+
+				int IC = M.getInt("IC");
+				if (IC==2) {
+					IC = 1;
+				} else if (IC == 1) {
+					IC = 2;
+				} 
+				
+				m.setIC(IC);
+				
+				if (IC == 0) {
+					m.setScoreHalf("");
+					m.setScoreNormal("");
+				} else {
+					m.setScoreHalf("" + M.getInt("HHS") + ":" + M.getInt("AHS"));
+					m.setScoreNormal("" + M.getInt("HS") + ":" + M.getInt("AS"));
+				}
+				
+				String SS = M.getString("SS");
+				if (SS.equals("已结束")) {
+					SS = "完场";
+				}
+				
+				m.setSS(SS);
 				m.setHT(M.getString("HT"));
+				
+				m.setATD(M.getInt("ATD"));
+				m.setHTD(M.getInt("HTD"));
+				
 				m.setAT(M.getString("AT"));
 				m.setHS(M.getInt("HS"));
 				m.setAS(M.getInt("AS"));
 				m.setHHS(M.getInt("HHS"));
 				m.setAHS(M.getInt("AHS"));
+//				m.setIR(M.getBoolean("IR"));
+
+//				System.out.println(m.toString());
 				list.add(m);
 			}
 		}
@@ -124,7 +166,8 @@ public class JzMatchs {
 	}
 
 	public static void main(String[] args) throws IOException {
-		getAllJZMatchs();
+		getMatchList("2017-11-21");
+//		getAllJZMatchs();
 //		String matchs = getJZMatchs("2017-10-13");
 //		System.out.println(matchs);
 //		String[] list =  matchs.split(",");

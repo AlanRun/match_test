@@ -64,7 +64,7 @@ public class MatchLiveSpTest {
 				m.setI(M.getString("I"));
 				m.setLId(M.getInt("LId"));
 				m.setNUM(M.getString("NUM"));
-				m.setMId(M.getInt("MId"));
+				m.setMId("" + M.getInt("MId"));
 				m.setTABS(M.getString("TABS"));
 				m.setSMD(M.getString("SMD"));
 				m.setSC(M.getInt("SC"));
