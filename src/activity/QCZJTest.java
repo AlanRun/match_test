@@ -45,7 +45,7 @@ public class QCZJTest {
 	public static boolean verifyCode7059(String mobile, String verifyCode) throws AesException, IOException{
 		String params = DataUrls.params_7059;
 		String url = DataUrls.act_url;
-		String suc = "礼包已发送至您的彩票账户";
+		String suc = "您的88礼包已发送至您的彩票账户";
 		
 		String hParams = "";
 		String bParams = "actTypeId," + actTypeId +  ";mobile," + mobile + ";verifyCode," + verifyCode;
@@ -206,13 +206,89 @@ public class QCZJTest {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		testA();
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				for (int i = 10; i < 20; i++) {
+					try {
+						String name = "183123400" + i;
+						String pwd = "aaaaaa";
+						registerUse7058(name);
+						
+						UserBaseInfo.resetPwd(type, name);
+						UserInfo user = UserBaseInfo.getUserInfo(name, pwd);
+						checkUserRedPackage(user.getUserId(), user.getToken());
+					} catch (Exception e) {
+					}
+				}
+			}
+		}).start();
+		
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				for (int i = 20; i < 30; i++) {
+					try {
+						String name = "183123400" + i;
+						String pwd = "aaaaaa";
+						registerUse7058(name);
+						
+						UserBaseInfo.resetPwd(type, name);
+						UserInfo user = UserBaseInfo.getUserInfo(name, pwd);
+						checkUserRedPackage(user.getUserId(), user.getToken());
+					} catch (Exception e) {
+					}
+				}
+			}
+		}).start();
+		
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				for (int i = 30; i < 40; i++) {
+					try {
+						String name = "183123400" + i;
+						String pwd = "aaaaaa";
+						registerUse7058(name);
+						
+						UserBaseInfo.resetPwd(type, name);
+						UserInfo user = UserBaseInfo.getUserInfo(name, pwd);
+						checkUserRedPackage(user.getUserId(), user.getToken());
+					} catch (Exception e) {
+					}
+				}
+			}
+		}).start();
+		
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				for (int i = 40; i < 50; i++) {
+					try {
+						String name = "183123400" + i;
+						String pwd = "aaaaaa";
+						registerUse7058(name);
+						
+						UserBaseInfo.resetPwd(type, name);
+						UserInfo user = UserBaseInfo.getUserInfo(name, pwd);
+						checkUserRedPackage(user.getUserId(), user.getToken());
+					} catch (Exception e) {
+					}
+				}
+			}
+		}).start();
+		
+//		testA();
 //		testB();
 //		testC();
 //		testD();
 //		testE();
 //		testF();
-		testG();
+//		testG();
 		
 		
 		

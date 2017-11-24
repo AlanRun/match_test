@@ -20,6 +20,9 @@ import net.sf.json.JSONObject;
  */
 public class JZLTTest {
 	
+	private static String actTypeId = "100001";
+	private static String type = "zz";;
+	
 	/**
 	 * 忘记密码重置密码
 	 * @param type
@@ -106,6 +109,32 @@ public class JZLTTest {
 		}
 		return result;
 	}
+	/**
+	 * 领取资格
+	 * @param username
+	 * @param id
+	 * @param mobile
+	 * @param newpwd
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean getActQualify(String userID, String token) throws AesException, IOException{
+		String params = DataUrls.params_7055;
+		String url = DataUrls.act_url;
+		String suc = "领取成功";
+		
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "actTypeId," + actTypeId;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			result = true;
+		}
+		return result;
+	}
 	
 	/**
 	 * 获取用户总额为3000的彩金卡ID
@@ -135,7 +164,7 @@ public class JZLTTest {
 			for (int i = 0; i < items.size(); i++) {
 				JSONObject item = (JSONObject) items.get(i);
 				String TotalMoney = item.getString("TotalMoney");
-				if (TotalMoney.equals("3000")) {
+				if (TotalMoney.equals("9000")) {
 					result = item.getString("SendID");
 				}
 			}
@@ -300,20 +329,57 @@ public class JZLTTest {
 		}
 	}
 	
+	/**
+	 * 7056活动基本信息及绑定排名
+	 * @param mobile
+	 * @param Multiple
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean get7056() throws AesException, IOException{
+		String url = DataUrls.act_url;
+		String params = DataUrls.params_7056;
+		String suc = "code";
+		
+		String hParams = "";
+		String bParams = "actTypeId," + actTypeId;
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+//		System.out.println(reString);
+		if (reString.contains(suc)) {
+			
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			JSONArray today = data.getJSONArray("today");
+			for (int i = 0; i < today.size(); i++) {
+				JSONObject point = (JSONObject) today.get(i);
+				String userName = point.getString("userName");
+				System.out.println(userName);
+			}
+			
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public static void main(String[] args) throws Exception {
+//		get7056();
 //		String phone = "13811110001";
 //		String password = "aaaaaa";
 //		UserInfo user = UserBaseInfo.getUserInfo(phone, password);
 //		System.out.println(user);
 		
 		
-//		String type = "zz";
 //		String actTypeId = "48484";
-//		String mobile = "13422221101";
+//		String mobile = "13422231101";
 //		buySSQ(mobile);
 		
-//		for (int i = 0; i < 1005; i++) {
-//			String mobile = "1342222";
+//		for (int i = 331; i < 1005; i++) {
+//			String mobile = "1342223";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
 //			} else if ( i < 100) {
@@ -326,8 +392,8 @@ public class JZLTTest {
 //			register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C", actTypeId);
 //		}
 //		
-//		for (int i = 0; i < 1005; i++) {
-//			String mobile = "1342222";
+//		for (int i = 331; i < 1005; i++) {
+//			String mobile = "1342223";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
 //			} else if ( i < 100) {
@@ -340,26 +406,8 @@ public class JZLTTest {
 //			resetPwd(type, mobile);
 //		}
 //		
-		for (int i = 0; i < 1005; i++) {
-			String mobile = "1342222";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if ( i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-			String token = user.getToken();
-			String userId = user.getUserId();
-			
-			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
-		}
-		
-//		for (int i = 0; i < 1005; i++) {
-//			String mobile = "1342222";
+//		for (int i = 331; i < 1005; i++) {
+//			String mobile = "1342223";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
 //			} else if ( i < 100) {
@@ -369,13 +417,61 @@ public class JZLTTest {
 //			} else if (i < 10000) {
 //				mobile = mobile + i;
 //			}
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
 //			
-//			if (i > 1000) {
-//				buyJZ(mobile, 1000);				
-//			} else {
-//				buyJZ(mobile, i);
-//			}
+//			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
 //		}
+//		
+//		for (int i = 331; i < 1005; i++) {
+//			String mobile = "1342223";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//			getActQualify(userId, token);
+//		}
+		
+//		String mobile = "13300000035";
+//		String pw = "aaaaaa";
+//		UserBaseInfo.resetPwd("zz", mobile);
+//		UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
+//		String token = user.getToken();
+//		String userId = user.getUserId();
+//		getActQualify(userId, token);
+//		buyJZ(mobile, 2);
+//		for (int i = 5; i < 9; i++) {
+//			buyJZ(mobile, i);
+//			Thread.sleep(2000);
+//		}
+		
+		for (int i = 424; i < 1005; i++) {
+			String mobile = "1342223";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if ( i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			if (i > 1000) {
+				buyJZ(mobile, 1000);
+			} else {
+				buyJZ(mobile, i);
+			}
+		}
 	}
 
 }

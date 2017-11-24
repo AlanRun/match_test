@@ -14,23 +14,14 @@ public class UserBaseInfo {
 		String url = DataUrls.user_url;
 		String params = DataUrls.params_1011;
 
-		JSONObject obj = JSONObject.fromObject(params);
-		String bodys = obj.getString("body");
-		JSONObject body = JSONObject.fromObject(bodys);
-		body.put("name", name);
-		body.put("pw", pw);
-		obj.put("body", body);
+		String hParams = "uuid," + name + "04FCEE6BDE0F461FACD85";
+		String bParams = "name," + name + ";pw," + pw;
+		params = AppReq.setParmas(params, hParams, bParams);
 		
-		params = obj.toString();
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
 		
-		String json = AppReq.getResStr(url, params);
-		if (json == null || json.equals("")) {
-			System.out.println("empty content!!!");
-		} else {
-			System.out.println(json);
-		}
-		
-		obj = JSONObject.fromObject(json);
+		JSONObject obj = JSONObject.fromObject(reString);
 		JSONObject data = obj.getJSONObject("data");
 		String token = data.getString("token");
 		String userId = data.getString("id");
@@ -293,19 +284,21 @@ public class UserBaseInfo {
 //		String platformCode = "IPHONE";
 //		registerUseCmdName(type, mobile, pwd, cmdName, uuid, platformCode);
 //		getUserBaseInfo(mobile, pwd);
+
+		getUserInfo("13811110003", "aaaaaa");
 		
-		for (int i = 0; i < 1005; i++) {
-			String mobile = "1342222";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if (i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			getUserBaseInfo(mobile, pwd);
-		}
+//		for (int i = 0; i < 1005; i++) {
+//			String mobile = "1342222";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			getUserBaseInfo(mobile, pwd);
+//		}
 	}
 }

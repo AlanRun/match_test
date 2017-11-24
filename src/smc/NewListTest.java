@@ -106,16 +106,28 @@ public class NewListTest {
 				if (mid.equals(om.getMId())) {
 					System.out.println("old match=" + om.toString());
 					LogWrite.saveToFile("old match=" + om.toString());
+					
+					if (nm.getATD() != om.getATD()) {
+						System.out.println("客队ID不一致");
+						LogWrite.saveToFile("客队ID不一致");
+					}
+					
+					if (nm.getHTD() != om.getHTD()) {
+						System.out.println("主队ID不一致");
+						LogWrite.saveToFile("主队ID不一致");
+					}
+					
+					// TODO 校验新老接口对阵各字段值是否一致：赛事、球队名、比赛时间、比赛状态时间、比分
+					
+					
+					
 					break;
 				}
 			}
 			System.out.println();
 			Thread.sleep(1000);
 		}
-		
 	}
-	
-	
 
 	public static void main(String[] args) throws Exception{
 		String issue = "2017-11-22";
