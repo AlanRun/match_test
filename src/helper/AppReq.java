@@ -28,6 +28,26 @@ public class AppReq {
 		return json;
 	}
 	
+	public static String getResStrNotAes(String url, String params) throws Exception {
+
+		HttpRequester request = new HttpRequester();
+		request.setDefaultContentEncoding("UTF-8");
+		HttpRespons hr = request.sendPost(url, params);
+		String json = hr.getContent();
+
+		return json;
+	}
+	
+	public static String getResStrNotAes(String url,String params, String authorization) throws Exception {
+
+		HttpRequester request = new HttpRequester();
+		request.setDefaultContentEncoding("UTF-8");
+		HttpRespons hr = request.sendPostUseAuthorization(url, params, authorization);
+		String json = hr.getContent();
+
+		return json;
+	}
+	
 	public static String getResStrByGet(String url) throws Exception{
 		HttpRequester request = new HttpRequester();
 		request.setDefaultContentEncoding("UTF-8");
