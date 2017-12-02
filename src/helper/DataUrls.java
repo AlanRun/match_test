@@ -20,9 +20,9 @@ public class DataUrls {
 	// 积分榜
 	public static final String ft_teamrank = "http://smc.jdd.com/api/scoredetail/getssmatchrankinginfo?lotteryId=90&pcode=h5&pts=0&version=v2.1&mid=";
 	// 基础数据URL
-	public static final String bd_url = "http://bd-api.jdd.com/basedata/public/securityMobileHandler.do";
-	public static final String act_url = "http://activity-api.jdd.com/activity/public/mobileHandler.do";
-	public static final String market_url = "http://market-api.jdd.com/market/public/safeMobileHandler.do";
+	public static final String url_bd = "http://bd-api.jdd.com/basedata/public/securityMobileHandler.do";
+	public static final String url_act = "http://activity-api.jdd.com/activity/public/mobileHandler.do";
+	public static final String url_market = "http://market-api.jdd.com/market/public/safeMobileHandler.do";
 	
 	//竞足
 	public static final String url_jzissuelist = "https://smc.jdddata.com/api/matchlist/jzissuelist";
@@ -74,11 +74,19 @@ public class DataUrls {
 	public static final String params_1032 = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"1032\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'id':'1000005034','verifycode':'014429','username':'13011110030'}\"}";
 	public static final String params_1061 = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"1061\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'username':'13011110030','id':'1000005034','mobile':'13011110030','newpwd':'aaaaaa'}\"}";
 	public static final String params_207   = "{\"header\":{\"appVersion\":\"3.9.3\",\"idfa\":\"\",\"cmdName\":\"app_xx\",\"userID\":\"\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"5000081\",\"platformVersion\":\"7.0\",\"action\":\"207\",\"imei\":\"356156074527318\",\"userType\":\"1\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'SchemeType':1,'BetType':1,'BonusScale':0,'AssureShare':0,'Description':'','OpenUserList':'','SecrecyLevel':4,'BuyShare':2,'Multiple':1,'LotteryID':5,'IssueName':'2017135','Number':[{'number':'02 06 08 13 19 31 + 15 ','playid':501}],'Money':2,'choosetype':2,'HongBaoSelectID':'259584'}\"}";
-	public static final String params_207Jz = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"token\":\"\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"207\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'BonusScale':0,'Description':'','LotteryID':90,'appname':'金山奖多多','SchemeType':1,'clientinfo':'com.jiangduoduo.jsjdd','IssueID':2012,'Multiple':5,'Number':[{'playid':9005,'number':'171126011=3_2:0|1*1|0|0'}],'Money':10,'OpenUserList':'','BetType':1,'recomtype':'0','BuyShare':10,'SecrecyLevel':4,'AssureShare':0,'HongBaoSelectID':'258992'}\"}";
-	public static final String params_402 = "{\"header\":{\"appVersion\":\"3.9.3\",\"idfa\":\"\",\"cmdName\":\"app_xx\",\"userID\":\"\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"5000081\",\"platformVersion\":\"7.0\",\"action\":\"402\",\"imei\":\"356156074527318\",\"userType\":\"1\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'hongbaoTypes':4,'PageNo':1,'PageSize':10,'t':1}\"}";
+	public static final String params_207Jz = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"token\":\"\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"207\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'BonusScale':0,'Description':'','LotteryID':90,'appname':'金山奖多多','SchemeType':1,'clientinfo':'com.jiangduoduo.jsjdd','IssueID':2012,'Multiple':5,'Number':[{'playid':9005,'number':'171127011=3_2:0|1*1|0|0'}],'Money':10,'OpenUserList':'','BetType':1,'recomtype':'0','BuyShare':10,'SecrecyLevel':4,'AssureShare':0,'HongBaoSelectID':'258992'}\"}";
+	public static final String params_402 = "{\"header\":{\"appVersion\":\"3.9.3\",\"idfa\":\"\",\"cmdName\":\"app_xx\",\"userID\":\"\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"5000081\",\"platformVersion\":\"7.0\",\"action\":\"402\",\"imei\":\"356156074527318\",\"userType\":\"1\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'hongbaoTypes':1,'PageNo':1,'PageSize':100,'t':1}\"}";
 	public static final String params_1000 = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"token\":\"\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"1000\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'deviceToken':'ef5fc4b83969a4f3d4e948eea2eb09c5d9ed9787a9a1e77ffd8845e335e42385','IMEI' :''}\"}";
-	public static final String params_7055 = "{\"header\":{\"appVersion\":\"5.1.6\",\"cmdId\":\"1\",\"platformVersion\":\"10.2.1\",\"action\":7055,\"cmdName\":\"app_ios_zz\",\"userType\":1,\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"userID\":\"\",\"platformCode\":\"IPHONE\",\"islogin\":true,\"token\":\"\"},\"body\":\"{'actTypeId':'100001'}\"}";
+	public static final String params_7055 = "{\"header\":{\"appVersion\":\"5.1.6\",\"cmdId\":\"1\",\"platformVersion\":\"10.2.1\",\"action\":7055,\"cmdName\":\"app_ios_zz\",\"userType\":1,\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"userID\":\"\",\"platformCode\":\"IPHONE\",\"islogin\":true,\"token\":\"\",\"username\":\"18300000000\"},\"body\":\"{'actTypeId':'100001'}\"}";
 	public static final String params_7056 = "{\"header\":{\"appVersion\":\"5.1.6\",\"cmdId\":\"1\",\"platformVersion\":\"10.2.1\",\"action\":7056,\"cmdName\":\"app_ios_zz\",\"userType\":1,\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"userID\":\"\",\"platformCode\":\"IPHONE\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{'actTypeId':'100001'}\"}";
+	public static final String params_5001 = "{\"header\":{\"appVersion\":\"1.0.1\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":50001,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"13811110098\"},\"body\":\"{}\"}";
+	public static final String params_100626 = "{\"header\":{\"appVersion\":\"3.9.5\",\"cmdId\":3718913,\"platformVersion\":\"6.0\",\"action\":100626,\"cmdName\":\"app_hwsd\",\"userType\":1,\"uuid\":\"ffffffff-8fa6-960c-07c5-6c140033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{'type':1,'content':'1','matchId':'12927708','replyId':'1000004115','classify':1}\"}";
+	public static final String params_320 = "{\"header\":{\"appVersion\":\"3.9.6\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":320,\"cmdName\":\"app_zz\",\"userType\":0,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":false,\"token\":\"\",\"username\":\"\"},\"body\":\"{'date':''}\"}";
+	
+	// 充值
+	public static final String params_108 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":108,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'BankPay':'bfnewwxh5pay','PayMoney':'20','errorurl':'https://h5.jdd.com/home/#/user/recharge/success','returnurl':'http://221.224.214.35:8078/pay/notify/bfnewwxh5pay.do'}\"}";
+	// 充20领取资格
+	public static final String params_8343 = "{\"header\":{\"appVersion\":\"3.9.6\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"userID\":\"\",\"islogin\":true,\"token\":\"\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"imei\":\"356156074527318\",\"action\":8343,\"userType\":1,\"platformCode\":\"Android\",\"username\":\"13811110010\"},\"body\":\"{'activitycode':2004,'typeid':38,'interfacetypeid':2}\"}";
 	
 	// 竞篮期次
 	public static final String jl_issue = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=lqissue&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0";
@@ -87,13 +95,16 @@ public class DataUrls {
 	// 竞篮实况
 	public static final String jl_live =   "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0&issue=";
 
-	public static final String user_url = "http://user-api.jdd.com/user/public/securityMobileHandler.do";
-	public static final String order_url = "https://order-api.jdd.com/order/public/securityMobileHandler.do";
-	public static final String rp_url = "https://rp-api.jdd.com/redpacket/public/handselMobileHandler.do";
-	public static final String push_url = "https://push-server.jdd.com/jdd/public/safe/pushSet.do";
+	public static final String url_user = "http://user-api.jdd.com/user/public/securityMobileHandler.do";
+	public static final String url_user_ay = "http://user-api.jscp518.com/user/public/securityMobileHandler.do";
+	public static final String url_trade = "https://trade-api.jdd.com/trade/public/securityApiHandler.do";
+	public static final String url_order = "https://order-api.jdd.com/order/public/securityMobileHandler.do";
+	public static final String url_rp = "https://rp-api.jdd.com/redpacket/public/handselMobileHandler.do";
+	public static final String url_push = "https://push-server.jdd.com/jdd/public/safe/pushSet.do";
+	public static final String url_pay = "http://pay-api.jdd.com/jddBankNotice/notifyTest.do?";
 	
-	public static final String info_url = "https://info-api.jdd.com/info/public/safeMobileHandler.do";
-	public static final String appadmin_url = "https://appadmin-api.jdd.com/appadmin/public/safeMobileHandler.do";
+	public static final String url_info = "https://info-api.jdd.com/info/public/safeMobileHandler.do";
+	public static final String url_appadmin = "https://appadmin-api.jdd.com/appadmin/public/safeMobileHandler.do";
 	
 	public static final String ft_head = "https://smc.jdddata.com/api/scoredetail/head?lotteryId=90&pts=0&pcode=h5&version=v2.1&matchid=";
 	public static final String ft_matchhis = "https://smc.jdddata.com/api/scoredetail/ssmatchhis?version=v2.1&pts=0&pcode=h5&lotteryId=90&mid=";

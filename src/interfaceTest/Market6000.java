@@ -10,7 +10,7 @@ import helper.DataUrls;
 public class Market6000 {
 	
 	public static void getMarket6000Info() throws AesException, IOException{
-		String url = DataUrls.market_url;
+		String url = DataUrls.url_market;
 		String params = DataUrls.params_6000;
 		
 		String reString = AppReq.getResStr(url, params);

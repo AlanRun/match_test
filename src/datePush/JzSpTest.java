@@ -21,7 +21,7 @@ import utils.Similarity;
 
 public class JzSpTest {
 	static String gf_jz_url = "http://info.sporttery.cn/interface/interface_mixed.php?action=fb_list&_=";
-	static String jdd_jz_url = DataUrls.bd_url;
+	static String jdd_jz_url = DataUrls.url_bd;
 	static String jz_params = DataUrls.params_202;;
 	
 	/**
@@ -83,6 +83,7 @@ public class JzSpTest {
 				jzMatch.setSpZJQ(checkSpJdd(SpZJQ));
 				jzMatch.setSpBQC(checkSpJdd(SpBQC));
 				jzMatch.setSpSPF(checkSpJdd(SpSPF));
+				System.out.println(jzMatch.toString());
 				list.add(jzMatch);
 			}
 		}
@@ -427,7 +428,8 @@ public class JzSpTest {
 	}
 
 	public static void main(String[] args) throws IOException, AesException {
-		compareJddSpToGf_JZ();
+//		compareJddSpToGf_JZ();
+		getJZSpFromJdd();
 //		getFinalSoccerFromData("20170918");
 	}
 }

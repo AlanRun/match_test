@@ -11,7 +11,7 @@ import net.sf.json.JSONObject;
 public class LoginTest {
 	
 	public static UserInfo getUserInfo(String name, String pw) throws AesException, IOException{
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String params = DataUrls.params_1011;
 
 		JSONObject obj = JSONObject.fromObject(params);
@@ -50,7 +50,7 @@ public class LoginTest {
 	 */
 	public static boolean verifySmsCode(String num, String code, String cmdName) throws AesException, IOException{
 		String params = DataUrls.params_1034;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "注册成功";
 		
 		String hParams = "cmdName," + cmdName;
@@ -76,7 +76,7 @@ public class LoginTest {
 	 */
 	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName) throws AesException, IOException{
 		String params = DataUrls.params_100;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "验证码发送成功";
 		
 		String hParams = "cmdName," + cmdName;
@@ -110,7 +110,7 @@ public class LoginTest {
 	 */
 	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName, String uuid, String platformCode) throws AesException, IOException{
 		String params = DataUrls.params_100;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "验证码发送成功";
 		
 		String hParams = "cmdName," + cmdName + ";uuid," + uuid + ";platformCode," + platformCode;
@@ -137,7 +137,7 @@ public class LoginTest {
 	 * @throws IOException
 	 */
 	public static boolean getUserBaseInfo(String num, String pwd) throws AesException, IOException{
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String params = DataUrls.params_107;
 		String suc = num;
 		
@@ -161,7 +161,7 @@ public class LoginTest {
 	}
 	
 	public static boolean setUserIDCardNum(String num, String pwd, String RName, String IDCard) throws AesException, IOException{
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String params = DataUrls.params_102;
 		String suc = "操作成功";
 		

@@ -14,7 +14,7 @@ import utils.LogWrite;
 
 public class Bd229Test {
 
-	public static String jdd_jz_url = DataUrls.bd_url;
+	public static String jdd_jz_url = DataUrls.url_bd;
 	public static String bd_params = DataUrls.params_229;
 
 	/**

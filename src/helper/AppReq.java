@@ -27,6 +27,14 @@ public class AppReq {
 
 		return json;
 	}
+	
+	public static String getResStrByGet(String url) throws Exception{
+		HttpRequester request = new HttpRequester();
+		request.setDefaultContentEncoding("UTF-8");
+		HttpRespons hr = request.sendGet(url);
+		String json = hr.getContent();
+		return json;
+	}
 
 	public static String setParmas(String params, String hParams, String bParams) {
 

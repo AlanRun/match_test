@@ -11,7 +11,7 @@ public class Test2142 {
 
 	public static void check2142() throws Exception {
 
-		String url = DataUrls.bd_url;
+		String url = DataUrls.url_bd;
 		String params = DataUrls.params_2142;
 
 		String reString = AppReq.getResStr(url, params);

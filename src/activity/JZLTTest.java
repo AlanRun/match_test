@@ -33,7 +33,7 @@ public class JZLTTest {
 	 */
 	public static boolean resetPwd(String type, String mobile) throws AesException, IOException{
 		String params = DataUrls.params_1030;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		
 		String suc = "发送验证码成功";
 		
@@ -67,7 +67,7 @@ public class JZLTTest {
 	 */
 	public static boolean verify1032Code (String id, String mobile, String verifyCode) throws AesException, IOException{
 		String params = DataUrls.params_1032;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "验证成功";
 		String newpwd = "aaaaaa";
 		
@@ -95,7 +95,7 @@ public class JZLTTest {
 	 */
 	public static boolean resetPwd1061(String username, String id, String mobile, String newpwd) throws AesException, IOException{
 		String params = DataUrls.params_1061;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "修改密码成功";
 		
 		String hParams = "";
@@ -119,12 +119,12 @@ public class JZLTTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean getActQualify(String userID, String token) throws AesException, IOException{
+	public static boolean getActQualify(String name, String userID, String token) throws AesException, IOException{
 		String params = DataUrls.params_7055;
-		String url = DataUrls.act_url;
+		String url = DataUrls.url_act;
 		String suc = "领取成功";
 		
-		String hParams = "userID," + userID + ";token," + token;
+		String hParams = "userID," + userID + ";token," + token + ";username," + name;
 		String bParams = "actTypeId," + actTypeId;
 		params = AppReq.setParmas(params, hParams, bParams);
 		String reString = AppReq.getResStr(url, params);
@@ -145,7 +145,7 @@ public class JZLTTest {
 	 * @throws IOException
 	 */
 	public static String getUserRedpackage(String userID, String token) throws AesException, IOException{
-		String url = DataUrls.rp_url;
+		String url = DataUrls.url_rp;
 		String params = DataUrls.params_402;
 		String suc = "code\":0";
 		String result = "";
@@ -174,6 +174,42 @@ public class JZLTTest {
 	}
 	
 	/**
+	 * 获取用户总额为3000的彩金卡ID
+	 * @param userID
+	 * @param token
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static void getUserRedpackage(String userID, String token, String act) throws AesException, IOException{
+		String url = DataUrls.url_rp;
+		String params = DataUrls.params_402;
+		String suc = "code\":0";
+		String result = "";
+		
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "";
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			JSONArray items = data.getJSONArray("item");
+			for (int i = 0; i < items.size(); i++) {
+				JSONObject item = (JSONObject) items.get(i);
+				String Name = item.getString("Name");
+				if (Name.equals(act)) {
+					String TotalMoney = item.getString("TotalMoney");
+					System.err.println(Name + " : " + TotalMoney);
+				}
+			}
+		}
+	}
+	
+	/**
 	 * 上报uuid
 	 * @param userID
 	 * @param token
@@ -184,7 +220,7 @@ public class JZLTTest {
 	 */
 	public static boolean push1000(String userID, String token, String uuid) throws AesException, IOException{
 		
-		String url = DataUrls.push_url;
+		String url = DataUrls.url_push;
 		String params = DataUrls.params_1000;
 		String suc = "设置成功";
 		boolean result = false;
@@ -211,7 +247,7 @@ public class JZLTTest {
 	 * @throws IOException
 	 */
 	public static boolean buySSQ(String mobile) throws AesException, IOException{
-		String url = DataUrls.order_url;
+		String url = DataUrls.url_order;
 		String params = DataUrls.params_207;
 		String suc = "操作成功";
 		
@@ -249,7 +285,7 @@ public class JZLTTest {
 	 */
 	public static boolean register7054Use(String type, String mobile, String userId, String actTypeId) throws AesException, IOException{
 		String params = DataUrls.params_20018;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "发送验证码成功";
 		
 		String hParams = "";
@@ -280,7 +316,7 @@ public class JZLTTest {
 	 */
 	public static boolean verify7054Code(String actTypeId, String userId, String mobile, String verifyCode) throws AesException, IOException{
 		String params = DataUrls.params_7054;
-		String url = DataUrls.act_url;
+		String url = DataUrls.url_act;
 		String suc = "注册成功";
 		
 		String hParams = "";
@@ -304,7 +340,7 @@ public class JZLTTest {
 	 * @throws IOException
 	 */
 	public static boolean buyJZ(String mobile, int Multiple) throws AesException, IOException{
-		String url = DataUrls.order_url;
+		String url = DataUrls.url_order;
 		String params = DataUrls.params_207Jz;
 		String suc = "操作成功";
 		
@@ -338,7 +374,7 @@ public class JZLTTest {
 	 * @throws IOException
 	 */
 	public static boolean get7056() throws AesException, IOException{
-		String url = DataUrls.act_url;
+		String url = DataUrls.url_act;
 		String params = DataUrls.params_7056;
 		String suc = "code";
 		
@@ -375,11 +411,11 @@ public class JZLTTest {
 		
 		
 //		String actTypeId = "48484";
-//		String mobile = "13422231101";
+//		String mobile = "13422241101";
 //		buySSQ(mobile);
 		
-//		for (int i = 331; i < 1005; i++) {
-//			String mobile = "1342223";
+//		for (int i = 1; i < 50; i++) {
+//			String mobile = "1342224";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
 //			} else if ( i < 100) {
@@ -391,56 +427,56 @@ public class JZLTTest {
 //			}
 //			register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C", actTypeId);
 //		}
-//		
-//		for (int i = 331; i < 1005; i++) {
-//			String mobile = "1342223";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if ( i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//			resetPwd(type, mobile);
-//		}
-//		
-//		for (int i = 331; i < 1005; i++) {
-//			String mobile = "1342223";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if ( i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-//			String token = user.getToken();
-//			String userId = user.getUserId();
-//			
-//			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
-//		}
-//		
-//		for (int i = 331; i < 1005; i++) {
-//			String mobile = "1342223";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if (i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//
-//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-//			String token = user.getToken();
-//			String userId = user.getUserId();
-//			getActQualify(userId, token);
-//		}
+		
+		for (int i = 1; i < 50; i++) {
+			String mobile = "1342224";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if ( i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			resetPwd(type, mobile);
+		}
+		
+		for (int i = 1; i < 50; i++) {
+			String mobile = "1342224";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if ( i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+			String token = user.getToken();
+			String userId = user.getUserId();
+			
+			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
+		}
+		
+		for (int i = 1; i < 50; i++) {
+			String mobile = "1342224";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if (i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+			String token = user.getToken();
+			String userId = user.getUserId();
+			getActQualify(mobile, userId, token);
+		}
 		
 //		String mobile = "13300000035";
 //		String pw = "aaaaaa";
@@ -454,9 +490,28 @@ public class JZLTTest {
 //			buyJZ(mobile, i);
 //			Thread.sleep(2000);
 //		}
+//		
+//		for (int i = 946; i < 1005; i++) {
+//			String mobile = "1342224";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if ( i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//			
+//			getUserRedpackage(userId, token, "足球擂台赛");
+//			System.err.println(mobile);
+//		}
 		
-		for (int i = 424; i < 1005; i++) {
-			String mobile = "1342223";
+		for (int i = 1; i < 50; i++) {
+			String mobile = "1342224";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
 			} else if ( i < 100) {

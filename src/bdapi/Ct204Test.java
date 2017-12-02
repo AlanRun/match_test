@@ -14,7 +14,7 @@ import utils.LogWrite;
 
 public class Ct204Test {
 
-	static String jdd_jz_url = DataUrls.bd_url;
+	static String jdd_jz_url = DataUrls.url_bd;
 	static String jz_params = DataUrls.params_204;
 
 	/**

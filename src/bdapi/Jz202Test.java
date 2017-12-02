@@ -14,7 +14,7 @@ import utils.LogWrite;
 
 public class Jz202Test {
 	static String gf_jz_url = "http://info.sporttery.cn/interface/interface_mixed.php?action=fb_list&_=";
-	static String jdd_jz_url = DataUrls.bd_url;
+	static String jdd_jz_url = DataUrls.url_bd;
 	static String jz_params = DataUrls.params_202;;
 	
 	/**

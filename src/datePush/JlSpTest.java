@@ -24,7 +24,7 @@ import utils.Similarity;
 
 public class JlSpTest {
 	static String gf_jl_url = "http://info.sporttery.cn/interface/interface_mixed.php?action=bk_list&_=";
-	static String jdd_jl_url = DataUrls.bd_url;
+	static String jdd_jl_url = DataUrls.url_bd;
 	static String jl_params = DataUrls.params_2031;
 
 	public static String checkSp(String value) {

@@ -31,7 +31,7 @@ public class LDXTest {
 	 */
 	public static boolean register7054Use(String type, String mobile, String userId, String actTypeId) throws AesException, IOException{
 		String params = DataUrls.params_20018;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "发送验证码成功";
 		
 		String hParams = "";
@@ -62,7 +62,7 @@ public class LDXTest {
 	 */
 	public static boolean verify7054Code(String actTypeId, String userId, String mobile, String verifyCode) throws AesException, IOException{
 		String params = DataUrls.params_7054;
-		String url = DataUrls.act_url;
+		String url = DataUrls.url_act;
 		String suc = "注册成功";
 		
 		String hParams = "";
@@ -87,7 +87,7 @@ public class LDXTest {
 	 */
 	public static boolean resetPwd(String type, String mobile) throws AesException, IOException{
 		String params = DataUrls.params_1030;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		
 		String suc = "发送验证码成功";
 		
@@ -121,7 +121,7 @@ public class LDXTest {
 	 */
 	public static boolean verify1032Code (String id, String mobile, String verifyCode) throws AesException, IOException{
 		String params = DataUrls.params_1032;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "验证成功";
 		String newpwd = "aaaaaa";
 		
@@ -149,7 +149,7 @@ public class LDXTest {
 	 */
 	public static boolean resetPwd1061(String username, String id, String mobile, String newpwd) throws AesException, IOException{
 		String params = DataUrls.params_1061;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "修改密码成功";
 		
 		String hParams = "";
@@ -173,7 +173,7 @@ public class LDXTest {
 	 * @throws IOException
 	 */
 	public static String getUserRedpackage(String userID, String token) throws AesException, IOException{
-		String url = DataUrls.rp_url;
+		String url = DataUrls.url_rp;
 		String params = DataUrls.params_402;
 		String suc = "code\":0";
 		String result = "";
@@ -212,7 +212,7 @@ public class LDXTest {
 	 */
 	public static boolean push1000(String userID, String token, String uuid) throws AesException, IOException{
 		
-		String url = DataUrls.push_url;
+		String url = DataUrls.url_push;
 		String params = DataUrls.params_1000;
 		String suc = "设置成功";
 		boolean result = false;
@@ -239,7 +239,7 @@ public class LDXTest {
 	 * @throws IOException
 	 */
 	public static boolean buySSQ(String mobile) throws AesException, IOException{
-		String url = DataUrls.order_url;
+		String url = DataUrls.url_order;
 		String params = DataUrls.params_207;
 		String suc = "操作成功";
 		

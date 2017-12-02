@@ -29,7 +29,7 @@ public class JCSPTest {
 		String winRate = odd.getString("winRate");
 		String drawRate = odd.getString("drawRate");
 		String lossRate = odd.getString("lossRate");
-		str = winRate + "\t" + drawRate + "\t" + lossRate;
+		str = winRate + "," + drawRate + "," + lossRate;
 		return str;
 	}
 	

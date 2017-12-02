@@ -23,7 +23,7 @@ import utils.Similarity;
 
 public class CtSpTest {
 
-	static String jdd_jz_url = DataUrls.bd_url;
+	static String jdd_jz_url = DataUrls.url_bd;
 	static String jz_params = DataUrls.params_204;
 	static String gf_ct_url =   "http://i.sporttery.cn/wap/fb_lottery/fb_lottery_match?key=wilo&f_callback=getDataBack&num=";
 	static String gf_ct_issue = "http://i.sporttery.cn/wap/fb_lottery/fb_lottery_nums?key=wilo&f_callback=getNumBack&num=";

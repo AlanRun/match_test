@@ -28,7 +28,7 @@ import utils.LogWrite;
 
 public class BdSpTest {
 
-	public static String jdd_jz_url = DataUrls.bd_url;
+	public static String jdd_jz_url = DataUrls.url_bd;
 	public static String bd_params = DataUrls.params_229;
 	public static String gf_bd_rqspf = "http://www.bjlot.com/data/200ParlayGetGame.xml"; // 胜平负
 	public static String gf_bd_sxds = "http://www.bjlot.com/data/210ParlayGetGame.xml"; // 上下单双

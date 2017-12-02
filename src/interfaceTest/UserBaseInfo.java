@@ -10,8 +10,16 @@ import net.sf.json.JSONObject;
 
 public class UserBaseInfo {
 	
+	private String mobile;
+	private String pw;
+	
+	public UserBaseInfo (String userName, String password){
+		pw = password;
+		mobile = userName;
+	}
+	
 	public static UserInfo getUserInfo(String name, String pw) throws AesException, IOException{
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String params = DataUrls.params_1011;
 
 		String hParams = "uuid," + name + "04FCEE6BDE0F461FACD85";
@@ -40,7 +48,7 @@ public class UserBaseInfo {
 	 */
 	public static boolean resetPwd(String type, String mobile) throws AesException, IOException{
 		String params = DataUrls.params_1030;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		
 		String suc = "发送验证码成功";
 		
@@ -74,7 +82,7 @@ public class UserBaseInfo {
 	 */
 	public static boolean verify1032Code (String id, String mobile, String verifyCode) throws AesException, IOException{
 		String params = DataUrls.params_1032;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "验证成功";
 		String newpwd = "aaaaaa";
 		
@@ -102,7 +110,7 @@ public class UserBaseInfo {
 	 */
 	public static boolean resetPwd1061(String username, String id, String mobile, String newpwd) throws AesException, IOException{
 		String params = DataUrls.params_1061;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "修改密码成功";
 		
 		String hParams = "";
@@ -128,7 +136,7 @@ public class UserBaseInfo {
 	 */
 	public static boolean verifySmsCode(String num, String code, String cmdName) throws AesException, IOException{
 		String params = DataUrls.params_1034;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "注册成功";
 		
 		String hParams = "cmdName," + cmdName;
@@ -154,20 +162,22 @@ public class UserBaseInfo {
 	 */
 	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName) throws AesException, IOException{
 		String params = DataUrls.params_100;
-		String url = DataUrls.user_url;
+//		String url = DataUrls.url_user;
+		String url = DataUrls.url_user_ay;
 		String suc = "验证码发送成功";
+		String uuid = "04FCEE6BDE0F461FACD85";
 		
-		String hParams = "cmdName," + cmdName;
+		String hParams = "cmdName," + cmdName + ";uuid," + num + uuid;
 		String bParams = "Name," + num + ";Pw," + pwd;
 		params = AppReq.setParmas(params, hParams, bParams);
 		boolean result = false;
 		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
 		if (reString.contains(suc)) {
 			String code = SmsTest.getSmsCode(type, num);
 			
 			result = verifySmsCode(num, code, cmdName);
 		} else {
-			System.out.println(reString);
 		}
 		
 		System.out.println("register result =" + result);
@@ -188,7 +198,7 @@ public class UserBaseInfo {
 	 */
 	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName, String uuid, String platformCode) throws AesException, IOException{
 		String params = DataUrls.params_100;
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String suc = "验证码发送成功";
 		
 		String hParams = "cmdName," + cmdName + ";uuid," + uuid + ";platformCode," + platformCode;
@@ -215,7 +225,7 @@ public class UserBaseInfo {
 	 * @throws IOException
 	 */
 	public static boolean getUserBaseInfo(String num, String pwd) throws AesException, IOException{
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String params = DataUrls.params_107;
 		String suc = num;
 		String uuid = "04FCEE6BDE0F461FACD85";
@@ -240,7 +250,7 @@ public class UserBaseInfo {
 	}
 	
 	public static boolean setUserIDCardNum(String num, String pwd, String RName, String IDCard) throws AesException, IOException{
-		String url = DataUrls.user_url;
+		String url = DataUrls.url_user;
 		String params = DataUrls.params_102;
 		String suc = "操作成功";
 		
@@ -285,7 +295,16 @@ public class UserBaseInfo {
 //		registerUseCmdName(type, mobile, pwd, cmdName, uuid, platformCode);
 //		getUserBaseInfo(mobile, pwd);
 
-		getUserInfo("13811110003", "aaaaaa");
+		
+		for (int i = 1; i < 10; i++) {
+			String mobile = "1381111000" + i;
+			String pw = "aaaaaa";
+			String cmdName = "app_zz";
+			registerUseCmdName("zz", mobile, pw, cmdName);
+			UserInfo user = getUserInfo(mobile, pw);
+			getUserBaseInfo(mobile, pw);
+		}
+		
 		
 //		for (int i = 0; i < 1005; i++) {
 //			String mobile = "1342222";

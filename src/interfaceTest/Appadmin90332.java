@@ -13,7 +13,7 @@ public class Appadmin90332 {
 	
 	// 获取双色球当前期次信息
 	public static String getCurSSQIssue() throws AesException, IOException{
-		String json = AppReq.getResStr(DataUrls.bd_url, DataUrls.params_200_5);
+		String json = AppReq.getResStr(DataUrls.url_bd, DataUrls.params_200_5);
 
 		JSONObject obj = JSONObject.fromObject(json);
 		JSONArray data = obj.getJSONArray("data");
@@ -39,7 +39,7 @@ public class Appadmin90332 {
 	 * @throws AesException 
 	 */
 	public static String getCurDLTIssue() throws AesException, IOException{
-		String json = AppReq.getResStr(DataUrls.bd_url, DataUrls.params_200_39);
+		String json = AppReq.getResStr(DataUrls.url_bd, DataUrls.params_200_39);
 
 		JSONObject obj = JSONObject.fromObject(json);
 		JSONArray data = obj.getJSONArray("data");
@@ -73,7 +73,7 @@ public class Appadmin90332 {
 			tmp = dlt;
 		}
 		
-		String json = AppReq.getResStr(DataUrls.appadmin_url, DataUrls.params_90332);
+		String json = AppReq.getResStr(DataUrls.url_appadmin, DataUrls.params_90332);
 		
 		JSONObject obj = JSONObject.fromObject(json);
 		JSONObject data = obj.getJSONObject("data");
@@ -98,7 +98,7 @@ public class Appadmin90332 {
 	}
 	
 	public static void check9009() throws AesException, IOException {
-		String json = AppReq.getResStr(DataUrls.appadmin_url, DataUrls.params_9009);
+		String json = AppReq.getResStr(DataUrls.url_appadmin, DataUrls.params_9009);
 		
 		System.out.println(json);
 		
