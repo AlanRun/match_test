@@ -28,18 +28,6 @@ public class Test320 {
 			JSONArray matches = data.getJSONArray("matches");
 			
 			for (int i = 0; i < matches.size(); i++) {
-				JSONObject match = (JSONObject) matches.get(i);
-				
-				String jzNum = match.getString("jzNum");
-				String NMm = match.getString("uniqueTournamentName");
-				String matchTime = match.getString("matchTime");
-				String homeTeamName = match.getString("homeTeamName");
-				String awayTeamName = match.getString("awayTeamName");
-				String SpSPF = match.getString("sPF");
-
-				String matchId = match.getString("matchId");
-				String isFinish = match.getString("isFinish");
-				String isHit = match.getString("isHit");
 				
 			}
 			

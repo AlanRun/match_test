@@ -272,6 +272,26 @@ public class UserBaseInfo {
 			return false;
 		}
 	}
+	
+	public static boolean sign(String userID, String token, String num) throws Exception{
+		String url = DataUrls.url_user;
+		String params = DataUrls.params_20004;
+		String suc = "操作成功";
+		String uuid = "04FCEE6BDE0F461FACD85";
+		
+		String hParams = "userID," + userID + ";token," + token + ";uuid," + num + uuid;
+		String bParams = "";
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public static void main(String[] args) throws AesException, IOException {
 		String pwd = "aaaaaa";

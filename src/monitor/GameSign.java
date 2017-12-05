@@ -7,12 +7,12 @@ import net.sf.json.JSONObject;
 
 public class GameSign {
 	
-	public static void gameResignAndGetGift(String mobile, String pw) throws Exception{
+	public static void gameResignAndGetGift(String token, String userID) throws Exception{
 		
-		//APP登录，活动userID、token
-		UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
-		String token = user.getToken();
-		String userID = user.getUserId();
+//		//APP登录，活动userID、token
+//		UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
+//		String token = user.getToken();
+//		String userID = user.getUserId();
 		
 		// 登录游戏
 		String url = "https://uic-api.beeplay123.com/uic/api/lottery/login";
@@ -40,6 +40,8 @@ public class GameSign {
 		reString = AppReq.getResStrNotAes(url, "", Authorization);
 		System.out.println("userchecklottery=" + reString);
 	}
+	
+	
 
 	public static void main(String[] args) throws Exception {
 		String mobiles = "13911112222,18911112222,18917171717,18913131313,18919191919,18926262626,18925252525,18701639930,18601950610";
@@ -48,7 +50,14 @@ public class GameSign {
 		String[] mList = mobiles.split(",");
 		for (int i = 0; i < mList.length; i++) {
 			String mobile = mList[i];
-			gameResignAndGetGift(mobile, pw);
+			
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
+			String token = user.getToken();
+			String userID = user.getUserId();
+			
+			gameResignAndGetGift(token, userID);
+			
+			UserBaseInfo.sign(userID, token, mobile);
 			Thread.sleep(2000);
 		}
 		

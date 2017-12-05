@@ -18,11 +18,11 @@ public class DataUrls {
 	// 我的关注
 	public static final String ft_collect =  "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryId=90&pts=0&matchids=";
 	// 积分榜
-	public static final String ft_teamrank = "http://smc.jdd.com/api/scoredetail/getssmatchrankinginfo?lotteryId=90&pcode=h5&pts=0&version=v2.1&mid=";
+	public static final String ft_teamrank = "https://smc.jdd.com/api/scoredetail/getssmatchrankinginfo?lotteryId=90&pcode=h5&pts=0&version=v2.1&mid=";
 	// 基础数据URL
-	public static final String url_bd = "http://bd-api.jdd.com/basedata/public/securityMobileHandler.do";
-	public static final String url_act = "http://activity-api.jdd.com/activity/public/mobileHandler.do";
-	public static final String url_market = "http://market-api.jdd.com/market/public/safeMobileHandler.do";
+	public static final String url_bd = "https://bd-api.jdd.com/basedata/public/securityMobileHandler.do";
+	public static final String url_act = "https://activity-api.jdd.com/activity/public/mobileHandler.do";
+	public static final String url_market = "https://market-api.jdd.com/market/public/safeMobileHandler.do";
 	
 	//竞足
 	public static final String url_jzissuelist = "https://smc.jdddata.com/api/matchlist/jzissuelist";
@@ -82,9 +82,11 @@ public class DataUrls {
 	public static final String params_5001 = "{\"header\":{\"appVersion\":\"1.0.1\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":50001,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"13811110098\"},\"body\":\"{}\"}";
 	public static final String params_100626 = "{\"header\":{\"appVersion\":\"3.9.5\",\"cmdId\":3718913,\"platformVersion\":\"6.0\",\"action\":100626,\"cmdName\":\"app_hwsd\",\"userType\":1,\"uuid\":\"ffffffff-8fa6-960c-07c5-6c140033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{'type':1,'content':'1','matchId':'12927708','replyId':'1000004115','classify':1}\"}";
 	public static final String params_320 = "{\"header\":{\"appVersion\":\"3.9.6\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":320,\"cmdName\":\"app_zz\",\"userType\":0,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":false,\"token\":\"\",\"username\":\"\"},\"body\":\"{'date':''}\"}";
+	public static final String params_20004 = "{\"header\":{\"appVersion\":\"3.9.6\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"userID\":\"\",\"uuid\":\"00000000-2515-cf82-ffff-ffffe0d907ee\",\"token\":\"\",\"cmdID\":\"0\",\"platformVersion\":\"4.4.4\",\"imei\":\"863562624275280\",\"action\":\"20004\",\"userType\":\"1\",\"platformCode\":\"Android\",\"phoneName\":\"Huawei\"},\"body\":\"{}\"}";
+	
 	
 	// 充值
-	public static final String params_108 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":108,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'BankPay':'bfnewwxh5pay','PayMoney':'20','errorurl':'https://h5.jdd.com/home/#/user/recharge/success','returnurl':'http://221.224.214.35:8078/pay/notify/bfnewwxh5pay.do'}\"}";
+	public static final String params_108 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":108,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'BankPay':'bfnewwxh5pay','PayMoney':'20','errorurl':'https://h5.jdd.com/home/#/user/recharge/success','returnurl':'https://221.224.214.35:8078/pay/notify/bfnewwxh5pay.do'}\"}";
 	// 充20领取资格
 	public static final String params_8343 = "{\"header\":{\"appVersion\":\"3.9.6\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"userID\":\"\",\"islogin\":true,\"token\":\"\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"imei\":\"356156074527318\",\"action\":8343,\"userType\":1,\"platformCode\":\"Android\",\"username\":\"13811110010\"},\"body\":\"{'activitycode':2004,'typeid':38,'interfacetypeid':2}\"}";
 	
@@ -95,8 +97,8 @@ public class DataUrls {
 	// 竞篮实况
 	public static final String jl_live =   "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0&issue=";
 
-	public static final String url_user = "http://user-api.jdd.com/user/public/securityMobileHandler.do";
-	public static final String url_user_ay = "http://user-api.jscp518.com/user/public/securityMobileHandler.do";
+	public static final String url_user = "https://user-api.jdd.com/user/public/securityMobileHandler.do";
+	public static final String url_user_ay = "https://user-api.jscp518.com/user/public/securityMobileHandler.do";
 	public static final String url_trade = "https://trade-api.jdd.com/trade/public/securityApiHandler.do";
 	public static final String url_order = "https://order-api.jdd.com/order/public/securityMobileHandler.do";
 	public static final String url_rp = "https://rp-api.jdd.com/redpacket/public/handselMobileHandler.do";

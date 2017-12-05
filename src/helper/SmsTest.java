@@ -33,7 +33,7 @@ public class SmsTest {
 //		String user = "jdd";
 		
 		String db = "jdd_sms";
-		String sql = "SELECT s_body FROM sms_message_ay where s_mobile_number= " + num + " and d_update_time>'" + date  + "' order by d_update_time desc;";
+		String sql = "SELECT s_body FROM sms_message where s_mobile_number= " + num + " and d_update_time>'" + date  + "' order by d_update_time desc;";
 		
 		DBHelper db1 = new DBHelper(type, db, sql);
 		ResultSet ret = null;

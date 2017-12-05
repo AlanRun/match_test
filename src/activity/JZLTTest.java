@@ -409,6 +409,16 @@ public class JZLTTest {
 //		UserInfo user = UserBaseInfo.getUserInfo(phone, password);
 //		System.out.println(user);
 		
+		String mobile = "13422221008";
+		String password = "aaaaaa";
+//		register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C", actTypeId);
+		resetPwd(type, mobile);
+		UserInfo user = UserBaseInfo.getUserInfo(mobile, password);
+		String token = user.getToken();
+		String userId = user.getUserId();
+//		
+//		push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
+		
 		
 //		String actTypeId = "48484";
 //		String mobile = "13422241101";
@@ -427,56 +437,56 @@ public class JZLTTest {
 //			}
 //			register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C", actTypeId);
 //		}
+//		
+//		for (int i = 1; i < 50; i++) {
+//			String mobile = "1342224";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if ( i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			resetPwd(type, mobile);
+//		}
+//		
+//		for (int i = 1; i < 50; i++) {
+//			String mobile = "1342224";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if ( i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//			
+//			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
+//		}
 		
-		for (int i = 1; i < 50; i++) {
-			String mobile = "1342224";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if ( i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			resetPwd(type, mobile);
-		}
-		
-		for (int i = 1; i < 50; i++) {
-			String mobile = "1342224";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if ( i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-			String token = user.getToken();
-			String userId = user.getUserId();
-			
-			push1000(userId, token, mobile + "04FCEE6BDE0F461FACD85");
-		}
-		
-		for (int i = 1; i < 50; i++) {
-			String mobile = "1342224";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if (i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-			String token = user.getToken();
-			String userId = user.getUserId();
-			getActQualify(mobile, userId, token);
-		}
+//		for (int i = 1; i < 50; i++) {
+//			String mobile = "1342224";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//			getActQualify(mobile, userId, token);
+//		}
 		
 //		String mobile = "13300000035";
 //		String pw = "aaaaaa";
@@ -510,23 +520,23 @@ public class JZLTTest {
 //			System.err.println(mobile);
 //		}
 		
-		for (int i = 1; i < 50; i++) {
-			String mobile = "1342224";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if ( i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			if (i > 1000) {
-				buyJZ(mobile, 1000);
-			} else {
-				buyJZ(mobile, i);
-			}
-		}
+//		for (int i = 1; i < 50; i++) {
+//			String mobile = "1342224";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if ( i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			if (i > 1000) {
+//				buyJZ(mobile, 1000);
+//			} else {
+//				buyJZ(mobile, i);
+//			}
+//		}
 	}
 
 }
