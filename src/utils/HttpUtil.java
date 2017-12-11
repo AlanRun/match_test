@@ -1,17 +1,17 @@
-//package utils;
-//
-//import com.jdd.fm.core.log.LogExceptionStackTrace;
-//import java.io.BufferedReader;
-//import java.io.IOException;
-//import java.io.InputStreamReader;
-//import java.io.PrintWriter;
-//import java.net.URL;
-//import java.net.URLConnection;
-//import java.nio.charset.Charset;
-//import java.util.ArrayList;
-//import java.util.Iterator;
-//import java.util.Map;
-//import org.apache.commons.codec.binary.Base64;
+package utils;
+
+import com.jdd.fm.core.log.LogExceptionStackTrace;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+import org.apache.commons.codec.binary.Base64;
 //import org.apache.http.HttpEntity;
 //import org.apache.http.client.ClientProtocolException;
 //import org.apache.http.client.config.RequestConfig;
@@ -27,8 +27,8 @@
 //import org.junit.Test;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
-//
-//public class HttpUtil {
+
+public class HttpUtil {
 //	private static Logger logger = LoggerFactory.getLogger(HttpUtil.class);
 //
 //	public HttpUtil() {
@@ -341,4 +341,4 @@
 //
 //		return responseContent;
 //	}
-//}
+}

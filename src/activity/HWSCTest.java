@@ -98,7 +98,7 @@ public class HWSCTest {
 		registerUse(type, "13611110016", "37F6F839047C9229", actTypeId);
 		check7050Code(actTypeId, "737ae0f09dfa6622");
 		check7050Code(actTypeId, "737ae0f09dfa6622");
-		registerUse(type, "13611110012", "737ae0f09dfa6622", actTypeId);
+		registerUse(type, "13611110012", "B803CE175366873C", actTypeId);
 		System.err.println("3.用户未参加");
 		check7050Code(actTypeId, "b49c4570f1111565");
 		registerUse(type, "13811110006", "b49c4570f1111565", actTypeId);

@@ -55,9 +55,10 @@ public class GameSign {
 			String token = user.getToken();
 			String userID = user.getUserId();
 			
+			UserBaseInfo.sign(userID, token, mobile);
+			
 			gameResignAndGetGift(token, userID);
 			
-			UserBaseInfo.sign(userID, token, mobile);
 			Thread.sleep(2000);
 		}
 		
