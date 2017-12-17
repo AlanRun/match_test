@@ -44,7 +44,7 @@ public class GameSign {
 	
 
 	public static void main(String[] args) throws Exception {
-		String mobiles = "13911112222,18911112222,18917171717,18913131313,18919191919,18926262626,18925252525,18701639930,18601950610";
+		String mobiles = "13911112222,18911112222,18917171717,18913131313,18919191919,18926262626,18925252525,18929292929,18928282828,18701639930,18601950610";
 		String pw = "aaaaaa";
 		
 		String[] mList = mobiles.split(",");
@@ -55,7 +55,9 @@ public class GameSign {
 			String token = user.getToken();
 			String userID = user.getUserId();
 			
-			UserBaseInfo.sign(userID, token, mobile);
+			UserBaseInfo.sign20004(userID, token, mobile);
+			UserBaseInfo.drawLott7103(userID, token, mobile);
+			UserBaseInfo.drawLott7101(userID, token, mobile);
 			
 			gameResignAndGetGift(token, userID);
 			

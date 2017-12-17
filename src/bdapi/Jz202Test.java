@@ -1,6 +1,8 @@
 package bdapi;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 import com.jdd.fm.core.exception.AesException;
@@ -96,7 +98,78 @@ public class Jz202Test {
 		}
 		return list;
 	}
+	
+	/**
+	 * 获取jdd竞足投注对阵赔率 action=202
+	 * @return
+	 * @throws IOException
+	 * @throws AesException
+	 */
+	public static ArrayList<JzMatchSpInfo> getMatchsSp() throws IOException, AesException {
+		ArrayList<JzMatchSpInfo> list = new ArrayList<JzMatchSpInfo>();
+		
+		String json = AppReq.getResStr(jdd_jz_url, jz_params);
+		if (json == null || json.equals("")) {
+			LogWrite.saveToFile("empty content!!!");
+		} else {
+			System.out.println(json);
+			// LogWrite.saveToFile(json);
+		}
 
+		JSONObject obj = JSONObject.fromObject(json);
+		JSONArray data = obj.getJSONArray("data");
+		for (int i = 0; i < data.size(); i++) {
+			JSONObject wk = (JSONObject) data.get(i);
+			JSONArray Matches = wk.getJSONArray("Matches");
+			for (int j = 0; j < Matches.size(); j++) {
+				JzMatchSpInfo jzMatch = new JzMatchSpInfo();
+				JSONObject match = (JSONObject) Matches.get(j);
+
+				String MID = match.getString("MID");
+				String NMm = match.getString("NMm");
+				String HTeam = match.getString("HTeam");
+				String VTeam = match.getString("VTeam");
+				String SpSPF = match.getString("SpSPF");
+
+				System.out.println(MID + " " + NMm);
+				
+				countSP(SpSPF);
+				System.out.println();
+			}
+		}
+		return list;
+	}
+	
+	public static void countSP(String sp){
+		
+		if (sp.contains("0.00")) {
+			return;
+		}
+		
+		String[] spList = sp.split("\\|");
+		System.out.println(sp);
+		
+		BigDecimal win = new BigDecimal(spList[0].toString());
+		BigDecimal draw = new BigDecimal(spList[1].toString());
+		BigDecimal loss = new BigDecimal(spList[2].toString());
+		
+		BigDecimal ji_san = win.multiply(draw).multiply(loss);
+		BigDecimal he_two = ((win.multiply(draw)).add(win.multiply(loss)).add(draw.multiply(loss)));
+		
+		
+//		System.out.println(ji_san);
+//		System.out.println(he_two);
+		BigDecimal reString = (ji_san.divide(he_two, 4,BigDecimal.ROUND_DOWN)).multiply(new BigDecimal("100"));
+//		System.out.println(reString);
+		
+		int d = reString.divide(draw, 0, BigDecimal.ROUND_DOWN).intValue();
+		int l = reString.divide(loss, 0, BigDecimal.ROUND_DOWN).intValue();
+		int w = 100 - d - l;
+		
+		System.out.println(win.toString() + "\t" + w + "%");
+		System.out.println(draw.toString() + "\t" + d + "%");
+		System.out.println(loss.toString() + "\t" + l + "%");
+	}
 	
 	public static String checkSpJdd(String value) {
 		String tmp = "";
@@ -118,6 +191,6 @@ public class Jz202Test {
 	}
 	
 	public static void main(String[] args) throws IOException, AesException {
-		getTeadRankAndHis();
+		getMatchsSp();
 	}
 }
