@@ -422,10 +422,11 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean register7054Use(String type, String mobile, String userId, String actTypeId) throws AesException, IOException{
+	public static boolean register7054Use(String type, String mobile, String userId) throws AesException, IOException{
 		String params = DataUrls.params_20018;
 		String url = DataUrls.url_user;
 		String suc = "发送验证码成功";
+		String actTypeId = "48484";
 		
 		String hParams = "";
 		String bParams = "mobile," + mobile;
@@ -645,13 +646,16 @@ public class UserBaseInfo {
 //		getUserBaseInfo(mobile, pwd);
 
 		
-		for (int i = 1; i < 10; i++) {
-			String mobile = "1381111000" + i;
-			String cmdName = "app_zz";
-			registerUseCmdName("zz", mobile, pw, cmdName);
-			getUserInfo(mobile, pw);
-			getUserBaseInfo(mobile, pw);
-		}
+//		for (int i = 1; i < 10; i++) {
+//			String mobile = "1381111000" + i;
+//			String cmdName = "app_zz";
+//			registerUseCmdName("zz", mobile, pw, cmdName);
+//			getUserInfo(mobile, pw);
+//			getUserBaseInfo(mobile, pw);
+//		}
+		
+		register7054Use("zz", "13422261007", "D8AC6F436813D05E3F87841978B1299C");
+//		resetPwd("zz", "13422261006");
 		
 		
 //		for (int i = 0; i < 1005; i++) {

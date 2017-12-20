@@ -1,5 +1,6 @@
 package monitor;
 
+import activity.SDDZTest;
 import helper.AppReq;
 import helper.UserInfo;
 import interfaceTest.UserBaseInfo;
@@ -60,6 +61,9 @@ public class GameSign {
 			UserBaseInfo.drawLott7101(userID, token, mobile);
 			
 			gameResignAndGetGift(token, userID);
+			
+			SDDZTest.get7067(mobile, userID, token);
+			SDDZTest.get7045(mobile, userID, token);
 			
 			Thread.sleep(2000);
 		}

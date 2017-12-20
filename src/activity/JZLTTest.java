@@ -153,7 +153,7 @@ public class JZLTTest {
 			} else if (i < 10000) {
 				mobile = mobile + i;
 			}
-			UserBaseInfo.register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C", actTypeId);
+			UserBaseInfo.register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C");
 		}
 		
 		for (int i = 1; i < 50; i++) {
