@@ -428,8 +428,8 @@ public class JzSpTest {
 	}
 
 	public static void main(String[] args) throws IOException, AesException {
-//		compareJddSpToGf_JZ();
-		getJZSpFromJdd();
+		compareJddSpToGf_JZ();
+//		getJZSpFromJdd();
 //		getFinalSoccerFromData("20170918");
 	}
 }

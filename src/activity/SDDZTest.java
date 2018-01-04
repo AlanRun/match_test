@@ -233,6 +233,10 @@ public class SDDZTest {
 //			} else if ( i < 100) {
 //				mobile = mobile + "00" + i;
 //			} else if (i < 1000) {
+		
+		
+		
+		
 //				mobile = mobile + "0" + i;
 //			} else if (i < 10000) {
 //				mobile = mobile + i;

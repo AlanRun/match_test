@@ -6,6 +6,7 @@ import java.util.Map;
 import com.jdd.fm.core.exception.AesException;
 import com.jdd.fm.core.utils.TransferAesEncrypt;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import utils.HttpRequester;
 import utils.HttpRespons;
@@ -82,6 +83,56 @@ public class AppReq {
 				body.put(p[0], p[1]);
 			}
 		}
+		obj.put("body", body);
+		params = obj.toString();
+		return params;
+	}
+	
+	public static String setParmas(String params, String hParams, String bParams, String nParams) {
+
+		JSONObject obj = JSONObject.fromObject(params);
+		JSONObject header = obj.getJSONObject("header");
+		if (!hParams.equals("")) {
+			String[] hp = hParams.split(";");
+			for (int i = 0; i < hp.length; i++) {
+				String param = hp[i];
+				String[] p = param.split(",");
+				header.put(p[0], p[1]);
+			}
+		}
+		obj.put("header", header);
+
+		String bodys = obj.getString("body");
+		JSONObject body = JSONObject.fromObject(bodys);
+		if (!bParams.equals("")) {
+			String[] bp = bParams.split(";");
+			for (int i = 0; i < bp.length; i++) {
+				String param = bp[i];
+				String[] p = param.split(",");
+//				if (p[0].equals("Money") || p[0].equals("LotteryID") || p[0].equals("Multiple")) {
+//					body.put(p[0], Integer.valueOf(p[1]));
+//				} else {
+					body.put(p[0], p[1]);
+//				}
+			}
+		}
+		
+		String NumberS = body.getString("Number");
+		JSONObject Number = (JSONObject) JSONArray.fromObject(NumberS).get(0);
+		if (!nParams.equals("")) {
+			String[] np = nParams.split(";");
+			for (int i = 0; i < np.length; i++) {
+				String param = np[i];
+				String[] p = param.split(",");
+//				if (p[0].equals("playid")) {
+//					Number.put(p[0], Integer.valueOf(p[1]));
+//				} else {
+					Number.put(p[0], p[1]);
+//				}
+			}
+		}
+		body.put("Number", "[" + Number + "]");
+		
 		obj.put("body", body);
 		params = obj.toString();
 		return params;

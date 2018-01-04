@@ -2,6 +2,8 @@ package interfaceTest;
 
 import java.io.IOException;
 import com.jdd.fm.core.exception.AesException;
+
+//import activity.Test108;
 import helper.AppReq;
 import helper.DataUrls;
 import helper.SmsTest;
@@ -136,6 +138,122 @@ public class UserBaseInfo {
 		}
 	}
 	
+	
+	/**
+	 * 
+	 * @param LottID
+	 * 29 吉林时时彩
+	 * 62 老11选五
+	 * 67 快3
+	 * 68 新快3
+	 * 69 吉林快3
+	 * 71 广西11选5
+	 * 72 幸运11选5
+	 * 73 新11选5
+	 * 74 欢乐11选5
+	 * 75 江西11选5
+	 * 78 好运11选5
+	 * 79 青海11选5
+	 * 81 重庆快乐十分
+	 * @return
+	 * @throws Exception
+	 */
+	public static String getIssueName(String LottID) throws Exception {
+		String url = DataUrls.url_bd;
+		String params = DataUrls.params_200;
+		String suc = "code\":0";
+		
+		String IssueName = "";
+		
+		String hParams = "";
+		String bParams = "LottID," + LottID;
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONArray data = obj.getJSONArray("data");
+			
+			if (!data.toString().equals("") && !data.toString().equals("[]")) {
+				
+				JSONObject d = (JSONObject) data.get(0);
+				IssueName = d.getString("IssueName");
+			}
+		}
+		
+		return IssueName;
+	}
+	
+	/**
+	 * 购买11选5
+	 * @param mobile
+	 * @param Multiple
+	 * @return
+	 * @throws Exception 
+	 */
+	public static boolean buy11X5(String mobile, int Multiple, String LotteryID) throws Exception{
+		String params = DataUrls.params_207_11x5;
+		String url = DataUrls.url_order;
+		String suc = "操作成功";
+		
+		UserInfo user = LoginTest.getUserInfo(mobile, "aaaaaa");
+		
+		String token = user.getToken();
+		String userId = user.getUserId();
+		
+		String IssueName = getIssueName(LotteryID);
+		
+		String hParams = "userID," + userId + ";token," + token;
+		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2) + ";LotteryID," + LotteryID + ";IssueName," + IssueName;
+		String nParams = "playid," + LotteryID + "10";
+		
+		params = AppReq.setParmas(params, hParams, bParams, nParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * 购买快3
+	 * @param mobile
+	 * @param Multiple
+	 * @return
+	 * @throws Exception 
+	 */
+	public static boolean buyk3(String mobile, int Multiple, String LotteryID) throws Exception{
+		String params = DataUrls.params_207_k3;
+		String url = DataUrls.url_order;
+		String suc = "操作成功";
+		
+		UserInfo user = LoginTest.getUserInfo(mobile, "aaaaaa");
+		
+		String token = user.getToken();
+		String userId = user.getUserId();
+		
+		String IssueName = getIssueName(LotteryID);
+		
+		String hParams = "userID," + userId + ";token," + token;
+		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2) + ";LotteryID," + LotteryID + ";IssueName," + IssueName;
+		String nParams = "playid," + LotteryID + "05";
+		
+		params = AppReq.setParmas(params, hParams, bParams, nParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	/**
 	 * 购买竞足
 	 * @param mobile
@@ -156,10 +274,15 @@ public class UserBaseInfo {
 		
 		String HongBaoSelectID = getUserRedpackage(userId,token);
 		
+		if (HongBaoSelectID.equals("")) {
+			HongBaoSelectID = "0";
+		}
+		
 		String hParams = "userID," + userId + ";token," + token;
 		String bParams = "HongBaoSelectID," + HongBaoSelectID + ";Multiple," + Multiple + ";Money," + (Multiple*2);
 		
 		params = AppReq.setParmas(params, hParams, bParams);
+		System.err.println(params);
 		String reString = AppReq.getResStr(url, params);
 		
 		System.out.println(reString);
@@ -275,18 +398,18 @@ public class UserBaseInfo {
 	/**
 	 * 获取用户基本信息
 	 * @param num
-	 * @param pwd
+	 * @param pw
 	 * @return
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean getUserBaseInfo(String num, String pwd) throws AesException, IOException{
+	public static boolean getUserBaseInfo(String num, String pw) throws AesException, IOException{
 		String url = DataUrls.url_user;
 		String params = DataUrls.params_107;
 		String suc = num;
 		String uuid = "04FCEE6BDE0F461FACD85";
 		
-		UserInfo user = getUserInfo(num, pwd);
+		UserInfo user = getUserInfo(num, pw);
 		
 		String token = user.getToken();
 		String userId = user.getUserId();
@@ -344,6 +467,58 @@ public class UserBaseInfo {
 		String uuid = "04FCEE6BDE0F461FACD85";
 		
 		String hParams = "userID," + userID + ";token," + token + ";uuid," + num + uuid;
+		String bParams = "";
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * @param userID
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
+	public static boolean check10720(String userID, String token) throws Exception{
+		String url = DataUrls.url_user;
+		String params = DataUrls.params_20004;
+		String suc = "操作成功";
+		String uuid = "04FCEE6BDE0F461FACD85";
+		
+		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;
+		String bParams = "";
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * @param userID
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
+	public static boolean check1051(String userID, String token) throws Exception{
+		String url = DataUrls.url_user;
+		String params = DataUrls.params_20004;
+		String suc = "操作成功";
+		String uuid = "04FCEE6BDE0F461FACD85";
+		
+		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;
 		String bParams = "";
 		
 		params = AppReq.setParmas(params, hParams, bParams);
@@ -623,53 +798,50 @@ public class UserBaseInfo {
 		return result;
 	}
 
-	public static void main(String[] args) throws AesException, IOException {
-		String pw = "aaaaaa";
-//		for (int i = 1; i < 10; i++) {
-//			String mobile = "13898760002";
-//			getUserBaseInfo(num+i, pwd);
-//		}
-//		
-//		for (int i = 0; i < 10; i++) {
-//			String num = "1301111002";
-//			getUserBaseInfo(num+i, pwd);
-//		}
+	public static void main(String[] args) throws Exception {
+		int Multiple = 1;
+		String mobile = "13811110003";
+//		buy11X5(mobile, Multiple, "62");
+		buyk3(mobile, Multiple, "69");
 		
-//		String IDCard = "320721199110292827";
-//		String RName = "王二";
-		
-//		String cmdName = "app_zz";
 //		String type = "zz";
-//		String uuid = mobile + "04FCEE6BDE0F461FACD85";
-//		String platformCode = "IPHONE";
-//		registerUseCmdName(type, mobile, pwd, cmdName, uuid, platformCode);
-//		getUserBaseInfo(mobile, pwd);
-
-		
-//		for (int i = 1; i < 10; i++) {
-//			String mobile = "1381111000" + i;
-//			String cmdName = "app_zz";
-//			registerUseCmdName("zz", mobile, pw, cmdName);
-//			getUserInfo(mobile, pw);
-//			getUserBaseInfo(mobile, pw);
-//		}
-		
-		register7054Use("zz", "13422261007", "D8AC6F436813D05E3F87841978B1299C");
-//		resetPwd("zz", "13422261006");
-		
-		
-//		for (int i = 0; i < 1005; i++) {
-//			String mobile = "1342222";
+//		for (int i = 6383; i < 10000; i++) {
+//			String mobile = "1341111";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
-//			} else if (i < 100) {
+//			} else if ( i < 100) {
 //				mobile = mobile + "00" + i;
 //			} else if (i < 1000) {
 //				mobile = mobile + "0" + i;
 //			} else if (i < 10000) {
 //				mobile = mobile + i;
 //			}
-//			getUserBaseInfo(mobile, pwd);
+//			UserBaseInfo.register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C");
+//		}
+		
+//		UserBaseInfo.register7054Use(type, "13411111465", "D8AC6F436813D05E3F87841978B1299C");
+//		UserBaseInfo.resetPwd(type, "13411111465");
+		
+//		for (int i = 3322; i < 10000; i++) {
+//			String mobile = "1341111";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if ( i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//			
+//			for (int j = 0; j < 3; j++) {
+//				Test108.getMechartNo(userId, token, "2000");
+//			}
+//			
 //		}
 	}
 }

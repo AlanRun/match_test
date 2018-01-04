@@ -47,6 +47,34 @@ public class Test108 {
 			System.out.println(re);
 		}
 	}
+	
+	/**
+	 * 108接口调起充值
+	 * 
+	 * @param userID
+	 * @param token
+	 * @throws Exception
+	 */
+	public static void getMechartNo(String userID, String token, String money) throws Exception {
+		String url = DataUrls.url_trade;
+		String params = DataUrls.params_108;
+		String suc = "code\":0";
+
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "PayMoney," + money;
+		params = AppReq.setParmas(params, hParams, bParams);
+		System.out.println(params);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			String MechartNo = data.getString("MechartNo");
+
+			String re = AppReq.getResStrByGet(DataUrls.url_pay + "payNumber=" + MechartNo + "&tradeMoney=" + money);
+			System.out.println(re);
+		}
+	}
 
 	/**
 	 * 领取充20资格
@@ -130,92 +158,30 @@ public class Test108 {
 			final String token = user.getToken();
 			final String userId = user.getUserId();
 			
-//			getMechartNo(userId, token);
+			getMechartNo(userId, token);
 			
 			getUserRedpackage(userId, token);
-
-//			new Thread(new Runnable() {
-//				@Override
-//				public void run() {
-//					try {
-//						getMechartNo(userId, token);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//
-//				}
-//			}).start();
-//
-//			new Thread(new Runnable() {
-//				@Override
-//				public void run() {
-//					try {
-//						getMechartNo(userId, token);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//
-//				}
-//			}).start();
-//
-//			new Thread(new Runnable() {
-//				@Override
-//				public void run() {
-//					try {
-//						getMechartNo(userId, token);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//
-//				}
-//			}).start();
-//
-//			new Thread(new Runnable() {
-//				@Override
-//				public void run() {
-//					try {
-//						getMechartNo(userId, token);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//
-//				}
-//			}).start();
-//
-//			new Thread(new Runnable() {
-//				@Override
-//				public void run() {
-//					try {
-//						getMechartNo(userId, token);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//
-//				}
-//			}).start();
-			
-			
 		}
 	}
 
 	public static void main(String[] args) throws Exception {
-//		for (int i = 1; i < 20; i++) {
-//			String mobile = "1342223";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if (i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//
-//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-//			String token = user.getToken();
-//			String userId = user.getUserId();
-//			getRechageQualify(mobile, userId, token);
-//		}
+		for (int i = 1; i < 20; i++) {
+			String mobile = "1342223";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if (i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+			String token = user.getToken();
+			String userId = user.getUserId();
+			getRechageQualify(mobile, userId, token);
+		}
 		testRechage();
 	}
 
