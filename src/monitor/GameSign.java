@@ -56,14 +56,16 @@ public class GameSign {
 			String token = user.getToken();
 			String userID = user.getUserId();
 			
+			UserBaseInfo.getUserRedpackage(userID, token);
+			
 			UserBaseInfo.sign20004(userID, token, mobile);
 			UserBaseInfo.drawLott7103(userID, token, mobile);
 			UserBaseInfo.drawLott7101(userID, token, mobile);
 			
 			gameResignAndGetGift(token, userID);
 			
-			SDDZTest.get7067(mobile, userID, token);
-			SDDZTest.get7045(mobile, userID, token);
+//			SDDZTest.get7067(mobile, userID, token);
+//			SDDZTest.get7045(mobile, userID, token);
 			
 			Thread.sleep(2000);
 		}

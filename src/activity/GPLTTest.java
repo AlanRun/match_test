@@ -17,7 +17,7 @@ import net.sf.json.JSONObject;
  */
 public class GPLTTest {
 
-	private static String actTypeId = "100001";
+	private static String actTypeId = "100008";
 	private static String type = "zz";;
 
 	/**
@@ -31,8 +31,8 @@ public class GPLTTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean getActQualify(String name, String userID, String token) throws Exception {
-		String params = DataUrls.params_7055;
+	public static boolean getActQualify7113(String name, String userID, String token) throws Exception {
+		String params = DataUrls.params_7113;
 		String url = DataUrls.url_act;
 		String suc = "领取成功";
 
@@ -49,43 +49,7 @@ public class GPLTTest {
 	}
 
 	/**
-	 * 获取用户总额为3000的彩金卡ID
-	 * 
-	 * @param userID
-	 * @param token
-	 * @return
-	 * @throws AesException
-	 * @throws IOException
-	 */
-	public static void getUserRedpackage(String userID, String token, String act) throws Exception {
-		String url = DataUrls.url_rp;
-		String params = DataUrls.params_402;
-		String suc = "code\":0";
-
-		String hParams = "userID," + userID + ";token," + token;
-		String bParams = "";
-
-		params = AppReq.setParmas(params, hParams, bParams);
-		String reString = AppReq.getResStr(url, params);
-
-		System.out.println(reString);
-		if (reString.contains(suc)) {
-			JSONObject obj = JSONObject.fromObject(reString);
-			JSONObject data = obj.getJSONObject("data");
-			JSONArray items = data.getJSONArray("item");
-			for (int i = 0; i < items.size(); i++) {
-				JSONObject item = (JSONObject) items.get(i);
-				String Name = item.getString("Name");
-				if (Name.equals(act)) {
-					String TotalMoney = item.getString("TotalMoney");
-					System.err.println(Name + " : " + TotalMoney);
-				}
-			}
-		}
-	}
-
-	/**
-	 * 7056活动基本信息及绑定排名
+	 * 7111活动基本信息及绑定排名
 	 * 
 	 * @param mobile
 	 * @param Multiple
@@ -93,9 +57,9 @@ public class GPLTTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean get7056() throws Exception {
+	public static boolean get7111() throws Exception {
 		String url = DataUrls.url_act;
-		String params = DataUrls.params_7056;
+		String params = DataUrls.params_7111;
 		String suc = "code";
 
 		String hParams = "";
@@ -123,8 +87,45 @@ public class GPLTTest {
 
 	public static void main(String[] args) throws Exception {
 
-		for (int i = 1; i < 15; i++) {
-			String mobile = "1381111";
+//		for (int i = 1; i < 100; i++) {
+//			String mobile = "1341111";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//			getActQualify7113(mobile, userId, token);
+//		}
+
+//		for (int i = 1; i < 45; i++) {
+//			String mobile = "1341111";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			String LotteryID = "67";
+//			if (i > 1000) {
+//				UserBaseInfo.buyk3(mobile, 1000, LotteryID);
+//			} else {
+//				UserBaseInfo.buyk3(mobile, i, LotteryID);
+//			}
+//		}
+		
+		for (int i = 1; i < 100; i++) {
+			String mobile = "1341111";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
 			} else if (i < 100) {
@@ -134,49 +135,32 @@ public class GPLTTest {
 			} else if (i < 10000) {
 				mobile = mobile + i;
 			}
-
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-			String token = user.getToken();
-			String userId = user.getUserId();
-			getActQualify(mobile, userId, token);
-		}
-
-		for (int i = 1; i < 15; i++) {
-			String mobile = "1381111";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if (i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
+			String LotteryID = "74";
 			if (i > 1000) {
-				UserBaseInfo.buyJZ(mobile, 1000);
+				UserBaseInfo.buy11X5(mobile, 1000, LotteryID);
 			} else {
-				UserBaseInfo.buyJZ(mobile, i);
+				UserBaseInfo.buy11X5(mobile, i, LotteryID);
 			}
 		}
 
-		for (int i = 1; i < 15; i++) {
-			String mobile = "1381111";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if (i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-			String token = user.getToken();
-			String userId = user.getUserId();
-
-			getUserRedpackage(userId, token, "高频擂台赛");
-			System.err.println(mobile);
-		}
+//		for (int i = 1; i < 40; i++) {
+//			String mobile = "1341111";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//
+//			UserBaseInfo.getUserRedpackage(userId, token, "高频擂台");
+//			System.err.println(mobile);
+//		}
 	}
 
 }

@@ -272,17 +272,10 @@ public class UserBaseInfo {
 		String token = user.getToken();
 		String userId = user.getUserId();
 		
-		String HongBaoSelectID = getUserRedpackage(userId,token);
-		
-		if (HongBaoSelectID.equals("")) {
-			HongBaoSelectID = "0";
-		}
-		
 		String hParams = "userID," + userId + ";token," + token;
-		String bParams = "HongBaoSelectID," + HongBaoSelectID + ";Multiple," + Multiple + ";Money," + (Multiple*2);
+		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2);
 		
 		params = AppReq.setParmas(params, hParams, bParams);
-		System.err.println(params);
 		String reString = AppReq.getResStr(url, params);
 		
 		System.out.println(reString);

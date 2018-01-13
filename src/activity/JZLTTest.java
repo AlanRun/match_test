@@ -168,7 +168,7 @@ public class JZLTTest {
 //		}
 		
 //		for (int i = 1; i < 15; i++) {
-//			String mobile = "1381111";
+//			String mobile = "1341111";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
 //			} else if (i < 100) {
@@ -184,43 +184,43 @@ public class JZLTTest {
 //			String userId = user.getUserId();
 //			getActQualify(mobile, userId, token);
 //		}
-//		
-//		for (int i = 1; i < 15; i++) {
-//			String mobile = "1381111";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if ( i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//			if (i > 1000) {
-//				UserBaseInfo.buyJZ(mobile, 1000);
-//			} else {
-//				UserBaseInfo.buyJZ(mobile, i);
-//			}
-//		}
 		
 		for (int i = 1; i < 15; i++) {
-		String mobile = "1381111";
-		if (i < 10) {
-			mobile = mobile + "000" + i;
-		} else if ( i < 100) {
-			mobile = mobile + "00" + i;
-		} else if (i < 1000) {
-			mobile = mobile + "0" + i;
-		} else if (i < 10000) {
-			mobile = mobile + i;
+			String mobile = "1341111";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if ( i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			if (i > 1000) {
+				UserBaseInfo.buyJZ(mobile, 1000);
+			} else {
+				UserBaseInfo.buyJZ(mobile, i);
+			}
 		}
-		UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-		String token = user.getToken();
-		String userId = user.getUserId();
-		
-		getUserRedpackage(userId, token, "足球擂台赛");
-		System.err.println(mobile);
-		}
+//		
+//		for (int i = 1; i < 15; i++) {
+//		String mobile = "1341111";
+//		if (i < 10) {
+//			mobile = mobile + "000" + i;
+//		} else if ( i < 100) {
+//			mobile = mobile + "00" + i;
+//		} else if (i < 1000) {
+//			mobile = mobile + "0" + i;
+//		} else if (i < 10000) {
+//			mobile = mobile + i;
+//		}
+//		UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//		String token = user.getToken();
+//		String userId = user.getUserId();
+//		
+//		getUserRedpackage(userId, token, "足球擂台赛");
+//		System.err.println(mobile);
+//		}
 	}
 
 }
