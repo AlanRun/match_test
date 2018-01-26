@@ -1,6 +1,5 @@
 package monitor;
 
-import activity.SDDZTest;
 import helper.AppReq;
 import helper.UserInfo;
 import interfaceTest.UserBaseInfo;

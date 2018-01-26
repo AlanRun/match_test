@@ -121,10 +121,8 @@ public class UserBaseInfo {
 		String token = user.getToken();
 		String userId = user.getUserId();
 		
-		String HongBaoSelectID = getUserRedpackage(userId,token);
-		
 		String hParams = "userID," + userId + ";token," + token;
-		String bParams = "HongBaoSelectID," + HongBaoSelectID;
+		String bParams = "";
 		
 		params = AppReq.setParmas(params, hParams, bParams);
 		System.out.println(params);
@@ -221,6 +219,66 @@ public class UserBaseInfo {
 	}
 	
 	/**
+	 * 购买高频
+	 * 29 吉林时时彩
+	 * 62 老11选五
+	 * 67 快3
+	 * 68 新快3
+	 * 69 吉林快3
+	 * 71 广西11选5
+	 * 72 幸运11选5
+	 * 73 新11选5
+	 * 74 欢乐11选5
+	 * 75 江西11选5
+	 * 78 好运11选5
+	 * 79 青海11选5
+	 * 81 重庆快乐十分
+	 * @param mobile 用户名
+	 * @param Multiple 倍数
+	 * @param LotteryID 彩种ID
+	 * @return
+	 * @throws Exception 
+	 */
+	public static boolean buyGaoPin(String mobile, int Multiple, String LotteryID) throws Exception{
+		String params = "";
+		String url = DataUrls.url_order;
+		String suc = "操作成功";
+		String nParams = "";
+		
+		if (LotteryID.equals("62") || LotteryID.equals("71") || LotteryID.equals("72") || LotteryID.equals("78") || LotteryID.equals("74")) {
+			params = DataUrls.params_207_11x5;
+			nParams = "playid," + LotteryID + "10";
+		} else if (LotteryID.equals("67") || LotteryID.equals("68") || LotteryID.equals("69")) {
+			params = DataUrls.params_207_k3;
+			nParams = "playid," + LotteryID + "05";
+		}
+		
+		UserInfo user = LoginTest.getUserInfo(mobile, "aaaaaa");
+		
+		String token = user.getToken();
+		String userId = user.getUserId();
+		
+		String IssueName = getIssueName(LotteryID);
+		
+		if (IssueName.equals("")) {
+			return false;
+		}
+		
+		String hParams = "userID," + userId + ";token," + token;
+		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2) + ";LotteryID," + LotteryID + ";IssueName," + IssueName;
+		
+		params = AppReq.setParmas(params, hParams, bParams, nParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
 	 * 购买快3
 	 * @param mobile
 	 * @param Multiple
@@ -256,8 +314,8 @@ public class UserBaseInfo {
 	
 	/**
 	 * 购买竞足
-	 * @param mobile
-	 * @param Multiple
+	 * @param mobile 用户名
+	 * @param Multiple 倍数
 	 * @return
 	 * @throws AesException
 	 * @throws IOException
@@ -288,8 +346,8 @@ public class UserBaseInfo {
 	
 	/**
 	 * 购买竞篮
-	 * @param mobile
-	 * @param Multiple
+	 * @param mobile 用户名
+	 * @param Multiple 倍数
 	 * @return
 	 * @throws AesException
 	 * @throws IOException
@@ -304,10 +362,8 @@ public class UserBaseInfo {
 		String token = user.getToken();
 		String userId = user.getUserId();
 		
-		String HongBaoSelectID = getUserRedpackage(userId,token);
-		
 		String hParams = "userID," + userId + ";token," + token;
-		String bParams = "HongBaoSelectID," + HongBaoSelectID + ";Multiple," + Multiple + ";Money," + (Multiple*2);
+		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2);
 		
 		System.out.println(hParams);
 		System.out.println(bParams);
@@ -580,6 +636,30 @@ public class UserBaseInfo {
 		}
 	}
 	
+	
+	public static boolean register100UseVoice(String type, String mobile, String cmdName) throws AesException, IOException{
+		String params = DataUrls.params_100_v;
+		String url = DataUrls.url_user;
+		String suc = "验证码发送成功";
+		String uuid = "C4A57AD8DE42C3EB7C83B";
+		
+		String hParams = "uuid," + mobile + uuid;
+		String bParams = "Name," + mobile;
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			String code = SmsTest.getSmsCode(type, mobile);
+			System.out.println(code);
+			result = verifySmsCode(mobile, code, cmdName);
+		}
+		
+		System.out.println("register result =" + result);
+		return result;
+	}
+	
 	/**
 	 * 老带新活动新用户注册
 	 * @param type
@@ -595,8 +675,41 @@ public class UserBaseInfo {
 		String url = DataUrls.url_user;
 		String suc = "发送验证码成功";
 		String actTypeId = "48484";
+		String uuid = "C4A57AD8DE42C3EB7C83B";
 		
-		String hParams = "";
+		String hParams = "uuid," + mobile + uuid;
+		String bParams = "mobile," + mobile;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			String verifyCode = SmsTest.getSmsCode(type, mobile);
+			System.out.println(verifyCode);
+			result = verify7054Code(actTypeId, userId, mobile, verifyCode);
+		}
+		
+		System.out.println("register result =" + result);
+		return result;
+	}
+	
+	/**
+	 * 老带新活动新用户注册
+	 * @param type
+	 * @param mobile
+	 * @param userId
+	 * @param actTypeId
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean register7054Use(String type, String mobile, String userId, String actTypeId) throws AesException, IOException{
+		String params = DataUrls.params_20018;
+		String url = DataUrls.url_user;
+		String suc = "发送验证码成功";
+		String uuid = "C4A57AD8DE42C3EB7C83B";
+		
+		String hParams = "uuid," + mobile + uuid;
 		String bParams = "mobile," + mobile;
 		params = AppReq.setParmas(params, hParams, bParams);
 		String reString = AppReq.getResStr(url, params);
@@ -790,12 +903,42 @@ public class UserBaseInfo {
 		
 		return result;
 	}
+	
+	public static boolean test100() throws Exception{
+		
+		String url = DataUrls.url_user;
+		String params = DataUrls.params_100_v;
+		String suc = "验证码发送成功";
+		boolean result = false;
+		
+		String mobile = "13411120006";
+		String type = "zz";
+		String cmdName = "app_zz";
+		
+		String hParams = "";
+		String bParams = "Name," + mobile;
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		
+		System.err.println(params);
+		
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			String code = SmsTest.getSmsCode(type, mobile);
+			result = verifySmsCode(mobile, code, cmdName);
+		}
+		return result;
+	}
 
 	public static void main(String[] args) throws Exception {
-		int Multiple = 1;
-		String mobile = "13811110003";
+//		int Multiple = 1;
+//		String mobile = "13811110003";
 //		buy11X5(mobile, Multiple, "62");
-		buyk3(mobile, Multiple, "69");
+//		buyk3(mobile, Multiple, "69");
+		
+		test100();
 		
 //		String type = "zz";
 //		for (int i = 6383; i < 10000; i++) {

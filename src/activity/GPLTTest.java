@@ -18,7 +18,7 @@ import net.sf.json.JSONObject;
 public class GPLTTest {
 
 	private static String actTypeId = "100008";
-	private static String type = "zz";;
+//	private static String type = "zz";;
 
 	/**
 	 * 领取擂台资格
@@ -87,42 +87,42 @@ public class GPLTTest {
 
 	public static void main(String[] args) throws Exception {
 
-//		for (int i = 1; i < 100; i++) {
-//			String mobile = "1341111";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if (i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//
-//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-//			String token = user.getToken();
-//			String userId = user.getUserId();
-//			getActQualify7113(mobile, userId, token);
-//		}
+		for (int i = 1; i < 100; i++) {
+			String mobile = "1341111";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if (i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
 
-//		for (int i = 1; i < 45; i++) {
-//			String mobile = "1341111";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if (i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//			String LotteryID = "67";
-//			if (i > 1000) {
-//				UserBaseInfo.buyk3(mobile, 1000, LotteryID);
-//			} else {
-//				UserBaseInfo.buyk3(mobile, i, LotteryID);
-//			}
-//		}
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+			String token = user.getToken();
+			String userId = user.getUserId();
+			getActQualify7113(mobile, userId, token);
+		}
+
+		for (int i = 1; i < 45; i++) {
+			String mobile = "1341111";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if (i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			String LotteryID = "67";
+			if (i > 1000) {
+				UserBaseInfo.buyk3(mobile, 1000, LotteryID);
+			} else {
+				UserBaseInfo.buyk3(mobile, i, LotteryID);
+			}
+		}
 		
 		for (int i = 1; i < 100; i++) {
 			String mobile = "1341111";
@@ -143,24 +143,24 @@ public class GPLTTest {
 			}
 		}
 
-//		for (int i = 1; i < 40; i++) {
-//			String mobile = "1341111";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if (i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-//			String token = user.getToken();
-//			String userId = user.getUserId();
-//
-//			UserBaseInfo.getUserRedpackage(userId, token, "高频擂台");
-//			System.err.println(mobile);
-//		}
+		for (int i = 1; i < 40; i++) {
+			String mobile = "1341111";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if (i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+			String token = user.getToken();
+			String userId = user.getUserId();
+
+			UserBaseInfo.getUserRedpackage(userId, token, "高频擂台");
+			System.err.println(mobile);
+		}
 	}
 
 }

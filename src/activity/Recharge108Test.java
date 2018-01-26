@@ -11,13 +11,12 @@ import interfaceTest.UserBaseInfo;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-
 /**
  * 充值20
  * @author Alan
  *
  */
-public class Test108 {
+public class Recharge108Test {
 
 	/**
 	 * 108接口调起充值
