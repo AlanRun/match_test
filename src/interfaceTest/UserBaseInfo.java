@@ -904,6 +904,38 @@ public class UserBaseInfo {
 		return result;
 	}
 	
+	/**
+	 * 上报uuid
+	 * @param userID
+	 * @param token
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean push1000(String userID, String token) throws AesException, IOException{
+		
+		String url = DataUrls.url_push;
+		String params = DataUrls.params_1000;
+		String suc = "设置成功";
+		boolean result = false;
+		
+		String uuid = token.substring(token.length()-32, token.length());
+		System.out.println(uuid);
+		
+		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;
+		String bParams = "";
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			result = true;
+		}
+		
+		return result;
+	}
+	
 	public static boolean test100() throws Exception{
 		
 		String url = DataUrls.url_user;
