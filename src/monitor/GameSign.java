@@ -1,5 +1,6 @@
 package monitor;
 
+import activity.XNJFTest;
 import helper.AppReq;
 import helper.UserInfo;
 import interfaceTest.UserBaseInfo;
@@ -88,20 +89,22 @@ public class GameSign {
 			
 			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
 			String token = user.getToken();
-			String userID = user.getUserId();
+			String userId = user.getUserId();
 			
-			UserBaseInfo.push1000(userID, token);
+			UserBaseInfo.push1000(userId, token);
 			
 //			UserBaseInfo.getUserRedpackage(userID, token);
 			
-			UserBaseInfo.sign20004(userID, token, mobile);
-			UserBaseInfo.drawLott7103(userID, token, mobile);
-			UserBaseInfo.drawLott7101(userID, token, mobile);
+			UserBaseInfo.sign20004(userId, token, mobile);
+			UserBaseInfo.drawLott7103(userId, token, mobile);
+			UserBaseInfo.drawLott7101(userId, token, mobile);
 			
-			gameResignAndGetGift(token, userID);
+			gameResignAndGetGift(token, userId);
 			
-//			SDDZTest.get7067(mobile, userID, token);
-//			SDDZTest.get7045(mobile, userID, token);
+//			XNJFTest.getCard7091(mobile, userId, token);
+			
+//			SDDZTest.get7067(mobile, userId, token);
+//			SDDZTest.get7045(mobile, userId, token);
 //			
 //			Thread.sleep(2000);
 		}
