@@ -22,21 +22,23 @@ public class Test320 {
 		
 		String reString = AppReq.getResStr(url, params);
 		System.out.println(reString);
-		if (reString.contains(suc)) {
 			JSONObject obj = JSONObject.fromObject(reString);
 			JSONObject data = obj.getJSONObject("data");
 			JSONArray matches = data.getJSONArray("matches");
 			
 			for (int i = 0; i < matches.size(); i++) {
-				
+				JSONObject match = (JSONObject) matches.get(i);
+				String playOption = match.getString("playOption");
+				if (playOption.length() < 5) {
+					System.out.println(match.getString("jzWeek") + match.getString("jzNum"));
+				}
 			}
 			
-		}
 		
 	}
 	
 	public static void main(String[] args) throws Exception {
-		String issue = "2017-11-30";
+		String issue = "2018-01-28";
 		get320(issue);
 	}
 

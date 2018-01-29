@@ -168,6 +168,8 @@ public class DataUrls {
 	public static final String bs_handicap = "https://saishi.jdd.com/ajax/soccer.ashx?action=handicap&pcode=h5&version=v1.0.0&cmsm=handicapCallback&IsNBA=1&lotteryId=91&matchid=11483949";	// 大小分赔率
 	public static final String bs_handicapdetail = "https://saishi.jdd.com/ajax/soccer.ashx?action=handicapdetail&pcode=h5&version=v1.0.0&cmsm=dzCallback&isnba=1&lotteryId=91&matchid=11483949&bookid=-99999&handicap=20";	// 大小分赔率
 	public static final String params_7051 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":7051,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actTypeId':'78674','redemptionCode':'2c3c67cb3ca8114f','mobile':'13811110001','verifyCode':'660727'}\"}";
+	public static final String params_7091 = "{\"header\":{\"appVersion\":\"3.9.9\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":7091,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{}\"}";
+	public static final String params_7092 = "{\"header\":{\"appVersion\":\"3.9.9\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":7092,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{}\"}";
 	
 	
 	public static void main(String[] args) {
