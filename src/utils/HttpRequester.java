@@ -8,8 +8,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Date;
 import java.util.Map;
 import java.util.Vector;
 
@@ -156,6 +155,51 @@ public class HttpRequester {
 		// 设置文件长度
 		urlConnection.setRequestProperty("Content-Length", String.valueOf(data.length));
 		urlConnection.setRequestProperty("Authorization", Authorization);
+		urlConnection.setRequestProperty("App-Version", "2.9.4.1");
+		urlConnection.setRequestProperty("App-Channel", "100001");
+		urlConnection.setRequestProperty("Repeated-Submission", "" + new Date().getTime());
+		urlConnection.setRequestProperty("accept", "*/*");
+		// 设置文件类型:
+		urlConnection.setRequestProperty("Content-Type", "application/json");
+
+		// 开始连接请求
+		urlConnection.connect();
+		OutputStream out = urlConnection.getOutputStream();
+		// 写入请求的字符串
+		out.write(ParamsString.getBytes());
+		out.flush();
+		out.close();
+
+		return this.makeContent(urlString, urlConnection);
+	}
+	
+	
+	public HttpRespons sendOptions(String urlString, String ParamsString, String Authorization) throws IOException {
+		// 创建url资源
+		URL url = new URL(urlString);
+		// 建立http连接
+		HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+		// 设置允许输出
+		urlConnection.setDoOutput(true);
+
+		urlConnection.setDoInput(true);
+
+		// 设置不用缓存
+		urlConnection.setUseCaches(true);
+		// 设置传递方式
+		urlConnection.setRequestMethod("POST");
+		// 设置维持长连接
+		urlConnection.setRequestProperty("Connection", "Keep-Alive");
+		// 设置文件字符集:
+		urlConnection.setRequestProperty("Charset", "UTF-8");
+		// 转换为字节数组
+		byte[] data = ParamsString.getBytes();
+		// 设置文件长度
+		urlConnection.setRequestProperty("Content-Length", String.valueOf(data.length));
+		urlConnection.setRequestProperty("Authorization", Authorization);
+		urlConnection.setRequestProperty("App-Version", "2.9.4.1");
+		urlConnection.setRequestProperty("App-Channel", "100001");
+		urlConnection.setRequestProperty("Repeated-Submission", "" + new Date().getTime());
 
 		urlConnection.setRequestProperty("accept", "*/*");
 		// 设置文件类型:
