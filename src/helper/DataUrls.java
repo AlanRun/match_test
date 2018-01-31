@@ -98,6 +98,7 @@ public class DataUrls {
 	public static final String params_10720 = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.9\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"token\":\"\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"10720\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{}\"}";
 	public static final String params_7113 = "{\"header\":{\"appVersion\":\"3.9.8\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":7113,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"13811110006\"},\"body\":\"{'actTypeId':'100008'}\"}";
 	public static final String params_7111 = "{\"header\":{\"appVersion\":\"3.9.8\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":7111,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"13811110006\"},\"body\":\"{'actTypeId':'100008'}\"}";
+	public static final String params_30002 = "{\"header\":{\"appVersion\":\"3.9.9\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":30002,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"13811110002\"},\"body\":\"{'goodId':'1'}\"}";
 	
 	// 充值
 //	public static final String params_108 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":108,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'BankPay':'bfnewwxh5pay','PayMoney':'20','errorurl':'https://h5.jdd.com/home/#/user/recharge/success','returnurl':'https://221.224.214.35:8078/pay/notify/bfnewwxh5pay.do'}\"}";
@@ -119,6 +120,7 @@ public class DataUrls {
 	public static final String url_rp = "https://rp-api.jdd.com/redpacket/public/handselMobileHandler.do";
 	public static final String url_push = "https://push-server.jdd.com/jdd/public/safe/pushSet.do";
 	public static final String url_pay = "https://pay-api.jdd.com/jddBankNotice/notifyTest.do?";
+	public static final String url_shop = "https://shop-api.jdd.com/shop/public/securityMobileHandler.do?";
 	
 	public static final String url_info = "https://info-api.jdd.com/info/public/safeMobileHandler.do";
 	public static final String url_appadmin = "https://appadmin-api.jdd.com/appadmin/public/safeMobileHandler.do";
