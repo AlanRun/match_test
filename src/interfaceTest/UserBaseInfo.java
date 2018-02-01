@@ -3,6 +3,7 @@ package interfaceTest;
 import java.io.IOException;
 import com.jdd.fm.core.exception.AesException;
 
+import activity.Test107;
 //import activity.Test108;
 import helper.AppReq;
 import helper.DataUrls;
@@ -444,6 +445,31 @@ public class UserBaseInfo {
 		return result;
 	}
 	
+	public static void getRpNum107(String mobile, String userID, String token) throws Exception{
+		String params = DataUrls.params_107;
+		String url = DataUrls.url_user;
+		String suc = "code\":0";
+		
+		String hParams = "userID," + userID + ";token," + token + ";username," + mobile;
+		String bParams = "";
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+//		if (reString.contains(suc)) {
+//			JSONObject obj = JSONObject.fromObject(reString);
+//			JSONObject data = obj.getJSONObject("data");
+//			int UseableCount = data.getInt("UseableCount");
+//			
+//			for (int i = 0; i < 30; i++) {
+//				if (UseableCount < 2) {
+//					System.err.println("107 rp num : " + UseableCount);
+//				} else {
+//					System.out.println("107 rp num : " + UseableCount);
+//				}
+//			}
+//		}
+	}
+	
 	/**
 	 * 获取用户基本信息
 	 * @param num
@@ -589,13 +615,13 @@ public class UserBaseInfo {
 	 * @return
 	 * @throws Exception
 	 */
-	public static boolean drawLott7101(String userID, String token, String num) throws Exception{
+	public static boolean drawLott7101(String userID, String token, String mobile) throws Exception{
 		String url = DataUrls.url_act;
 		String params = DataUrls.params_7101;
 		String suc = "抽奖成功";
 		String uuid = "04FCEE6BDE0F461FACD85";
 		
-		String hParams = "userID," + userID + ";token," + token + ";uuid," + num + uuid;
+		String hParams = "userID," + userID + ";token," + token + ";uuid," + mobile + uuid;
 		String bParams = "";
 		
 		params = AppReq.setParmas(params, hParams, bParams);
@@ -612,17 +638,17 @@ public class UserBaseInfo {
 	 * 大转盘抽奖
 	 * @param userID
 	 * @param token
-	 * @param num
+	 * @param mobile
 	 * @return
 	 * @throws Exception
 	 */
-	public static boolean drawLott7103(String userID, String token, String num) throws Exception{
+	public static boolean drawLott7103(String userID, String token, String mobile) throws Exception{
 		String url = DataUrls.url_act;
 		String params = DataUrls.params_7103;
 		String suc = "抽奖成功";
 		String uuid = "04FCEE6BDE0F461FACD85";
 		
-		String hParams = "userID," + userID + ";token," + token + ";uuid," + num + uuid;
+		String hParams = "userID," + userID + ";token," + token + ";uuid," + mobile + uuid;
 		String bParams = "";
 		
 		params = AppReq.setParmas(params, hParams, bParams);
@@ -970,10 +996,10 @@ public class UserBaseInfo {
 //		buy11X5(mobile, Multiple, "62");
 //		buyk3(mobile, Multiple, "69");
 		
-		test100();
+//		test100();
 		
 //		String type = "zz";
-//		for (int i = 6383; i < 10000; i++) {
+//		for (int i = 1; i < 10000; i++) {
 //			String mobile = "1341111";
 //			if (i < 10) {
 //				mobile = mobile + "000" + i;
@@ -986,30 +1012,8 @@ public class UserBaseInfo {
 //			}
 //			UserBaseInfo.register7054Use(type, mobile, "D8AC6F436813D05E3F87841978B1299C");
 //		}
-		
 //		UserBaseInfo.register7054Use(type, "13411111465", "D8AC6F436813D05E3F87841978B1299C");
 //		UserBaseInfo.resetPwd(type, "13411111465");
-		
-//		for (int i = 3322; i < 10000; i++) {
-//			String mobile = "1341111";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if ( i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//			
-//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-//			String token = user.getToken();
-//			String userId = user.getUserId();
-//			
-//			for (int j = 0; j < 3; j++) {
-//				Test108.getMechartNo(userId, token, "2000");
-//			}
-//			
-//		}
+//		
 	}
 }

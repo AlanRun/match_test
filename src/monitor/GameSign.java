@@ -145,7 +145,9 @@ public class GameSign {
 			
 			UserBaseInfo.push1000(userID, token);
 			
-//			UserBaseInfo.getUserRedpackage(userID, token);
+			UserBaseInfo.getRpNum107(mobile, userID, token);
+			
+			UserBaseInfo.getUserRedpackage(userID, token);
 			
 			UserBaseInfo.sign20004(userID, token, mobile);
 			UserBaseInfo.drawLott7103(userID, token, mobile);
@@ -153,7 +155,7 @@ public class GameSign {
 			
 			gameResignAndGetGift(token, userID);
 			
-//			XNJFTest.getCard7091(mobile, userId, token);
+			XNJFTest.getCard7091(mobile, userID, token);
 			
 //			SDDZTest.get7067(mobile, userId, token);
 //			SDDZTest.get7045(mobile, userId, token);
