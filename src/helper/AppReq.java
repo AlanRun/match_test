@@ -12,8 +12,17 @@ import utils.HttpRequester;
 import utils.HttpRespons;
 
 public class AppReq {
+	
+	public static String getMobileStr(String mobile) throws Exception{
+		String reStr = "";
+		TransferAesEncrypt.aesEncrypt(mobile, "", "utf-8");
+		
+		
+		
+		return reStr;
+	}
 
-	public static String getResStr(String url, String params) throws AesException, IOException {
+	public static String getResStr(String url, String params) throws Exception {
 		// String url = DataUrls.appadmin_url;
 		// String params = DataUrls.params_90332;
 

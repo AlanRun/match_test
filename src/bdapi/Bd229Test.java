@@ -1,10 +1,7 @@
 package bdapi;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import org.dom4j.DocumentException;
-import com.jdd.fm.core.exception.AesException;
-
 import helper.AppReq;
 import helper.DataUrls;
 import helper.JzMatchSpInfo;
@@ -24,7 +21,7 @@ public class Bd229Test {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JzMatchSpInfo> getTeadRankAndHis() throws IOException, AesException {
+	public static ArrayList<JzMatchSpInfo> getTeadRankAndHis() throws Exception {
 		ArrayList<JzMatchSpInfo> list = new ArrayList<JzMatchSpInfo>();
 
 		String json = AppReq.getResStr(jdd_jz_url, bd_params);
@@ -115,7 +112,7 @@ public class Bd229Test {
 		return value;
 	}
 
-	public static void main(String[] args) throws IOException, AesException, DocumentException {
+	public static void main(String[] args) throws Exception {
 		getTeadRankAndHis();
 	}
 

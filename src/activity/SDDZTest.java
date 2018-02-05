@@ -1,9 +1,5 @@
 package activity;
 
-import java.io.IOException;
-
-import com.jdd.fm.core.exception.AesException;
-
 import helper.AppReq;
 import helper.DataUrls;
 import helper.UserInfo;
@@ -31,7 +27,7 @@ public class SDDZTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean getActQualify(String name, String userID, String token) throws AesException, IOException{
+	public static boolean getActQualify(String name, String userID, String token) throws Exception{
 		String params = DataUrls.params_7065;
 		String url = DataUrls.url_act;
 		String suc = "资格领取成功";
@@ -61,7 +57,7 @@ public class SDDZTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean get7045(String name, String userID, String token) throws AesException, IOException{
+	public static boolean get7045(String name, String userID, String token) throws Exception{
 		String url = DataUrls.url_act;
 		String params = DataUrls.params_7045;
 		String suc = "圣诞大战NBA";
@@ -86,7 +82,7 @@ public class SDDZTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean get7067(String name, String userID, String token) throws AesException, IOException{
+	public static boolean get7067(String name, String userID, String token) throws Exception{
 		String url = DataUrls.url_act;
 		String params = DataUrls.params_7067;
 		String suc = "";

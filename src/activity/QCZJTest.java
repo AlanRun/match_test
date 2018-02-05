@@ -1,9 +1,5 @@
 package activity;
 
-import java.io.IOException;
-
-import com.jdd.fm.core.exception.AesException;
-
 import helper.AppReq;
 import helper.DataUrls;
 import helper.SmsTest;
@@ -21,7 +17,7 @@ public class QCZJTest {
 	private static String actTypeId = "100002";
 	private static String type = "zz";;
 	
-	public static boolean registerUse7058(String mobile) throws AesException, IOException{
+	public static boolean registerUse7058(String mobile) throws Exception{
 		String params = DataUrls.params_7058;
 		String url = DataUrls.url_act;
 		String suc = "短信发送成功";
@@ -42,7 +38,7 @@ public class QCZJTest {
 		return result;
 	}
 	
-	public static boolean verifyCode7059(String mobile, String verifyCode) throws AesException, IOException{
+	public static boolean verifyCode7059(String mobile, String verifyCode) throws Exception{
 		String params = DataUrls.params_7059;
 		String url = DataUrls.url_act;
 		String suc = "您的88礼包已发送至您的彩票账户";
@@ -59,7 +55,7 @@ public class QCZJTest {
 		}
 	}
 	
-	public static boolean getAtcInfo() throws AesException, IOException{
+	public static boolean getAtcInfo() throws Exception{
 		String params = DataUrls.params_7060;
 		String url = DataUrls.url_act;
 		String suc = "立即领取";
@@ -84,7 +80,7 @@ public class QCZJTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static String getUserRedpackage(String userID, String token) throws AesException, IOException{
+	public static String getUserRedpackage(String userID, String token) throws Exception{
 		String url = DataUrls.url_rp;
 		String params = DataUrls.params_402;
 		String suc = "code\":0";
@@ -113,7 +109,7 @@ public class QCZJTest {
 		return result;
 	}
 	
-	public static boolean checkUserRedPackage(String userID, String token) throws AesException, IOException{
+	public static boolean checkUserRedPackage(String userID, String token) throws Exception{
 		String url = DataUrls.url_rp;
 		String params = DataUrls.params_402;
 		String suc = "code\":0";
@@ -143,12 +139,12 @@ public class QCZJTest {
 		return result;
 	}
 
-	public static void testA() throws AesException, IOException{
+	public static void testA() throws Exception{
 		System.out.println("A. 获取活动信息");
 		getAtcInfo();
 	}
 	
-	public static void testB() throws AesException, IOException{
+	public static void testB() throws Exception{
 		System.out.println("B. 老用户领取成功");
 		String name = "13811110001";
 		String pwd = "aaaaaa";
@@ -158,13 +154,13 @@ public class QCZJTest {
 		checkUserRedPackage(user.getUserId(), user.getToken());
 	}
 	
-	public static void testC() throws AesException, IOException{
+	public static void testC() throws Exception{
 		System.out.println("C. 重复领取");
 		String name = "13811110001";
 		registerUse7058(name);
 	}
 	
-	public static void testD() throws AesException, IOException{
+	public static void testD() throws Exception{
 		System.out.println("D. 新用户领取");
 		String name = "13801000001";
 		String pwd = "aaaaaa";
@@ -175,7 +171,7 @@ public class QCZJTest {
 		checkUserRedPackage(user.getUserId(), user.getToken());
 	}
 	
-	public static void testE() throws AesException, IOException{
+	public static void testE() throws Exception{
 		System.out.println("E. 新用户领取");
 		String name = "13801000002";
 		String pwd = "aaaaaa";
@@ -186,7 +182,7 @@ public class QCZJTest {
 		checkUserRedPackage(user.getUserId(), user.getToken());
 	}
 	
-	public static void testF() throws AesException, IOException{
+	public static void testF() throws Exception{
 		System.out.println("F. 奖品已领完");
 		String name = "13801000003";
 		String pwd = "aaaaaa";
@@ -197,7 +193,7 @@ public class QCZJTest {
 //		checkUserRedPackage(user.getUserId(), user.getToken());
 	}
 	
-	public static void testG() throws AesException, IOException{
+	public static void testG() throws Exception{
 		System.out.println("G. 活动已结束");
 		String name = "13801000003";
 		registerUse7058(name);

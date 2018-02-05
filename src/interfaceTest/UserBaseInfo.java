@@ -22,7 +22,7 @@ public class UserBaseInfo {
 //		mobile = userName;
 //	}
 	
-	public static UserInfo getUserInfo(String name, String pw) throws AesException, IOException{
+	public static UserInfo getUserInfo(String name, String pw) throws Exception{
 		String url = DataUrls.url_user;
 		String params = DataUrls.params_1011;
 
@@ -51,7 +51,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean verifySmsCode(String num, String code, String cmdName) throws AesException, IOException{
+	public static boolean verifySmsCode(String num, String code, String cmdName) throws Exception{
 		String params = DataUrls.params_1034;
 		String url = DataUrls.url_user;
 		String suc = "注册成功";
@@ -76,7 +76,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static String getUserRedpackage(String userID, String token) throws AesException, IOException{
+	public static String getUserRedpackage(String userID, String token) throws Exception{
 		String url = DataUrls.url_rp;
 		String params = DataUrls.params_402;
 		String suc = "code\":0";
@@ -112,7 +112,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean buySSQ(String mobile) throws AesException, IOException{
+	public static boolean buySSQ(String mobile) throws Exception{
 		String url = DataUrls.url_order;
 		String params = DataUrls.params_207;
 		String suc = "操作成功";
@@ -280,6 +280,89 @@ public class UserBaseInfo {
 	}
 	
 	/**
+	 * 108接口调起充值
+	 * 
+	 * @param userID
+	 * @param token
+	 * @throws Exception
+	 */
+	public static void getMechartNo(String userID, String token, String money) throws Exception {
+		String url = DataUrls.url_trade;
+		String params = DataUrls.params_108;
+		String suc = "code\":0";
+
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "PayMoney," + money;
+		params = AppReq.setParmas(params, hParams, bParams);
+		System.out.println(params);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			String MechartNo = data.getString("MechartNo");
+
+			String re = AppReq.getResStrByGet(DataUrls.url_pay + "payNumber=" + MechartNo + "&tradeMoney=" + money);
+			System.out.println(re);
+		}
+	}
+	
+	/**
+	 * 购买高频
+	 * 29 吉林时时彩
+	 * 62 老11选五
+	 * 67 快3
+	 * 68 新快3
+	 * 69 吉林快3
+	 * 71 广西11选5
+	 * 72 幸运11选5
+	 * 73 新11选5
+	 * 74 欢乐11选5
+	 * 75 江西11选5
+	 * 78 好运11选5
+	 * 79 青海11选5
+	 * 81 重庆快乐十分
+	 * @param mobile 用户名
+	 * @param Multiple 倍数
+	 * @param LotteryID 彩种ID
+	 * @return
+	 * @throws Exception 
+	 */
+	public static boolean buyGaoPin(String userId, String token, int Multiple, String LotteryID) throws Exception{
+		String params = "";
+		String url = DataUrls.url_order;
+		String suc = "操作成功";
+		String nParams = "";
+		
+		if (LotteryID.equals("62") || LotteryID.equals("71") || LotteryID.equals("72") || LotteryID.equals("78") || LotteryID.equals("74")) {
+			params = DataUrls.params_207_11x5;
+			nParams = "playid," + LotteryID + "10";
+		} else if (LotteryID.equals("67") || LotteryID.equals("68") || LotteryID.equals("69")) {
+			params = DataUrls.params_207_k3;
+			nParams = "playid," + LotteryID + "05";
+		}
+		
+		String IssueName = getIssueName(LotteryID);
+		
+		if (IssueName.equals("")) {
+			return false;
+		}
+		
+		String hParams = "userID," + userId + ";token," + token;
+		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2) + ";LotteryID," + LotteryID + ";IssueName," + IssueName;
+		
+		params = AppReq.setParmas(params, hParams, bParams, nParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
 	 * 购买快3
 	 * @param mobile
 	 * @param Multiple
@@ -321,7 +404,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean buyJZ(String mobile, int Multiple) throws AesException, IOException{
+	public static boolean buyJZ(String mobile, int Multiple) throws Exception{
 		String url = DataUrls.url_order;
 		String params = DataUrls.params_207Jz;
 		String suc = "操作成功";
@@ -353,7 +436,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean buyJL(String mobile, int Multiple) throws AesException, IOException{
+	public static boolean buyJL(String mobile, int Multiple) throws Exception{
 		String url = DataUrls.url_order;
 		String params = DataUrls.params_207JL;
 		String suc = "操作成功";
@@ -389,7 +472,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName) throws AesException, IOException{
+	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName) throws Exception{
 		String params = DataUrls.params_100;
 //		String url = DataUrls.url_user;
 		String url = DataUrls.url_user_ay;
@@ -425,7 +508,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName, String uuid, String platformCode) throws AesException, IOException{
+	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName, String uuid, String platformCode) throws Exception{
 		String params = DataUrls.params_100;
 		String url = DataUrls.url_user;
 		String suc = "验证码发送成功";
@@ -478,7 +561,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean getUserBaseInfo(String num, String pw) throws AesException, IOException{
+	public static boolean getUserBaseInfo(String num, String pw) throws Exception{
 		String url = DataUrls.url_user;
 		String params = DataUrls.params_107;
 		String suc = num;
@@ -503,7 +586,7 @@ public class UserBaseInfo {
 		}
 	}
 	
-	public static boolean setUserIDCardNum(String num, String pwd, String RName, String IDCard) throws AesException, IOException{
+	public static boolean setUserIDCardNum(String num, String pwd, String RName, String IDCard) throws Exception{
 		String url = DataUrls.url_user;
 		String params = DataUrls.params_102;
 		String suc = "操作成功";
@@ -663,7 +746,7 @@ public class UserBaseInfo {
 	}
 	
 	
-	public static boolean register100UseVoice(String type, String mobile, String cmdName) throws AesException, IOException{
+	public static boolean register100UseVoice(String type, String mobile, String cmdName) throws Exception{
 		String params = DataUrls.params_100_v;
 		String url = DataUrls.url_user;
 		String suc = "验证码发送成功";
@@ -696,7 +779,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean register7054Use(String type, String mobile, String userId) throws AesException, IOException{
+	public static boolean register7054Use(String type, String mobile, String userId) throws Exception{
 		String params = DataUrls.params_20018;
 		String url = DataUrls.url_user;
 		String suc = "发送验证码成功";
@@ -729,7 +812,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean register7054Use(String type, String mobile, String userId, String actTypeId) throws AesException, IOException{
+	public static boolean register7054Use(String type, String mobile, String userId, String actTypeId) throws Exception{
 		String params = DataUrls.params_20018;
 		String url = DataUrls.url_user;
 		String suc = "发送验证码成功";
@@ -761,7 +844,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean verify7054Code(String actTypeId, String userId, String mobile, String verifyCode) throws AesException, IOException{
+	public static boolean verify7054Code(String actTypeId, String userId, String mobile, String verifyCode) throws Exception{
 		String params = DataUrls.params_7054;
 		String url = DataUrls.url_act;
 		String suc = "注册成功";
@@ -786,7 +869,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean resetPwd(String type, String mobile) throws AesException, IOException{
+	public static boolean resetPwd(String type, String mobile) throws Exception{
 		String params = DataUrls.params_1030;
 		String url = DataUrls.url_user;
 		
@@ -820,7 +903,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean verify1032Code (String id, String mobile, String verifyCode) throws AesException, IOException{
+	public static boolean verify1032Code (String id, String mobile, String verifyCode) throws Exception{
 		String params = DataUrls.params_1032;
 		String url = DataUrls.url_user;
 		String suc = "验证成功";
@@ -848,7 +931,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean resetPwd1061(String username, String id, String mobile, String newpwd) throws AesException, IOException{
+	public static boolean resetPwd1061(String username, String id, String mobile, String newpwd) throws Exception{
 		String params = DataUrls.params_1061;
 		String url = DataUrls.url_user;
 		String suc = "修改密码成功";
@@ -873,7 +956,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static void getUserRedpackage(String userID, String token, String act) throws AesException, IOException{
+	public static void getUserRedpackage(String userID, String token, String act) throws Exception{
 		String url = DataUrls.url_rp;
 		String params = DataUrls.params_402;
 		String suc = "code\":0";
@@ -909,7 +992,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean push1000(String userID, String token, String uuid) throws AesException, IOException{
+	public static boolean push1000(String userID, String token, String uuid) throws Exception{
 		
 		String url = DataUrls.url_push;
 		String params = DataUrls.params_1000;
@@ -938,7 +1021,7 @@ public class UserBaseInfo {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean push1000(String userID, String token) throws AesException, IOException{
+	public static boolean push1000(String userID, String token) throws Exception{
 		
 		String url = DataUrls.url_push;
 		String params = DataUrls.params_1000;

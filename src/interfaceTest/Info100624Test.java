@@ -9,7 +9,7 @@ import net.sf.json.JSONObject;
 
 public class Info100624Test {
 
-	public static void matchVote(String uuid, String gameId, String type) throws AesException, IOException {
+	public static void matchVote(String uuid, String gameId, String type) throws Exception {
 		String url = DataUrls.url_info;
 		String params = "{\"header\":{\"appVersion\":\"5.1.3\",\"idfa\":\"834D4F30-3325-40F4-996C-3D1B1908D706\",\"cmdName\":\"app_ios_zz\",\"uuid\":\"9C76BC12A59247DDACB8928CCC301B00\",\"userID\":\"\",\"islogin\":true,\"token\":\"\",\"cmdId\":\"1\",\"platformVersion\":\"10.3.2\",\"imei\":\"\",\"action\":100624,\"userType\":1,\"platformCode\":\"IPHONE\",\"username\":\"\"},\"body\":\"{'gameId':'11874458','type':1,'matchTime':'2017-09-30 10:00:00'}\"}";
 
@@ -44,7 +44,7 @@ public class Info100624Test {
 		}
 	}
 
-	public static void main(String[] args) throws AesException, IOException {
+	public static void main(String[] args) throws Exception {
 		String gameId = "11874458";
 		String type = "2";
 		for (int i = 0; i < 300; i++) {

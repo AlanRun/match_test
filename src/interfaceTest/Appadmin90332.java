@@ -12,7 +12,7 @@ import net.sf.json.JSONObject;
 public class Appadmin90332 {
 	
 	// 获取双色球当前期次信息
-	public static String getCurSSQIssue() throws AesException, IOException{
+	public static String getCurSSQIssue() throws Exception{
 		String json = AppReq.getResStr(DataUrls.url_bd, DataUrls.params_200_5);
 
 		JSONObject obj = JSONObject.fromObject(json);
@@ -38,7 +38,7 @@ public class Appadmin90332 {
 	 * @throws IOException 
 	 * @throws AesException 
 	 */
-	public static String getCurDLTIssue() throws AesException, IOException{
+	public static String getCurDLTIssue() throws Exception{
 		String json = AppReq.getResStr(DataUrls.url_bd, DataUrls.params_200_39);
 
 		JSONObject obj = JSONObject.fromObject(json);
@@ -59,7 +59,7 @@ public class Appadmin90332 {
 		return result;
 	}
 
-	public static void check90332() throws AesException, IOException {
+	public static void check90332() throws Exception {
 		String ssq = getCurSSQIssue();
 		String dlt = getCurDLTIssue();
 		String tmp = "";
@@ -97,14 +97,14 @@ public class Appadmin90332 {
 		
 	}
 	
-	public static void check9009() throws AesException, IOException {
+	public static void check9009() throws Exception {
 		String json = AppReq.getResStr(DataUrls.url_appadmin, DataUrls.params_9009);
 		
 		System.out.println(json);
 		
 	}
 
-	public static void main(String[] args) throws AesException, IOException {
+	public static void main(String[] args) throws Exception {
 //		getCurSSQIssue();
 //		getCurDLTIssue();
 		check9009();

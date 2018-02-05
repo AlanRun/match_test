@@ -33,7 +33,7 @@ public class SpCollectTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JzMatchSpInfo> getJZSpFromJdd() throws IOException, AesException {
+	public static ArrayList<JzMatchSpInfo> getJZSpFromJdd() throws Exception {
 		ArrayList<JzMatchSpInfo> list = new ArrayList<JzMatchSpInfo>();
 		
 		String json = AppReq.getResStr(jdd_jz_url, jz_params);
@@ -267,7 +267,7 @@ public class SpCollectTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JlMatchSpInfo> getJLSpFromJdd() throws IOException, AesException {
+	public static ArrayList<JlMatchSpInfo> getJLSpFromJdd() throws Exception {
 		ArrayList<JlMatchSpInfo> list = new ArrayList<JlMatchSpInfo>();
 		
 		String json = AppReq.getResStr(jdd_jl_url, jl_params);
@@ -467,7 +467,7 @@ public class SpCollectTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static void compareJddSpToGf_JZ() throws IOException, AesException{
+	public static void compareJddSpToGf_JZ() throws Exception{
 		ArrayList<JzMatchSpInfo> gfList = getJZSpFromGF();
 		ArrayList<JzMatchSpInfo> jddList = getJZSpFromJdd();
 		for (int i = 0; i < jddList.size(); i++) {
@@ -547,7 +547,7 @@ public class SpCollectTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static void compareJddSpToGf_JL() throws IOException, AesException{
+	public static void compareJddSpToGf_JL() throws Exception{
 		ArrayList<JlMatchSpInfo> gfList = getJLSpFromGF();
 		ArrayList<JlMatchSpInfo> jddList = getJLSpFromJdd();
 		for (int i = 0; i < jddList.size(); i++) {
@@ -604,7 +604,7 @@ public class SpCollectTest {
 		}
 	}
 
-	public static void main(String[] args) throws IOException, AesException {
+	public static void main(String[] args) throws Exception {
 //		compareJddSpToGf_JL();
 		compareJddSpToGf_JZ();
 	}

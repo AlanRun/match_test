@@ -1,11 +1,8 @@
 package bdapi;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
-
-import com.jdd.fm.core.exception.AesException;
 
 import helper.AppReq;
 import helper.DataUrls;
@@ -25,7 +22,7 @@ public class Jz202Test {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JzMatchSpInfo> getTeadRankAndHis() throws IOException, AesException {
+	public static ArrayList<JzMatchSpInfo> getTeadRankAndHis() throws Exception {
 		ArrayList<JzMatchSpInfo> list = new ArrayList<JzMatchSpInfo>();
 		
 		String json = AppReq.getResStr(jdd_jz_url, jz_params);
@@ -105,7 +102,7 @@ public class Jz202Test {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JzMatchSpInfo> getMatchsSp() throws IOException, AesException {
+	public static ArrayList<JzMatchSpInfo> getMatchsSp() throws Exception {
 		ArrayList<JzMatchSpInfo> list = new ArrayList<JzMatchSpInfo>();
 		
 		String json = AppReq.getResStr(jdd_jz_url, jz_params);
@@ -190,7 +187,7 @@ public class Jz202Test {
 		return tmp;
 	}
 	
-	public static void main(String[] args) throws IOException, AesException {
+	public static void main(String[] args) throws Exception {
 		getMatchsSp();
 	}
 }

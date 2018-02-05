@@ -24,7 +24,7 @@ public class Jl2031Test {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JlMatchSpInfo> getTeadRankAndHis() throws IOException, AesException {
+	public static ArrayList<JlMatchSpInfo> getTeadRankAndHis() throws Exception {
 		ArrayList<JlMatchSpInfo> list = new ArrayList<JlMatchSpInfo>();
 		
 		String json = AppReq.getResStr(jdd_jl_url, jl_params);

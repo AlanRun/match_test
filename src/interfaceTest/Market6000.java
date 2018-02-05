@@ -9,7 +9,7 @@ import helper.DataUrls;
 
 public class Market6000 {
 	
-	public static void getMarket6000Info() throws AesException, IOException{
+	public static void getMarket6000Info() throws Exception{
 		String url = DataUrls.url_market;
 		String params = DataUrls.params_6000;
 		
@@ -17,7 +17,7 @@ public class Market6000 {
 		System.out.println(reString);
 	}
 	
-	public static void main(String[] args) throws AesException, IOException {
+	public static void main(String[] args) throws Exception {
 		getMarket6000Info();
 	}
 

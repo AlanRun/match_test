@@ -35,7 +35,7 @@ public class CtSpTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JzMatchSpInfo> getCtSpFromJdd() throws IOException, AesException {
+	public static ArrayList<JzMatchSpInfo> getCtSpFromJdd() throws Exception {
 		ArrayList<JzMatchSpInfo> list = new ArrayList<JzMatchSpInfo>();
 		
 		String json = AppReq.getResStr(jdd_jz_url, jz_params);
@@ -187,7 +187,7 @@ public class CtSpTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static void compareJddSpToGf_Ct() throws IOException, AesException {
+	public static void compareJddSpToGf_Ct() throws Exception {
 		LogWrite.saveToFile("传统对阵验证");
 		ArrayList<JzMatchSpInfo> jddList = getCtSpFromJdd();
 		
@@ -285,7 +285,7 @@ public class CtSpTest {
 		return list;
 	}
 
-	public static void main(String[] args) throws IOException, AesException {
+	public static void main(String[] args) throws Exception {
 //		getFinalSpFromData("2017135");
 //		getFinalSpFromData("2017136");
 		compareJddSpToGf_Ct();

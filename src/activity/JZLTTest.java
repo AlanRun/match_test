@@ -31,7 +31,7 @@ public class JZLTTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean getActQualify(String name, String userID, String token) throws AesException, IOException{
+	public static boolean getActQualify(String name, String userID, String token) throws Exception{
 		String params = DataUrls.params_7055;
 		String url = DataUrls.url_act;
 		String suc = "领取成功";
@@ -57,7 +57,7 @@ public class JZLTTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static void getUserRedpackage(String userID, String token, String act) throws AesException, IOException{
+	public static void getUserRedpackage(String userID, String token, String act) throws Exception{
 		String url = DataUrls.url_rp;
 		String params = DataUrls.params_402;
 		String suc = "code\":0";
@@ -92,7 +92,7 @@ public class JZLTTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean get7056() throws AesException, IOException{
+	public static boolean get7056() throws Exception{
 		String url = DataUrls.url_act;
 		String params = DataUrls.params_7056;
 		String suc = "code";

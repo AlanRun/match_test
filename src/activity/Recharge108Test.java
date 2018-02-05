@@ -48,34 +48,6 @@ public class Recharge108Test {
 	}
 	
 	/**
-	 * 108接口调起充值
-	 * 
-	 * @param userID
-	 * @param token
-	 * @throws Exception
-	 */
-	public static void getMechartNo(String userID, String token, String money) throws Exception {
-		String url = DataUrls.url_trade;
-		String params = DataUrls.params_108;
-		String suc = "code\":0";
-
-		String hParams = "userID," + userID + ";token," + token;
-		String bParams = "PayMoney," + money;
-		params = AppReq.setParmas(params, hParams, bParams);
-		System.out.println(params);
-		String reString = AppReq.getResStr(url, params);
-		System.out.println(reString);
-		if (reString.contains(suc)) {
-			JSONObject obj = JSONObject.fromObject(reString);
-			JSONObject data = obj.getJSONObject("data");
-			String MechartNo = data.getString("MechartNo");
-
-			String re = AppReq.getResStrByGet(DataUrls.url_pay + "payNumber=" + MechartNo + "&tradeMoney=" + money);
-			System.out.println(re);
-		}
-	}
-
-	/**
 	 * 领取充20资格
 	 * 
 	 * @param username
@@ -110,7 +82,7 @@ public class Recharge108Test {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static String getUserRedpackage(String userID, String token) throws AesException, IOException{
+	public static String getUserRedpackage(String userID, String token) throws Exception{
 		String url = DataUrls.url_rp;
 		String params = DataUrls.params_402;
 		String suc = "code\":0";
@@ -183,5 +155,4 @@ public class Recharge108Test {
 		}
 		testRechage();
 	}
-
 }

@@ -11,7 +11,7 @@ import bdapi.Jz202Test;
 
 public class TeamRankTest {
 
-	public static void main(String[] args) throws IOException, AesException {
+	public static void main(String[] args) throws Exception {
 //		Jz202Test.getTeadRankAndHis();
 //		Bd229Test.getTeadRankAndHis();
 //		Ct204Test.getTeadRankAndHis();

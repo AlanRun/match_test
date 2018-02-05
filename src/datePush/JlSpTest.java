@@ -61,7 +61,7 @@ public class JlSpTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JlMatchSpInfo> getJLSpFromJdd() throws IOException, AesException {
+	public static ArrayList<JlMatchSpInfo> getJLSpFromJdd() throws Exception {
 		ArrayList<JlMatchSpInfo> list = new ArrayList<JlMatchSpInfo>();
 		
 		String json = AppReq.getResStr(jdd_jl_url, jl_params);

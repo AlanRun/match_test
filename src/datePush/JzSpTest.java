@@ -30,7 +30,7 @@ public class JzSpTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static ArrayList<JzMatchSpInfo> getJZSpFromJdd() throws IOException, AesException {
+	public static ArrayList<JzMatchSpInfo> getJZSpFromJdd() throws Exception {
 		ArrayList<JzMatchSpInfo> list = new ArrayList<JzMatchSpInfo>();
 		
 		String json = AppReq.getResStr(jdd_jz_url, jz_params);
@@ -288,7 +288,7 @@ public class JzSpTest {
 	 * @throws IOException
 	 * @throws AesException
 	 */
-	public static void compareJddSpToGf_JZ() throws IOException, AesException{
+	public static void compareJddSpToGf_JZ() throws Exception{
 		LogWrite.saveToFile("竞足对阵、及时sp验证");
 		ArrayList<JzMatchSpInfo> jddList = getJZSpFromJdd();
 		if (jddList.size() == 0) {
@@ -427,7 +427,7 @@ public class JzSpTest {
 		return list;
 	}
 
-	public static void main(String[] args) throws IOException, AesException {
+	public static void main(String[] args) throws Exception {
 		compareJddSpToGf_JZ();
 //		getJZSpFromJdd();
 //		getFinalSoccerFromData("20170918");

@@ -10,7 +10,7 @@ import net.sf.json.JSONObject;
 
 public class LoginTest {
 	
-	public static UserInfo getUserInfo(String name, String pw) throws AesException, IOException{
+	public static UserInfo getUserInfo(String name, String pw) throws Exception{
 		String url = DataUrls.url_user;
 		String params = DataUrls.params_1011;
 
@@ -48,7 +48,7 @@ public class LoginTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean verifySmsCode(String num, String code, String cmdName) throws AesException, IOException{
+	public static boolean verifySmsCode(String num, String code, String cmdName) throws Exception{
 		String params = DataUrls.params_1034;
 		String url = DataUrls.url_user;
 		String suc = "注册成功";
@@ -74,7 +74,7 @@ public class LoginTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName) throws AesException, IOException{
+	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName) throws Exception{
 		String params = DataUrls.params_100;
 		String url = DataUrls.url_user;
 		String suc = "验证码发送成功";
@@ -108,7 +108,7 @@ public class LoginTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName, String uuid, String platformCode) throws AesException, IOException{
+	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName, String uuid, String platformCode) throws Exception{
 		String params = DataUrls.params_100;
 		String url = DataUrls.url_user;
 		String suc = "验证码发送成功";
@@ -136,7 +136,7 @@ public class LoginTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean getUserBaseInfo(String num, String pwd) throws AesException, IOException{
+	public static boolean getUserBaseInfo(String num, String pwd) throws Exception{
 		String url = DataUrls.url_user;
 		String params = DataUrls.params_107;
 		String suc = num;
@@ -160,7 +160,7 @@ public class LoginTest {
 		}
 	}
 	
-	public static boolean setUserIDCardNum(String num, String pwd, String RName, String IDCard) throws AesException, IOException{
+	public static boolean setUserIDCardNum(String num, String pwd, String RName, String IDCard) throws Exception{
 		String url = DataUrls.url_user;
 		String params = DataUrls.params_102;
 		String suc = "操作成功";
@@ -184,7 +184,7 @@ public class LoginTest {
 		}
 	}
 
-	public static void main(String[] args) throws AesException, IOException {
+	public static void main(String[] args) throws Exception {
 		String pwd = "aaaaaa";
 //		for (int i = 1; i < 10; i++) {
 			String num = "13898760002";

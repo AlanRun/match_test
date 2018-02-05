@@ -139,7 +139,7 @@ public class DemoTools {
 					} else {
 						resultButton.setText("失败！");
 					}
-				} catch (AesException | IOException e1) {
+				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
 			}

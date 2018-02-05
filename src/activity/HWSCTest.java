@@ -15,7 +15,7 @@ import helper.SmsTest;
  */
 public class HWSCTest {
 	
-	public static boolean registerUse(String type, String mobile, String redemptionCode, String actTypeId) throws AesException, IOException{
+	public static boolean registerUse(String type, String mobile, String redemptionCode, String actTypeId) throws Exception{
 		String params = DataUrls.params_20018;
 		String url = DataUrls.url_user;
 		String suc = "发送验证码成功";
@@ -36,7 +36,7 @@ public class HWSCTest {
 		return result;
 	}
 	
-	public static boolean verifyCode(String actTypeId, String redemptionCode, String mobile, String verifyCode) throws AesException, IOException{
+	public static boolean verifyCode(String actTypeId, String redemptionCode, String mobile, String verifyCode) throws Exception{
 		String params = DataUrls.params_7051;
 		String url = DataUrls.url_act;
 		String suc = "元彩金已到账";
@@ -53,7 +53,7 @@ public class HWSCTest {
 		}
 	}
 	
-	public static boolean check7050Code(String actTypeId, String redemptionCode) throws AesException, IOException{
+	public static boolean check7050Code(String actTypeId, String redemptionCode) throws Exception{
 		String params = DataUrls.params_7050;
 		String url = DataUrls.url_act;
 		String suc = "此兑换码有效";
