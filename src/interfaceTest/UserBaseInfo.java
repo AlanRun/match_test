@@ -328,7 +328,7 @@ public class UserBaseInfo {
 	 * @return
 	 * @throws Exception 
 	 */
-	public static boolean buyGaoPin(String userId, String token, int Multiple, String LotteryID) throws Exception{
+	public static boolean buyGaoPin(String userID, String token, int Multiple, String LotteryID) throws Exception{
 		String params = "";
 		String url = DataUrls.url_order;
 		String suc = "操作成功";
@@ -348,8 +348,10 @@ public class UserBaseInfo {
 			return false;
 		}
 		
-		String hParams = "userID," + userId + ";token," + token;
-		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2) + ";LotteryID," + LotteryID + ";IssueName," + IssueName;
+		String rp = getUserRedpackage(userID, token);
+		
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2) + ";LotteryID," + LotteryID + ";IssueName," + IssueName + ";HongBaoSelectID," + rp;
 		
 		params = AppReq.setParmas(params, hParams, bParams, nParams);
 		String reString = AppReq.getResStr(url, params);
@@ -922,6 +924,35 @@ public class UserBaseInfo {
 	}
 	
 	/**
+	 * 口令红包兑换彩金卡
+	 * @param id
+	 * @param mobile
+	 * @param verifyCode
+	 * @return
+	 * @throws AesException
+	 * @throws IOException
+	 */
+	public static boolean getRp8341 (String userID, String token) throws Exception{
+		String params = DataUrls.params_8341;
+		String url = DataUrls.url_act;
+		String suc = "获取成功";
+		boolean result = false;
+		
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "";
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			result = true;
+		}
+		
+		return result;
+	}
+	
+	/**
 	 * 忘记密码重置密码
 	 * @param username
 	 * @param id
@@ -1029,6 +1060,7 @@ public class UserBaseInfo {
 		boolean result = false;
 		
 		String uuid = token.substring(token.length()-32, token.length());
+//		String uuid = "112233445566";
 		System.out.println(uuid);
 		
 		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;
@@ -1075,11 +1107,18 @@ public class UserBaseInfo {
 
 	public static void main(String[] args) throws Exception {
 //		int Multiple = 1;
-//		String mobile = "13811110003";
+		String mobile = "13811110003";
+		String pw = "aaaaaa";
 //		buy11X5(mobile, Multiple, "62");
 //		buyk3(mobile, Multiple, "69");
 		
 //		test100();
+		UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
+		String token = user.getToken();
+		String userID = user.getUserId();
+		for (int i = 0; i < 30; i++) {
+			getRp8341(userID, token);
+		}
 		
 //		String type = "zz";
 //		for (int i = 1; i < 10000; i++) {

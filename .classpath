@@ -9,12 +9,12 @@
 	<classpathentry kind="lib" path="libs/ezmorph-1.0.6.jar"/>
 	<classpathentry kind="lib" path="libs/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="libs/sqljdbc4.jar"/>
-	<classpathentry kind="lib" path="libs/fm_core-3.0-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="libs/commons-codec-1.10.jar"/>
 	<classpathentry kind="lib" path="libs/dom4j-2.0.1.jar"/>
 	<classpathentry kind="lib" path="libs/jedis-2.1.0.jar"/>
 	<classpathentry kind="lib" path="libs/mysql-connector-java-3.1.14-bin.jar"/>
 	<classpathentry kind="lib" path="libs/com.springsource.nu.xom-1.2.5.jar"/>
 	<classpathentry kind="lib" path="libs/jaxen-1.1.6.jar"/>
+	<classpathentry kind="lib" path="libs/fm_core-4.2.1-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

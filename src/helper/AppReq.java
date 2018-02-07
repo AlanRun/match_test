@@ -13,14 +13,19 @@ import utils.HttpRespons;
 
 public class AppReq {
 	
-	public static String getMobileStr(String mobile) throws Exception{
-		String reStr = "";
-		TransferAesEncrypt.aesEncrypt(mobile, "", "utf-8");
-		
-		
-		
-		return reStr;
-	}
+	 public final static String AESKEY = "ZnMmIU50NSF0Rm0mdlFUYUg=";
+	
+	/**
+     * 加密
+     * */
+    public static String encrypt(String content) throws AesException {
+        try {
+            String result = TransferAesEncrypt.aesEncrypt(content, AESKEY, "utf-8");
+            return result;
+        } catch (Exception e) {
+            throw new AesException("AES加密失败：Aescontent = " + content + "; charset = " + "utf-8", e);
+        }
+    }
 
 	public static String getResStr(String url, String params) throws Exception {
 		// String url = DataUrls.appadmin_url;

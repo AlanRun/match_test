@@ -5,6 +5,7 @@ import helper.DataUrls;
 import helper.SmsTest;
 import helper.UserInfo;
 import interfaceTest.UserBaseInfo;
+import net.sf.json.JSONObject;
 
 /**
  * 世界杯主力俄罗斯
@@ -23,7 +24,7 @@ public class SJBZL {
 		String url = DataUrls.url_act;
 		String suc = "注册成功";
 		
-		String hParams = "";
+		String hParams = "uuid," + mobile + "93a20d8c058e447e8e";
 		String bParams = "actTypeId," + actTypeId + ";userId," + userId + ";mobile," + mobile + ";verifyCode," + verifyCode;
 		params = AppReq.setParmas(params, hParams, bParams);
 		String reString = AppReq.getResStr(url, params);
@@ -33,6 +34,25 @@ public class SJBZL {
 		} else {
 			return false;
 		}
+	}
+	public static String getSecUseIdBy8006(String mobile, String userID, String token) throws Exception {
+		String params = DataUrls.params_8006;
+		String url = DataUrls.url_act;
+		String suc = "code\":1";
+		String invitationCode = "";
+		
+		String hParams = "userID," + userID + ";token," + token + ";username," + mobile;
+		String bParams = "";
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			invitationCode= data.getString("invitationCode");
+			System.out.println(mobile + "," + invitationCode);
+		}
+		return invitationCode;
 	}
 
 	public static boolean regUseByVoiceSms(String mobile) throws Exception {
@@ -48,7 +68,6 @@ public class SJBZL {
 		System.out.println(reString);
 		if (reString.contains(suc)) {
 			String verifyCode = SmsTest.getSmsCode(type , mobile);
-			System.out.println(verifyCode);
 			result = regUseBy8002(mobile, verifyCode);
 		}
 		System.out.println("register result =" + result);
@@ -57,7 +76,7 @@ public class SJBZL {
 	
 	public static void test(int s, int e) throws Exception{
 		for (int i = s; i < e; i++) {
-			String mobile = "1341113";
+			String mobile = "1341114";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
 			} else if ( i < 100) {
@@ -70,8 +89,10 @@ public class SJBZL {
 			regUseByVoiceSms(mobile);
 		}
 		
+		Thread.sleep(30 * 1000);
+		
 		for (int i = s; i < e; i++) {
-			String mobile = "1341113";
+			String mobile = "1341114";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
 			} else if ( i < 100) {
@@ -81,11 +102,11 @@ public class SJBZL {
 			} else if (i < 10000) {
 				mobile = mobile + i;
 			}
-			UserBaseInfo.resetPwd(type, "13411111465");
+			UserBaseInfo.resetPwd(type, mobile);
 		}
 		
 		for (int i = s; i < e; i++) {
-			String mobile = "1341113";
+			String mobile = "1341114";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
 			} else if ( i < 100) {
@@ -95,19 +116,45 @@ public class SJBZL {
 			} else if (i < 10000) {
 				mobile = mobile + i;
 			}
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw );
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
 			String token = user.getToken();
 			String userID = user.getUserId();
 			UserBaseInfo.push1000(userID, token);
 			
-			UserBaseInfo.getMechartNo(userID, token, "2000");
+			UserBaseInfo.getRp8341(userID, token);
 			
 			UserBaseInfo.buyGaoPin(userID, token, 1, "62");
 		}
 	}
 	
 	public static void main(String[] args) throws Exception {
-		test(0, 30);
+//		UserInfo user = UserBaseInfo.getUserInfo("13411130235", pw);
+//		String token = user.getToken();
+//		String userID = user.getUserId();
+//		UserBaseInfo.push1000(userID, token);
+		
+		int s = 513;
+		
+		for (int i = 1; i < 13; i++) {
+			String mobile = "1341113";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if ( i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
+			String token = user.getToken();
+			String userID = user.getUserId();
+			userId = getSecUseIdBy8006(mobile, userID, token);
+			
+			int e = s + i;
+			test(s, e);
+			s = e;
+		}
+		System.out.println("*********" + s);
 	}
-
 }

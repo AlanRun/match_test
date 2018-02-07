@@ -5,20 +5,23 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.jdd.fm.core.exception.AesException;
+
 import utils.DBHelper;
 
 public class SmsTest {
-
+	
 	/**
 	 * 
 	 * @param type: huidu/zz/aoying
 	 * @param num: phone number
 	 * @return
+	 * @throws Exception 
 	 */
-	public static String getSmsCode(String type, String num) {
+	public static String getSmsCode(String type, String num) throws Exception {
 		Date d = new Date();
 		Long time = d.getTime();
-		d = new Date(time - 6 * 60 *1000);
+		d = new Date(time - 30 *1000);
 		SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss"); 
 		String date = formatter.format(d);
 		
@@ -32,8 +35,10 @@ public class SmsTest {
 //		String password = "jdd@3307";
 //		String user = "jdd";
 		
+		num = AppReq.encrypt(num);
+		
 		String db = "jdd_sms";
-		String sql = "SELECT s_body FROM sms_message where s_mobile_number= " + num + " and d_update_time>'" + date  + "' order by d_update_time desc;";
+		String sql = "SELECT s_body FROM sms_message where s_mobile_number= \"" + num + "\" and d_update_time>'" + date  + "' order by d_update_time desc;";
 		
 		DBHelper db1 = new DBHelper(type, db, sql);
 		ResultSet ret = null;
@@ -78,7 +83,7 @@ public class SmsTest {
 		return code;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(getSmsCode("aoying", "13811110021"));
+	public static void main(String[] args) throws Exception {
+		System.out.println(getSmsCode("zz", "13811110001"));
 	}
 }
