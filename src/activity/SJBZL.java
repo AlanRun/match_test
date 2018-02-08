@@ -15,7 +15,7 @@ import net.sf.json.JSONObject;
 public class SJBZL {
 	
 	private static String type = "zz";
-	private static String actTypeId = "100016";
+	private static String actTypeId = "111926";
 	private static String userId = "9C0F803EBC0D6BC443F1103A9B3B1CCE";
 	private static String pw = "aaaaaa";
 	
@@ -42,8 +42,9 @@ public class SJBZL {
 		String invitationCode = "";
 		
 		String hParams = "userID," + userID + ";token," + token + ";username," + mobile;
-		String bParams = "";
+		String bParams = "actTypeId," + actTypeId;
 		params = AppReq.setParmas(params, hParams, bParams);
+		System.out.println(params);
 		String reString = AppReq.getResStr(url, params);
 		System.out.println(reString);
 		if (reString.contains(suc)) {
@@ -133,28 +134,28 @@ public class SJBZL {
 //		String userID = user.getUserId();
 //		UserBaseInfo.push1000(userID, token);
 		
-		int s = 513;
-		
-		for (int i = 1; i < 13; i++) {
-			String mobile = "1341113";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if ( i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
+//		int s = 513;
+//		
+//		for (int i = 1; i < 13; i++) {
+			String mobile = "js006";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if ( i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
 			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
 			String token = user.getToken();
 			String userID = user.getUserId();
 			userId = getSecUseIdBy8006(mobile, userID, token);
 			
-			int e = s + i;
-			test(s, e);
-			s = e;
-		}
-		System.out.println("*********" + s);
+//			int e = s + i;
+//			test(s, e);
+//			s = e;
+//		}
+//		System.out.println("*********" + s);
 	}
 }
