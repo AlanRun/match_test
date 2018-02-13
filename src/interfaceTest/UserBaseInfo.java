@@ -1061,7 +1061,7 @@ public class UserBaseInfo {
 		
 		String uuid = token.substring(token.length()-32, token.length());
 //		String uuid = "112233445566";
-		System.out.println(uuid);
+//		System.out.println(uuid);
 		
 		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;
 		String bParams = "";
