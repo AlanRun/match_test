@@ -9,6 +9,7 @@ import net.sf.json.JSONObject;
 
 public class GameSign {
 
+	private static final String suc = "code\":200";
 	public static void sign(String token, String userID) throws Exception {
 		String game_token = getGameToken(token, userID);
 		String Authorization = getAuthorization(game_token );
@@ -18,6 +19,8 @@ public class GameSign {
 	public static void playGame(String token, String userID) throws Exception {
 		String game_token = getGameToken(token, userID);
 		String Authorization = getAuthorization(game_token );
+		useBet(Authorization);
+		getRich(Authorization);
 		playGameAndCheckAward(Authorization);
 	}
 	
@@ -48,14 +51,14 @@ public class GameSign {
 	 * @throws Exception
 	 */
 	public static String getGameToken(String token, String userID) throws Exception{
-		String url_login = "https://uic-api.beeplay123.com/uic/api/lottery/login";
-		String params_login = "{\"token\":\"" + token + "\",\"userID\":\"" + userID
+		String url = "https://uic-api.beeplay123.com/uic/api/lottery/login";
+		String params = "{\"token\":\"" + token + "\",\"userID\":\"" + userID
 				+ "\",\"userType\":1,\"appVersion\":\"5.1.8\",\"platformCode\":\"IPHONE\"}";
 
-		String re_login = AppReq.getResStrNotAes(url_login, params_login);
-		System.out.println("login=" + re_login);
-		JSONObject obj_login = JSONObject.fromObject(re_login);
-		String game_token = obj_login.getString("data");
+		String re = AppReq.getResStrNotAes(url, params);
+		System.out.println("login=" + re);
+		JSONObject obj = JSONObject.fromObject(re);
+		String game_token = obj.getString("data");
 		return game_token;
 	}
 	
@@ -66,13 +69,13 @@ public class GameSign {
 	 * @throws Exception
 	 */
 	public static String getAuthorization(String game_token) throws Exception{
-		String url_access = "https://uic-api.beeplay123.com/uic/api/user/login/accessToken";
-		String params_access = "{\"token\":\"" + game_token + "\",\"type\":1}";
-		String re_access = AppReq.getResStrNotAes(url_access, params_access);
-		System.out.println("accessToken=" + re_access);
-		JSONObject obj_access = JSONObject.fromObject(re_access);
-		JSONObject data_access = obj_access.getJSONObject("data");
-		String Authorization = data_access.getString("accessToken");
+		String url = "https://uic-api.beeplay123.com/uic/api/user/login/accessToken";
+		String params = "{\"token\":\"" + game_token + "\",\"type\":1}";
+		String re = AppReq.getResStrNotAes(url, params);
+		System.out.println("accessToken=" + re);
+		JSONObject obj = JSONObject.fromObject(re);
+		JSONObject data = obj.getJSONObject("data");
+		String Authorization = data.getString("accessToken");
 		return Authorization;
 	}
 	
@@ -141,12 +144,12 @@ public class GameSign {
 	 * @throws Exception
 	 */
 	public static int getAmountCount(String Authorization) throws Exception {
-		String url_trans = "https://uic-api.beeplay123.com/uic/api/user/login/transInfo";
-		String re_trans = AppReq.getResStrNotAes(url_trans, "", Authorization);
-		System.out.println("transInfo=" + re_trans);
+		String url = "https://uic-api.beeplay123.com/uic/api/user/login/transInfo";
+		String re = AppReq.getResStrNotAes(url, "", Authorization);
+		System.out.println("transInfo=" + re);
 		int amount = 0;
-		if (re_trans.contains("code\":200")) {
-			JSONObject obj = JSONObject.fromObject(re_trans);
+		if (re.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(re);
 			JSONObject data = obj.getJSONObject("data");
 			amount = data.getInt("amount");
 		}
@@ -163,12 +166,12 @@ public class GameSign {
 	 * @throws Exception
 	 */
 	public static void getBilliardsTask(String Authorization) throws Exception {
-		String url_showlist = "https://platform-api.beeplay123.com/wap/api/usertask/showlist";
-		String re_showlist = AppReq.getResStrNotAes(url_showlist, "", Authorization);
-		System.out.println("showlist" + re_showlist);
+		String url = "https://platform-api.beeplay123.com/wap/api/usertask/showlist";
+		String re = AppReq.getResStrNotAes(url, "", Authorization);
+		System.out.println("showlist" + re);
 
-		if (re_showlist.contains("code\":200")) {
-			JSONObject obj = JSONObject.fromObject(re_showlist);
+		if (re.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(re);
 			JSONArray data = obj.getJSONArray("data");
 
 			for (int i = 0; i < data.size(); i++) {
@@ -191,10 +194,10 @@ public class GameSign {
 	 * @throws Exception
 	 */
 	public static void playBilliards(String Authorization) throws Exception {
-		String url_odds = "https://game-api.beeplay123.com/billiards/api/get/odds";
-		String param_odds = "{\"nav\":1,\"rate\":100}";
-		String re_odds = AppReq.getResStrNotAes(url_odds, param_odds, Authorization);
-		System.out.println("play=" + re_odds);
+		String url = "https://game-api.beeplay123.com/billiards/api/get/odds";
+		String param = "{\"nav\":1,\"rate\":100}";
+		String re = AppReq.getResStrNotAes(url, param, Authorization);
+		System.out.println("play=" + re);
 	}
 
 	/**
@@ -204,16 +207,45 @@ public class GameSign {
 	 * @throws Exception
 	 */
 	public static int getBilliardsAmount(String Authorization) throws Exception {
-		String url_profitNext = "https://platform-api.beeplay123.com/wap/api/history/profitNext";
-		String re_profitNext = AppReq.getResStrNotAes(url_profitNext, "", Authorization);
+		String url = "https://platform-api.beeplay123.com/wap/api/history/profitNext";
+		String re = AppReq.getResStrNotAes(url, "", Authorization);
 		int amount = 0;
-		System.out.println("profitNext=" + re_profitNext);
-		if (re_profitNext.contains("code\":200")) {
-			JSONObject obj = JSONObject.fromObject(re_profitNext);
+		System.out.println("profitNext=" + re);
+		if (re.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(re);
 			JSONObject data = obj.getJSONObject("data");
 			amount = data.getInt("amount");
 		}
 		return amount;
+	}
+	
+	public static void useBet(String Authorization) throws Exception{
+		String url = "https://ops-api.beeplay123.com/ops/api/richwheel/commonStatus";
+		String param = "{\"value\":4}";
+		String re = AppReq.getResStrNotAes(url, param, Authorization);
+		System.out.println("commonStatus=" + re);
+		if (re.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(re);
+			JSONObject data = obj.getJSONObject("data");
+			int bettingTimes = data.getInt("bettingTimes");
+			
+			for (int i = 0; i < bettingTimes; i++) {
+				getCommonBet(Authorization);
+			}
+		}
+	}
+	
+	public static void getCommonBet(String Authorization) throws Exception{
+		String url = "https://ops-api.beeplay123.com/ops/api/richwheel/commonBetting";
+		String param = "{\"value\":4}";
+		String reString = AppReq.getResStrNotAes(url, param, Authorization);
+		System.out.println("commonBetting=" + reString);
+	}
+	public static void getRich(String Authorization) throws Exception{
+		String url = "https://trans-api.beeplay123.com/trans/api/fragment/rich";
+		String param = "{\"page\":1,\"pageSize\":100}";
+		String reString = AppReq.getResStrNotAes(url, param, Authorization);
+		System.out.println("rich=" + reString);
 	}
 
 	public static void main(String[] args) throws Exception {
