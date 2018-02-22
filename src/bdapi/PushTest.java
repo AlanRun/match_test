@@ -1,9 +1,4 @@
-package datePush;
-
-import bdapi.Bd229Test;
-import bdapi.Ct204Test;
-import bdapi.Jl2031Test;
-import bdapi.Jz202Test;
+package bdapi;
 
 public class PushTest {
 

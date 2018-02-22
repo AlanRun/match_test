@@ -1,13 +1,8 @@
-package datePush;
+package bdapi;
 
 import java.io.IOException;
 
 import com.jdd.fm.core.exception.AesException;
-
-import bdapi.Bd229Test;
-import bdapi.Ct204Test;
-import bdapi.Jl2031Test;
-import bdapi.Jz202Test;
 
 public class TeamRankTest {
 
