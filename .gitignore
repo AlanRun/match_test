@@ -2,4 +2,3 @@ bin
 *log.txt
 libs
 src/helper/AppReq.java
-src/utils/DBHelper.java
