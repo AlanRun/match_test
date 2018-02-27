@@ -80,6 +80,21 @@ public class AppReq {
 		String json = hr.getContent();
 		return json;
 	}
+	
+	public static String setParmas(String params, String Params) {
+		JSONObject obj = JSONObject.fromObject(params);
+		if (!Params.equals("")) {
+			String[] hp = Params.split(";");
+			for (int i = 0; i < hp.length; i++) {
+				String param = hp[i];
+				String[] p = param.split(",");
+				obj.put(p[0], p[1]);
+			}
+		}
+
+		params = obj.toString();
+		return params;
+	}
 
 	public static String setParmas(String params, String hParams, String bParams) {
 

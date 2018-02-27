@@ -9,7 +9,7 @@ import net.sf.json.JSONObject;
 public class SJBHBY {
 
 	private final static String childReferenceId = "1";
-	private final static String referenceId = "13687577";
+	private final static String referenceId = "13638743";
 	private final static String actTypeId = "100017";
 	private final static String pw = "aaaaaa";
 
@@ -24,15 +24,16 @@ public class SJBHBY {
 	 */
 	public static String getGenerateId(String childReferenceId, String referenceId) throws Exception {
 		String params = DataUrls.params_500;
-		String url = DataUrls.url_act;
+		String url = DataUrls.url_act_rain;
 		String suc = "生成成功";
 		String redPacketId = "";
 
 		String hParams = "";
 		String bParams = "referenceId," + referenceId + ";childReferenceId," + childReferenceId;
 		params = AppReq.setParmas(params, hParams, bParams);
+		System.err.println(params);
 		String reString = AppReq.getResStr(url, params);
-		// System.out.println(reString);
+		System.out.println(reString);
 		if (reString.contains(suc)) {
 			JSONObject obj = JSONObject.fromObject(reString);
 			JSONObject data = obj.getJSONObject("data");
@@ -43,7 +44,7 @@ public class SJBHBY {
 
 	public static void getDoubleRP(String encryptId, String generateIds) throws Exception {
 		String params = DataUrls.params_503;
-		String url = DataUrls.url_act;
+		String url = DataUrls.url_act_rain;
 		String suc = "翻倍成功";
 
 		String hParams = "";
@@ -70,7 +71,7 @@ public class SJBHBY {
 	public static void getRedPacketByChat(String userID, String token, String referenceId, String generateId)
 			throws Exception {
 		String params = DataUrls.params_502;
-		String url = DataUrls.url_act;
+		String url = DataUrls.url_act_rain;
 		String suc = "code\":1";
 
 		String uuid = token.substring(token.length() - 32, token.length());
@@ -78,9 +79,10 @@ public class SJBHBY {
 		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;
 		String bParams = "referenceId," + referenceId + ";generateId," + generateId;
 		params = AppReq.setParmas(params, hParams, bParams);
+//		System.err.println(params);
 		String reString = AppReq.getResStr(url, params);
-		System.out.println(reString);
-		String gainMoney = "0";
+		System.out.println(userID + "===" + reString);
+		String gainMoney = "";
 		String shareId = "";
 		String userId = "";
 		if (reString.contains(suc)) {
@@ -133,7 +135,9 @@ public class SJBHBY {
 			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
 			String token = user.getToken();
 			String userID = user.getUserId();
-			getRedPacketByChat(userID, token, referenceId, generateId);
+			for (int j = 0; j < 5; j++) {
+				getRedPacketByChat(userID, token, referenceId, generateId);
+			}
 		}
 	}
 

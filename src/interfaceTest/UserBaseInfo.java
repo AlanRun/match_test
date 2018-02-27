@@ -31,7 +31,7 @@ public class UserBaseInfo {
 		params = AppReq.setParmas(params, hParams, bParams);
 		
 		String reString = AppReq.getResStr(url, params);
-		System.out.println(reString);
+//		System.out.println(reString);
 		
 		JSONObject obj = JSONObject.fromObject(reString);
 		JSONObject data = obj.getJSONObject("data");
@@ -1107,18 +1107,20 @@ public class UserBaseInfo {
 
 	public static void main(String[] args) throws Exception {
 //		int Multiple = 1;
-		String mobile = "13811110003";
+		String mobile = "13811110030";
 		String pw = "aaaaaa";
 //		buy11X5(mobile, Multiple, "62");
 //		buyk3(mobile, Multiple, "69");
 		
 //		test100();
-		UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
-		String token = user.getToken();
-		String userID = user.getUserId();
-		for (int i = 0; i < 30; i++) {
+//		UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
+//		String token = user.getToken();
+//		String userID = user.getUserId();
+		String token = "eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJqc2NwIiwiaXNzIjoiamRkLmNvbSJ9.eyJ1c2VyVHlwZSI6MSwidXNlcmlkIjoxMDAwMDIzOTc3LCJ1dWlkIjoiMTM0MTExNDAwMDUwNEZDRUU2QkRFMEY0NjFGQUNEODUifQ.7a37c4913e1940192f3249cf3b5f10f5.ODhlY2Q2ZWEtYjY5Ni00OGI5LWE3ZTQtYTcwMTQ4NzExNWNi";
+		String userID = "MTAwMDAyMzk3Nw==";
+//		for (int i = 0; i < 30; i++) {
 			getRp8341(userID, token);
-		}
+//		}
 		
 //		String type = "zz";
 //		for (int i = 1; i < 10000; i++) {

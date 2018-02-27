@@ -21,7 +21,9 @@ public class DataUrls {
 	// 基础数据URL
 	public static final String url_bd = "https://bd-api.jdd.com/basedata/public/securityMobileHandler.do";
 	public static final String url_act = "https://activity-api.jdd.com/activity/public/mobileHandler.do";
+	public static final String url_act_rain = "https://activity-api-rp-rain.jdd.com/activity/public/mobileHandler.do";
 	public static final String url_market = "https://market-api.jdd.com/market/public/safeMobileHandler.do";
+	public static final String url_chat = "http://chat.jdd.com/chat/public/receiveMatchMessage.do";
 
 	// 竞足
 	public static final String url_jzissuelist = "https://smc.jdddata.com/api/matchlist/jzissuelist";
@@ -168,15 +170,16 @@ public class DataUrls {
 
 	public static final String params_7051 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":7051,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actTypeId':'78674','redemptionCode':'2c3c67cb3ca8114f','mobile':'13811110001','verifyCode':'660727'}\"}";
 	public static final String params_7091 = "{\"header\":{\"appVersion\":\"3.9.9\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":7091,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{}\"}";
-	public static final String params_7091_day = "{\"header\":{\"appVersion\":\"3.9.9\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":7091,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{'day':3}\"}";
+	public static final String params_7091_day = "{\"header\":{\"appVersion\":\"3.9.9\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":7091,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{'day':6}\"}";
 	public static final String params_7092 = "{\"header\":{\"appVersion\":\"3.9.9\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":7092,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"\"},\"body\":\"{}\"}";
-	public static final String params_8001 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":8001,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"93a20d8c058e447e8e200fda1138d76e\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'mobile':'13063920967'}\"}";
+	public static final String params_8001 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":8001,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"93a20d8c058e447e8e200fda1138d76e\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'mobile':'13063920967','actTypeId':'100016'}\"}";
 	public static final String params_8002 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":8002,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"93a20d8c058e447e8e200fda1138d76e\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'mobile':'13063929967','verifyCode':'242372','userId':'242372','actTypeId':'100019'}\"}";
 	public static final String params_8341 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":8341,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"557924547a6b4d8f8cbdb15cc548fae1\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'code':'1122'}\"}";
 	public static final String params_8006 = "{\"header\":{\"appVersion\":\"5.2.5\",\"cmdId\":\"1\",\"platformVersion\":\"10.3.2\",\"action\":8006,\"cmdName\":\"app_ios_zz\",\"userType\":1,\"uuid\":\"A783349C8B85453286AE400ACAE16A6A\",\"userID\":\"\",\"platformCode\":\"IPHONE\",\"islogin\":true,\"token\":\"\",\"username\":\"13811110002\"},\"body\":\"{'actTypeId':'100016'}\"}";
 	public static final String params_500  = "{\"header\":{\"action\":\"500\",\"chooseType\":0,\"cmdName\":\"app_zz\",\"ip\":\"192.168.137.148\",\"lat\":0,\"lng\":0,\"traceID\":\"8510aa62-3093-41d2-8d42-1a670022408b\"},\"body\":\"{'parentReferenceId':'16','childReferenceId':'1','type':'C','referenceId':'13687577'}\"}";
 	public static final String params_502  = "{\"header\":{\"appVersion\":\"5.0.2\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"action\":502,\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\"},\"body\":\"{'referenceId':'13687577','generateId':'6854B7D0A348522BCE8A434A565C835D'}\"}";
 	public static final String params_503  = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":503,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"fce83b344ef44ce08100f764f58e68d2\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actTypeId':'100017','encryptId':'14C061131B45A352B613B2D0F476A1A2','generateIds':'23938E107322E6CA368FDEA351CC47AF'}\"}";
+	public static final String params_chat  = "{\"matchId\":\"13332837\",\"phraseId\":\"666336783\",\"textZh\":\"\",\"time\":\"2\",\"scoreFt\":\"3-0\",\"type\":\"3\",\"createTime\":\"2018-02-1213:47:20\",\"uniqueTournamentId\":\"16\",\"uniqueTournamentName\":\"A组\",\"tournamentType\":\"C\",\"tournamentStageId\":\"1\",\"tournamentStageName\":\"\"}";
 
 	public static void main(String[] args) {
 
