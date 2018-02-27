@@ -1,3 +1,4 @@
 bin
 *log.txt
 libs
+.\src\helper\AppReq.java
