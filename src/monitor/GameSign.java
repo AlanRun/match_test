@@ -33,8 +33,11 @@ public class GameSign {
 		}
 		for (int i = 0; i < count; i++) {
 			if (amount < 1) {
-				playBilliards(Authorization);
+				boolean re = playBilliards(Authorization);
 				getBilliardsTask(Authorization);
+				if (!re) {
+					break;
+				}
 			} else {
 				break;
 			}
@@ -168,7 +171,7 @@ public class GameSign {
 	public static void getBilliardsTask(String Authorization) throws Exception {
 		String url = "https://platform-api.beeplay123.com/wap/api/usertask/showlist";
 		String re = AppReq.getResStrNotAes(url, "", Authorization);
-		System.out.println("showlist" + re);
+		System.out.println("showlist=" + re);
 
 		if (re.contains(suc)) {
 			JSONObject obj = JSONObject.fromObject(re);
@@ -176,11 +179,12 @@ public class GameSign {
 
 			for (int i = 0; i < data.size(); i++) {
 				JSONObject task = (JSONObject) data.get(i);
-				int finishNum = task.getInt("finishNum");
+				int taskId = task.getInt("taskId");
 				int taskStatus = task.getInt("taskStatus");
-				if (finishNum == 1 && taskStatus != 2) {
+				String taskLogId = task.getString("taskLogId");
+				if (taskStatus == 0) {
 					String url_finish = "https://platform-api.beeplay123.com/wap/api/usertask/finish";
-					String param_finish = "{\"taskId\":76,\"taskLogId\":8074673}";
+					String param_finish = "{\"taskId\":"+ taskId +",\"taskLogId\":"+ taskLogId +"}";
 					String re_finish = AppReq.getResStrNotAes(url_finish, param_finish, Authorization);
 					System.out.println("task=" + re_finish);
 				}
@@ -191,13 +195,20 @@ public class GameSign {
 	/**
 	 * play
 	 * @param Authorization
+	 * @return 
 	 * @throws Exception
 	 */
-	public static void playBilliards(String Authorization) throws Exception {
+	public static boolean playBilliards(String Authorization) throws Exception {
 		String url = "https://game-api.beeplay123.com/billiards/api/get/odds";
 		String param = "{\"nav\":1,\"rate\":100}";
+		String err = "请合理出杆";
 		String re = AppReq.getResStrNotAes(url, param, Authorization);
 		System.out.println("play=" + re);
+		if (re.contains(err)) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	/**
@@ -268,7 +279,6 @@ public class GameSign {
 			UserBaseInfo.drawLott7101(userID, token, mobile);
 			
 			sign(token, userID);
-			XNJFTest.getCard7091(mobile, userID, token);
 		}
 		
 		for (int i = 0; i < mList.length; i++) {

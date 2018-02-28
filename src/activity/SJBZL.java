@@ -133,7 +133,7 @@ public class SJBZL {
 //		String userID = user.getUserId();
 //		UserBaseInfo.push1000(userID, token);
 		
-		int s = 268;
+		int s = 501;
 		
 		for (int i = 1; i < 12; i++) {
 			String mobile = "1341114";
