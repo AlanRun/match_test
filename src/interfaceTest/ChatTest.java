@@ -83,9 +83,9 @@ public class ChatTest {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		String matchId = "12055570";
+		String matchId = "13810373";
 		String tournamentStageId = "1";
-		String type = "3";
+		String type = "1";
 		String uniqueTournamentId = "16";
 		String time = "1";
 		String tournamentType = "C";

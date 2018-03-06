@@ -9,7 +9,7 @@ import net.sf.json.JSONObject;
 public class SJBHBY {
 
 	private final static String childReferenceId = "1";
-	private final static String referenceId = "13638743";
+	private final static String referenceId = "13810373";
 	private final static String actTypeId = "100017";
 	private final static String pw = "aaaaaa";
 
@@ -81,7 +81,7 @@ public class SJBHBY {
 		params = AppReq.setParmas(params, hParams, bParams);
 //		System.err.println(params);
 		String reString = AppReq.getResStr(url, params);
-		System.out.println(userID + "===" + reString);
+//		System.out.println(userID + "===" + reString);
 		String gainMoney = "";
 		String shareId = "";
 		String userId = "";

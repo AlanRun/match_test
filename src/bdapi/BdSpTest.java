@@ -305,6 +305,91 @@ public class BdSpTest {
 		}
 		return list;
 	}
+	
+	public static ArrayList<JzMatchSpInfo> getFullFinalSpList(String type, String issue) throws Exception {
+		LogWrite.saveToFile(type);
+		String url = "";
+		if (type.equals("rqspf")) {
+			url = bd_final_rqspf + issue + ".xml";
+		} else if (type.equals("sxds")) {
+			url = bd_final_sxds + issue + ".xml";
+		} else if (type.equals("bf")) {
+			url = bd_final_bf + issue + ".xml";
+		} else if (type.equals("zjq")) {
+			url = bd_final_zjq + issue + ".xml";
+		} else if (type.equals("bqc")) {
+			url = bd_final_bqc + issue + ".xml";
+		}
+
+		ArrayList<JzMatchSpInfo> list = new ArrayList<JzMatchSpInfo>();
+
+		HttpRequester request = new HttpRequester();
+		request.setDefaultContentEncoding("utf-8");
+		HttpRespons hr = request.sendGet(url);
+		String json = hr.getContent();
+		if (json == null || json.equals("")) {
+			LogWrite.saveToFile("empty content!!!");
+		} else {
+			// LogWrite.saveToFile(json);
+		}
+
+		json = json.substring(39, json.length());
+
+		Document validateNode = DocumentHelper.parseText(json);
+		List<Node> itemListSp = validateNode.selectNodes("info/matchesp/matchInfo/matchelem/item");
+		if (itemListSp.size() != 0) {
+			for (int i = 0; i < itemListSp.size(); i++) {
+				Node item = itemListSp.get(i);
+				String IssueNo = item.valueOf("no");
+				String HTeam = item.valueOf("host");
+				String VTeam = item.valueOf("guest");
+				String endTime = item.valueOf("endTime");
+				String Rq = item.valueOf("handicap");
+				String NMm = item.valueOf("leagueName");
+				String soccer = item.valueOf("soccer");
+				String matchandstate = item.valueOf("matchandstate");
+
+				Element spitem = (Element) item.selectSingleNode("spitem");
+				List<Element> spList = spitem.elements();
+				String Sp = "";
+				for (int j = 0; j < spList.size(); j++) {
+					Element sp = spList.get(j);
+					if (sp.getName().contains("_v")) {
+						if (!sp.getText().equals("0")) {
+							Sp = checkSp(sp.getText());
+						}
+					}
+				}
+				Sp = Sp.substring(0, Sp.length());
+				JzMatchSpInfo jzMatch = new JzMatchSpInfo();
+				jzMatch.setIssueNo(IssueNo);
+				jzMatch.setNMm(NMm);
+				jzMatch.setMatchStartTime(endTime);
+				jzMatch.setRq(Rq);
+				jzMatch.setHTeam(HTeam);
+				jzMatch.setVTeam(VTeam);
+				jzMatch.setMatchandstate(matchandstate);
+				jzMatch.setSoccer(soccer);
+
+				if (type.equals("rqspf")) {
+					jzMatch.setSpRQSPF(Sp);
+				} else if (type.equals("sxds")) {
+					jzMatch.setSpSXDS(Sp);
+				} else if (type.equals("bf")) {
+					jzMatch.setSpBF(Sp);
+				} else if (type.equals("zjq")) {
+					jzMatch.setSpZJQ(Sp);
+				} else if (type.equals("bqc")) {
+					jzMatch.setSpBQC(Sp);
+				}
+
+				LogWrite.saveToFile(
+						IssueNo + "\t" + endTime + "\t" + Rq + "\t" + NMm + "\t" + HTeam + " VS " + VTeam + "\t" + Sp);
+				list.add(jzMatch);
+			}
+		}
+		return list;
+	}
 
 	/**
 	 * 比对北单投注对阵 jdd vs 官方
@@ -464,6 +549,69 @@ public class BdSpTest {
 			}
 		}
 	}
+	
+	public static void getFullFinalSpAndSoccor(String issue) throws Exception {
+		LogWrite.saveToFile("北单比分、最终sp验证");
+
+		if (issue.equals("null")) {
+			LogWrite.saveToFile("jdd无北单对阵数据");
+			return;
+		}
+
+		ArrayList<JzMatchSpInfo> jddList = getFinalSpFromData(issue);
+		if (jddList.size() == 0) {
+			LogWrite.saveToFile("数据库无北单最终sp");
+			return;
+		}
+		issue = (String) issue.subSequence(1, issue.length());
+		ArrayList<JzMatchSpInfo> bfList = getFullFinalSpList("bf", issue);
+		ArrayList<JzMatchSpInfo> bqcList = getFullFinalSpList("bqc",issue);
+		ArrayList<JzMatchSpInfo> rqspfList = getFullFinalSpList("rqspf",issue);
+		ArrayList<JzMatchSpInfo> sxdsList = getFullFinalSpList("sxds",issue);
+		ArrayList<JzMatchSpInfo> zjqList = getFullFinalSpList("zjq",issue);
+
+		for (int i = 0; i < jddList.size(); i++) {
+			JzMatchSpInfo jdd = jddList.get(i);
+			String jddSoccer = jdd.getSoccer();
+			String jddFinalSp = jdd.getFinalSp();
+
+			LogWrite.saveToFile(jdd.getIssueNo() + "\t" + jdd.getHTeam() + " VS " + jdd.getVTeam());
+			
+			System.out.println(jdd.getIssueNo());
+			for (int j = 0; j < bfList.size(); j++) {
+				JzMatchSpInfo gf = bfList.get(j);
+
+				if (jdd.getIssueNo().equals(gf.getIssueNo())) {
+					String bf = bfList.get(j).getSpBF();
+					String bqc = bqcList.get(j).getSpBQC();
+					String rqspf = rqspfList.get(j).getSpRQSPF();
+					String sxds = sxdsList.get(j).getSpSXDS();
+					String zjq = zjqList.get(j).getSpZJQ();
+
+					String gfRq = gf.getRq();
+					String jddRq = gf.getRq();
+					String gfSoccer = gf.getSoccer();
+					String gfFinalSp = rqspf + "," + zjq + "," + sxds + "," + bf + "," + bqc;
+
+					if (!gfSoccer.equals(jddSoccer)) {
+						LogWrite.saveToFile("soccer not match");
+						LogWrite.saveToFile("jdd=[" + jddSoccer);
+						LogWrite.saveToFile("gf =[" + gfSoccer);
+					}
+
+					if (!gfFinalSp.equals(jddFinalSp)) {
+						LogWrite.saveToFile("Final sp not match");
+						LogWrite.saveToFile("jdd=[ " + jddRq + "\t" + jddSoccer + "\t" + jddFinalSp);
+						LogWrite.saveToFile("gf =[ " + gfRq + "\t" + gfSoccer + "\t" + gfFinalSp);
+					}
+					LogWrite.saveToFile("\n");
+
+					break;
+				}
+
+			}
+		}
+	}
 
 	/**
 	 * get bd final sp from data
@@ -542,7 +690,9 @@ public class BdSpTest {
 //		 getBdSpFromJdd();
 //		getFinalSpAndSoccor("170904");
 		// getFinalSpList("rqspf");
-		compareJddSpToGf_Bd();
+//		compareJddSpToGf_Bd();
+//		getFinalSpAndSoccor("180301");
+		getFullFinalSpAndSoccor("180301");
 //		getFinalSpAndSoccor("171005");
 //		getBDSpFromJdd();
 	}

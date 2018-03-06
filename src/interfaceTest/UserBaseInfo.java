@@ -431,6 +431,33 @@ public class UserBaseInfo {
 	}
 	
 	/**
+	 * 
+	 * @param userId
+	 * @param token
+	 * @param Multiple
+	 * @return
+	 * @throws Exception
+	 */
+	public static boolean buyJZ(String userId, String token, int Multiple) throws Exception{
+		String url = DataUrls.url_order;
+		String params = DataUrls.params_207Jz;
+		String suc = "操作成功";
+		
+		String hParams = "userID," + userId + ";token," + token;
+		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2);
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
 	 * 购买竞篮
 	 * @param mobile 用户名
 	 * @param Multiple 倍数
@@ -980,12 +1007,11 @@ public class UserBaseInfo {
 	}
 	
 	/**
-	 * 获取用户总额为3000的彩金卡ID
+	 * 获取用户对于活动彩金卡
 	 * @param userID
 	 * @param token
-	 * @return
-	 * @throws AesException
-	 * @throws IOException
+	 * @param act
+	 * @throws Exception
 	 */
 	public static void getUserRedpackage(String userID, String token, String act) throws Exception{
 		String url = DataUrls.url_rp;
@@ -1059,8 +1085,8 @@ public class UserBaseInfo {
 		String suc = "设置成功";
 		boolean result = false;
 		
-		String uuid = token.substring(token.length()-32, token.length());
-//		String uuid = "112233445566";
+//		String uuid = token.substring(token.length()-32, token.length());
+		String uuid = "112233445566";
 //		System.out.println(uuid);
 		
 		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;

@@ -1,6 +1,5 @@
 package monitor;
 
-import activity.XNJFTest;
 import helper.AppReq;
 import helper.UserInfo;
 import interfaceTest.UserBaseInfo;

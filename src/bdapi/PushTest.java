@@ -34,8 +34,10 @@ public class PushTest {
 		}
 
 		try {
-			BdSpTest.getFinalSpAndSoccor("171005");
+//			BdSpTest.getFinalSpAndSoccor("180301");
+			BdSpTest.getFullFinalSpAndSoccor("180301");
 		} catch (Exception e) {
+			
 		}
 
 	}

@@ -296,6 +296,7 @@ public class JlSpTest {
 					}
 					
 					String time = DateAndTime.getEndTime(gfList.get(j).getMatchStartTime(), 30);
+//					String time = gfList.get(j).getMatchStartTime();
 					if (!jdd.getMatchStartTime().equals(time)) {
 						LogWrite.saveToFile("matchtime not match");
 						LogWrite.saveToFile("jdd=" + jdd.getMatchStartTime());
