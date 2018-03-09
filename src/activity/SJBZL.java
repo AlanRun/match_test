@@ -16,7 +16,7 @@ public class SJBZL {
 	
 	private static String type = "zz";
 	private static String actTypeId = "100016";
-	private static String userId = "6CA69286FA60564CA071F7220E336A80";
+	private static String userId = "6416C4AD4F979D0BB67C057FB6CB6715";
 	private static String pw = "aaaaaa";
 	
 	public static boolean  regUseBy8002(String mobile, String verifyCode) throws Exception {
@@ -131,8 +131,8 @@ public class SJBZL {
 //		String token = user.getToken();
 //		String userID = user.getUserId();
 //		UserBaseInfo.push1000(userID, token);
-		
-		int s = 603;
+		userId = "177887B3537D424EA421B143D048998F";
+		int s = 610;
 		int e = s + 1;
 		test(s, e);
 		s = e;

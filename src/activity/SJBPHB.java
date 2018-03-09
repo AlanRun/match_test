@@ -12,7 +12,7 @@ public class SJBPHB {
 	private static final String pw = "aaaaaa";
 	
 	public static void test() throws Exception{
-		for (int i = 1; i < 1005; i++) {
+		for (int i = 1; i < 105; i++) {
 			String mobile = "1341111";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
@@ -32,7 +32,7 @@ public class SJBPHB {
 	}
 	
 	public static void check() throws Exception{
-		for (int i = 975; i < 1005; i++) {
+		for (int i = 975; i < 100; i++) {
 			String mobile = "1341111";
 			if (i < 10) {
 				mobile = mobile + "000" + i;

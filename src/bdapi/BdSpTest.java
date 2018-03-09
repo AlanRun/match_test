@@ -690,9 +690,9 @@ public class BdSpTest {
 //		 getBdSpFromJdd();
 //		getFinalSpAndSoccor("170904");
 		// getFinalSpList("rqspf");
-//		compareJddSpToGf_Bd();
-//		getFinalSpAndSoccor("180301");
-		getFullFinalSpAndSoccor("180301");
+		compareJddSpToGf_Bd();
+//		getFinalSpAndSoccor("180302");
+//		getFullFinalSpAndSoccor("180301");
 //		getFinalSpAndSoccor("171005");
 //		getBDSpFromJdd();
 	}

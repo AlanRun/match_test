@@ -1085,8 +1085,8 @@ public class UserBaseInfo {
 		String suc = "设置成功";
 		boolean result = false;
 		
-//		String uuid = token.substring(token.length()-32, token.length());
-		String uuid = "112233445566";
+		String uuid = token.substring(token.length()-32, token.length());
+//		String uuid = "112233445566";
 //		System.out.println(uuid);
 		
 		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;
