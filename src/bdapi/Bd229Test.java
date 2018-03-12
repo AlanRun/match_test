@@ -1,7 +1,6 @@
 package bdapi;
 
 import java.util.ArrayList;
-import org.dom4j.DocumentException;
 import helper.AppReq;
 import helper.DataUrls;
 import helper.JzMatchSpInfo;
