@@ -1,5 +1,6 @@
 package monitor;
 
+import activity.SJBJGQ;
 import helper.AppReq;
 import helper.UserInfo;
 import interfaceTest.UserBaseInfo;
@@ -269,8 +270,11 @@ public class GameSign {
 			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
 			String token = user.getToken();
 			String userID = user.getUserId();
+			
 
 			UserBaseInfo.push1000(userID, token);
+			SJBJGQ.useFlagCount(userID, token, "111941");
+			SJBJGQ.getFlagNum(mobile, userID, token, "111941");
 			UserBaseInfo.getRpNum107(mobile, userID, token);
 			UserBaseInfo.getUserRedpackage(userID, token);
 			UserBaseInfo.sign20004(userID, token, mobile);

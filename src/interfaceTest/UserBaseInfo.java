@@ -449,7 +449,7 @@ public class UserBaseInfo {
 		params = AppReq.setParmas(params, hParams, bParams);
 		String reString = AppReq.getResStr(url, params);
 		
-		System.out.println(reString);
+		System.err.println(reString);
 		if (reString.contains(suc)) {
 			return true;
 		} else {

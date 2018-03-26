@@ -131,34 +131,34 @@ public class SJBZL {
 //		String token = user.getToken();
 //		String userID = user.getUserId();
 //		UserBaseInfo.push1000(userID, token);
-		userId = "177887B3537D424EA421B143D048998F";
-		int s = 610;
-		int e = s + 1;
-		test(s, e);
-		s = e;
+//		userId = "177887B3537D424EA421B143D048998F";
+//		int s = 610;
+//		int e = s + 1;
+//		test(s, e);
+//		s = e;
 
-//		int s = 603;
-//		
-//		for (int i = 1; i < 12; i++) {
-//			String mobile = "1341114";
-//			if (i < 10) {
-//				mobile = mobile + "000" + i;
-//			} else if ( i < 100) {
-//				mobile = mobile + "00" + i;
-//			} else if (i < 1000) {
-//				mobile = mobile + "0" + i;
-//			} else if (i < 10000) {
-//				mobile = mobile + i;
-//			}
-//			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
-//			String token = user.getToken();
-//			String userID = user.getUserId();
-//			userId = getSecUseIdBy8006(mobile, userID, token);
-//			
-//			int e = s + i;
-//			test(s, e);
-//			s = e;
-//		}
+		int s = 686;
+		
+		for (int i = 10; i < 12; i++) {
+			String mobile = "1341114";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if ( i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
+			String token = user.getToken();
+			String userID = user.getUserId();
+			userId = getSecUseIdBy8006(mobile, userID, token);
+			
+			int e = s + i;
+			test(s, e);
+			s = e;
+		}
 		System.out.println("*********" + s);
 	}
 }
