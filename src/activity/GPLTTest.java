@@ -86,8 +86,10 @@ public class GPLTTest {
 	}
 
 	public static void main(String[] args) throws Exception {
-
-		for (int i = 1; i < 100; i++) {
+		int s = 1;
+		int e = 55;
+		
+		for (int i = s; i < e; i++) {
 			String mobile = "1341111";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
@@ -105,7 +107,7 @@ public class GPLTTest {
 			getActQualify7113(mobile, userId, token);
 		}
 
-		for (int i = 1; i < 45; i++) {
+		for (int i = s; i < e; i++) {
 			String mobile = "1341111";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
@@ -124,43 +126,43 @@ public class GPLTTest {
 			}
 		}
 		
-		for (int i = 1; i < 100; i++) {
-			String mobile = "1341111";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if (i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			String LotteryID = "74";
-			if (i > 1000) {
-				UserBaseInfo.buy11X5(mobile, 1000, LotteryID);
-			} else {
-				UserBaseInfo.buy11X5(mobile, i, LotteryID);
-			}
-		}
+//		for (int i = s; i < e; i++) {
+//			String mobile = "1341111";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			String LotteryID = "74";
+//			if (i > 1000) {
+//				UserBaseInfo.buy11X5(mobile, 1000, LotteryID);
+//			} else {
+//				UserBaseInfo.buy11X5(mobile, i, LotteryID);
+//			}
+//		}
 
-		for (int i = 1; i < 40; i++) {
-			String mobile = "1341111";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if (i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-			String token = user.getToken();
-			String userId = user.getUserId();
-
-			UserBaseInfo.getUserRedpackage(userId, token, "高频擂台");
-			System.err.println(mobile);
-		}
+//		for (int i = 1; i < 40; i++) {
+//			String mobile = "1341111";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//
+//			UserBaseInfo.getUserRedpackage(userId, token, "高频擂台");
+//			System.err.println(mobile);
+//		}
 	}
 
 }

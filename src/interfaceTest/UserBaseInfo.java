@@ -1041,6 +1041,41 @@ public class UserBaseInfo {
 	}
 	
 	/**
+	 * 获取用户对于活动彩金卡
+	 * @param userID
+	 * @param token
+	 * @param act
+	 * @throws Exception
+	 */
+	public static void getUserRedpackage(String userID, String token, String act, String addTime) throws Exception{
+		String url = DataUrls.url_rp;
+		String params = DataUrls.params_402;
+		String suc = "code\":0";
+		
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "";
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		System.out.println(reString);
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			JSONArray items = data.getJSONArray("item");
+			for (int i = 0; i < items.size(); i++) {
+				JSONObject item = (JSONObject) items.get(i);
+				String Name = item.getString("Name");
+				String AddedTime = item.getString("AddedTime");
+				if (Name.equals(act) && AddedTime.contains(addTime)) {
+					String TotalMoney = item.getString("TotalMoney");
+					System.err.println(Name + " : " + TotalMoney);
+				}
+			}
+		}
+	}
+	
+	/**
 	 * 上报uuid
 	 * @param userID
 	 * @param token

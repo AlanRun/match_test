@@ -8,9 +8,11 @@ import net.sf.json.JSONObject;
 
 public class SJBHBY {
 
-	private final static String childReferenceId = "1";
-	private final static String referenceId = "13810373";
+	private final static String childReferenceId = "2";
+	private final static String referenceId = "13649005";
+	private final static String parentReferenceId = "16";
 	private final static String actTypeId = "100017";
+//	private final static String actTypeId = "111933";
 	private final static String pw = "aaaaaa";
 
 	/**
@@ -22,14 +24,14 @@ public class SJBHBY {
 	 * @return
 	 * @throws Exception
 	 */
-	public static String getGenerateId(String childReferenceId, String referenceId) throws Exception {
+	public static String getGenerateId(String childReferenceId, String referenceId, String parentReferenceId) throws Exception {
 		String params = DataUrls.params_500;
 		String url = DataUrls.url_act_rain;
 		String suc = "生成成功";
 		String redPacketId = "";
 
 		String hParams = "";
-		String bParams = "referenceId," + referenceId + ";childReferenceId," + childReferenceId;
+		String bParams = "referenceId," + referenceId + ";childReferenceId," + childReferenceId + ";parentReferenceId,"  + parentReferenceId;
 		params = AppReq.setParmas(params, hParams, bParams);
 		System.err.println(params);
 		String reString = AppReq.getResStr(url, params);
@@ -79,9 +81,9 @@ public class SJBHBY {
 		String hParams = "userID," + userID + ";token," + token + ";uuid," + uuid;
 		String bParams = "referenceId," + referenceId + ";generateId," + generateId;
 		params = AppReq.setParmas(params, hParams, bParams);
-//		System.err.println(params);
+		System.err.println(params);
 		String reString = AppReq.getResStr(url, params);
-//		System.out.println(userID + "===" + reString);
+		System.out.println(userID + "===" + reString);
 		String gainMoney = "";
 		String shareId = "";
 		String userId = "";
@@ -143,7 +145,7 @@ public class SJBHBY {
 
 	public static void main(String[] args) throws Exception {
 
-		final String generateId = getGenerateId(childReferenceId, referenceId);
+		final String generateId = getGenerateId(childReferenceId, referenceId, parentReferenceId);
 		Thread.sleep(2000);
 
 		new Thread(new Runnable() {
@@ -156,590 +158,23 @@ public class SJBHBY {
 				}
 			}
 		}).start();
-
+		
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					test(21, generateId);
+					test(31, generateId);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(41, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
+		
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
 					test(61, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(81, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(101, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(121, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(141, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1141, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(161, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(181, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(201, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(221, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(241, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(261, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(281, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(301, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(321, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(341, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(361, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(381, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(401, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(421, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(441, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(461, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(481, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(501, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(521, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(541, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(561, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(581, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(601, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(621, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(641, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(681, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(701, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(721, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(741, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(761, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(781, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(801, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(821, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(841, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(861, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(881, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(901, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(921, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(941, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(981, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1001, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1021, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1041, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1061, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1081, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1101, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1121, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1161, generateId);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}).start();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					test(1181, generateId);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

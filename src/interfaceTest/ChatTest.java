@@ -83,13 +83,15 @@ public class ChatTest {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		String matchId = "13810373";
+		String matchId = "13649005";
 		String tournamentStageId = "1";
 		String type = "1";
-		String uniqueTournamentId = "16";
+		String uniqueTournamentId = "384";
 		String time = "1";
 		String tournamentType = "C";
-		sendMsg(matchId, type, tournamentStageId, uniqueTournamentId, time, tournamentType);
+//		sendMsg(matchId, type, tournamentStageId, uniqueTournamentId, time, tournamentType);
+		sendMsg("13649005", type, tournamentStageId, uniqueTournamentId, time, tournamentType);
+		sendMsg("13649209", type, tournamentStageId, uniqueTournamentId, time, tournamentType);
 		
 //		for (int i = 160; i < 167; i++) {
 //			sendMsg(matchId, type, tournamentStageId, "" + i);
