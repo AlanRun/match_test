@@ -173,23 +173,23 @@ public class JZLTTest {
 		int s = 1;
 		int e = 55;
 		
-		for (int i = s; i < e; i++) {
-			String mobile = "1341111";
-			if (i < 10) {
-				mobile = mobile + "000" + i;
-			} else if (i < 100) {
-				mobile = mobile + "00" + i;
-			} else if (i < 1000) {
-				mobile = mobile + "0" + i;
-			} else if (i < 10000) {
-				mobile = mobile + i;
-			}
-
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
-			String token = user.getToken();
-			String userId = user.getUserId();
-			getActQualify(mobile, userId, token);
-		}
+//		for (int i = s; i < e; i++) {
+//			String mobile = "1341111";
+//			if (i < 10) {
+//				mobile = mobile + "000" + i;
+//			} else if (i < 100) {
+//				mobile = mobile + "00" + i;
+//			} else if (i < 1000) {
+//				mobile = mobile + "0" + i;
+//			} else if (i < 10000) {
+//				mobile = mobile + i;
+//			}
+//
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, "aaaaaa");
+//			String token = user.getToken();
+//			String userId = user.getUserId();
+//			getActQualify(mobile, userId, token);
+//		}
 		
 		for (int i = s; i < e; i++) {
 			String mobile = "1341111";

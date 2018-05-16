@@ -398,6 +398,84 @@ public class UserBaseInfo {
 		}
 	}
 	
+	
+	/**
+	 * 竞足推单
+	 * @param userID
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
+	public static String pushOrder(String userID, String token) throws Exception {
+
+		String params = DataUrls.params_8412;
+		String url = DataUrls.url_master;
+		String suc = "SchemeID";
+
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "";
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		String SchemeID = "";
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			SchemeID = data.getString("SchemeID");
+		}
+		return SchemeID;
+	}
+	
+	/**
+	 * 竞足跟单
+	 * @param userID
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
+	public static boolean followOrder(String userID, String token, int multiple) throws Exception {
+
+		String params = DataUrls.params_2071;
+		String url = DataUrls.url_master;
+		String suc = "操作成功";
+
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "multiple," + multiple;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.err.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			result = true;
+		}
+		return result;
+	}
+	
+	/**
+	 * 竞足跟单
+	 * @param userID
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
+	public static boolean followOrder(String userID, String token, String schemeid, int multiple) throws Exception {
+
+		String params = DataUrls.params_2071;
+		String url = DataUrls.url_master;
+		String suc = "SchemeID";
+
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "schemeid," + schemeid + ";multiple," + multiple;
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		System.out.println(reString);
+		boolean result = false;
+		if (reString.contains(suc)) {
+			result = true;
+		}
+		return result;
+	}
+	
 	/**
 	 * 购买竞足
 	 * @param mobile 用户名
@@ -438,12 +516,12 @@ public class UserBaseInfo {
 	 * @return
 	 * @throws Exception
 	 */
-	public static boolean buyJZ(String userId, String token, int Multiple) throws Exception{
+	public static boolean buyJZ(String userID, String token, int Multiple) throws Exception{
 		String url = DataUrls.url_order;
 		String params = DataUrls.params_207Jz;
 		String suc = "操作成功";
 		
-		String hParams = "userID," + userId + ";token," + token;
+		String hParams = "userID," + userID + ";token," + token;
 		String bParams = "Multiple," + Multiple + ";Money," + (Multiple*2);
 		
 		params = AppReq.setParmas(params, hParams, bParams);

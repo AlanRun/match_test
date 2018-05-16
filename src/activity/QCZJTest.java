@@ -132,6 +132,10 @@ public class QCZJTest {
 				String Name = item.getString("Name");
 				if (Name.equals("汽车之家")) {
 					result = true;
+					System.out.println(Name);
+				}
+				if (Name.contains("注册")) {
+					System.out.println(Name);
 				}
 			}
 		}
@@ -202,24 +206,26 @@ public class QCZJTest {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				for (int i = 10; i < 20; i++) {
-					try {
-						String name = "183123400" + i;
+//		new Thread(new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				for (int i = 10; i < 20; i++) {
+//					try {
+						String name = "13411160014";
 						String pwd = "aaaaaa";
-						registerUse7058(name);
-						
+//						registerUse7058(name);
+//						
+//						Thread.sleep(5000);
+//						
 						UserBaseInfo.resetPwd(type, name);
 						UserInfo user = UserBaseInfo.getUserInfo(name, pwd);
 						checkUserRedPackage(user.getUserId(), user.getToken());
-					} catch (Exception e) {
-					}
-				}
-			}
-		}).start();
+//					} catch (Exception e) {
+//					}
+//				}
+//			}
+//		}).start();
 		
 //		new Thread(new Runnable() {
 //			
