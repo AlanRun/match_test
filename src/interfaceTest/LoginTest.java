@@ -53,7 +53,7 @@ public class LoginTest {
 		String url = DataUrls.url_user;
 		String suc = "注册成功";
 		
-		String hParams = "cmdName," + cmdName;
+		String hParams = "cmdName," + cmdName + ";uuid," + num + "04EE8AE9070D06499A257";
 		String bParams = "verifycode," + code + ";mobile," + num;
 		params = AppReq.setParmas(params, hParams, bParams);
 		String reString = AppReq.getResStr(url, params);
@@ -99,7 +99,7 @@ public class LoginTest {
 	/**
 	 * 
 	 * @param type
-	 * @param num
+	 * @param mobile
 	 * @param pwd
 	 * @param cmdName
 	 * @param uuid
@@ -108,21 +108,21 @@ public class LoginTest {
 	 * @throws AesException
 	 * @throws IOException
 	 */
-	public static boolean registerUseCmdName(String type, String num, String pwd, String cmdName, String uuid, String platformCode) throws Exception{
+	public static boolean registerUseCmdName(String type, String mobile, String pwd, String cmdName, String uuid, String platformCode) throws Exception{
 		String params = DataUrls.params_100;
 		String url = DataUrls.url_user;
 		String suc = "验证码发送成功";
 		
-		String hParams = "cmdName," + cmdName + ";uuid," + uuid + ";platformCode," + platformCode;
-		String bParams = "Name," + num + ";Pw," + pwd;
+		String hParams = "cmdName," + cmdName + ";uuid," + mobile + uuid + ";platformCode," + platformCode;
+		String bParams = "Name," + mobile + ";Pw," + pwd;
 		params = AppReq.setParmas(params, hParams, bParams);
 		System.out.println(params);
 		boolean result = false;
 		String reString = AppReq.getResStr(url, params);
 		System.out.println(reString);
 		if (reString.contains(suc)) {
-			String code = SmsTest.getSmsCode(type, num);
-			result = verifySmsCode(num, code, cmdName);
+			String code = SmsTest.getSmsCode(type, mobile);
+			result = verifySmsCode(mobile, code, cmdName);
 		}
 		
 		return result;
@@ -185,9 +185,8 @@ public class LoginTest {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String pwd = "aaaaaa";
 //		for (int i = 1; i < 10; i++) {
-			String num = "13898760002";
+//			String num = "13898760002";
 //			getUserBaseInfo(num+i, pwd);
 //		}
 //		
@@ -198,12 +197,28 @@ public class LoginTest {
 		
 //		String IDCard = "320721199110292827";
 //		String RName = "王二";
-		
+		String pwd = "aaaaaa";
 		String cmdName = "app_zz";
-		String type = "aoying";
-		String uuid = "1C98D64157704EE8AE9070D06499A257";
+		String type = "zz";
+		String uuid = "57704EE8AE9070D06499A257";
 		String platformCode = "IPHONE";
-		registerUseCmdName(type, num, pwd, cmdName, uuid, platformCode);
-		getUserBaseInfo(num, pwd);
+		
+		for (int i = 100; i < 999; i++) {
+			String mobile = "1350001";
+			if (i < 10) {
+				mobile = mobile + "000" + i;
+			} else if ( i < 100) {
+				mobile = mobile + "00" + i;
+			} else if (i < 1000) {
+				mobile = mobile + "0" + i;
+			} else if (i < 10000) {
+				mobile = mobile + i;
+			}
+			UserInfo user = UserBaseInfo.getUserInfo(mobile, pwd);
+			String token = user.getToken();
+			String userID = user.getUserId();
+			UserBaseInfo.getMechartNo(userID, token, "2000");
+//			registerUseCmdName(type, mobile, pwd, cmdName, uuid, platformCode);
+		}
 	}
 }

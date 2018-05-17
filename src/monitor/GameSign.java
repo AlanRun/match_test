@@ -281,7 +281,11 @@ public class GameSign {
 			UserBaseInfo.drawLott7103(userID, token, mobile);
 			UserBaseInfo.drawLott7101(userID, token, mobile);
 			
-			sign(token, userID);
+			try {
+				sign(token, userID);
+			} catch (Exception e) {
+				System.out.println("Sign game failed.");
+			}
 		}
 		
 		for (int i = 0; i < mList.length; i++) {
@@ -291,7 +295,11 @@ public class GameSign {
 			String token = user.getToken();
 			String userID = user.getUserId();
 
-			playGame(token, userID);
+			try {
+				playGame(token, userID);
+			} catch (Exception e) {
+				System.out.println("Play game failed.");
+			}
 		}
 
 	}
