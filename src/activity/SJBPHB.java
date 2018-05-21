@@ -31,8 +31,8 @@ public class SJBPHB {
 		}
 	}
 	
-	public static void check() throws Exception{
-		for (int i = 1; i < 62; i++) {
+	public static void check(int s, int e) throws Exception{
+		for (int i = s; i < e; i++) {
 			String mobile = "1341111";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
@@ -47,15 +47,15 @@ public class SJBPHB {
 			String token = user.getToken();
 			String userID = user.getUserId();
 			System.err.print(mobile + "\t");
-			UserBaseInfo.getUserRedpackage(userID, token, "世界杯中奖排行榜", "2018-04-10");
+			UserBaseInfo.getUserRedpackage(userID, token, "世界杯中奖排行榜", "2018-05-18");
 		}
 	}
 	
 	public static void main(String[] args) throws Exception {
 		int s = 1;
 		int e = 55;
-		test(s, e);
-//		check();
+//		test(s, e);
+		check(s, e);
 	}
 
 }

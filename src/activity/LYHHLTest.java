@@ -118,8 +118,8 @@ public class LYHHLTest {
 			
 //			UserBaseInfo.getMechartNo(userID, token, "2000");
 			getBaseInfo(userID, token);
-			getActQualify(userID, token);
-			openRemaind(userID, token);
+//			getActQualify(userID, token);
+//			openRemaind(userID, token);
 		}
 		
 
@@ -142,8 +142,8 @@ public class LYHHLTest {
 	}
 
 	public static void main(String[] args) throws Exception {
-		int s = 20;
-		int e = 50;
+		int s = 50;
+		int e = 60;
 		
 		init(s, e);
 		
