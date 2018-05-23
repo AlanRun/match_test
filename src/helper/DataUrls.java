@@ -3,28 +3,28 @@ package helper;
 public class DataUrls {
 
 	// 传统期次
-	public static final String ct_issue = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=zqissue&lotteryid=10&playid=1001";
+	public static final String ct_issue = "https://dcds.baoying518.com/Api.Soccer.V3/Ajax/Live.ashx?action=zqissue&lotteryid=10&playid=1001";
 	// 传统对阵 issue = 17126
-	public static final String ct_qlive = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryid=10&playid=1001&pts=0&issue=";
+	public static final String ct_qlive = "https://dcds.baoying518.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryid=10&playid=1001&pts=0&issue=";
 	// 传统实况
-	public static final String ct_live = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=live&lotteryid=10&playid=1001&pts=0&issue=";
+	public static final String ct_live = "https://dcds.baoying518.com/Api.Soccer.V3/Ajax/Live.ashx?action=live&lotteryid=10&playid=1001&pts=0&issue=";
 	// 竞足期次
-	public static final String ft_issue = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=zqissue&lotteryid=90&playid=9001";
+	public static final String ft_issue = "https://dcds.baoying518.com/Api.Soccer.V3/Ajax/Live.ashx?action=zqissue&lotteryid=90&playid=9001";
 	// 竞足对阵 issue = 2017-09-04
-	public static final String ft_qlive = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryid=90&playid=9001&pts=0&issue=";
+	public static final String ft_qlive = "https://dcds.baoying518.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryid=90&playid=9001&pts=0&issue=";
 	// 竞足实况
-	public static final String ft_live = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=live&lotteryid=10&playid=1001&pts=0&issue=";
+	public static final String ft_live = "https://dcds.baoying518.com/Api.Soccer.V3/Ajax/Live.ashx?action=live&lotteryid=10&playid=1001&pts=0&issue=";
 	// 我的关注
-	public static final String ft_collect = "https://dcds.jdd.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryId=90&pts=0&matchids=";
+	public static final String ft_collect = "https://dcds.baoying518.com/Api.Soccer.V3/Ajax/Live.ashx?action=qlive&lotteryId=90&pts=0&matchids=";
 	// 积分榜
-	public static final String ft_teamrank = "https://smc.jdd.com/api/scoredetail/getssmatchrankinginfo?lotteryId=90&pcode=h5&pts=0&version=v2.1&mid=";
+	public static final String ft_teamrank = "https://smc.baoying518.com/api/scoredetail/getssmatchrankinginfo?lotteryId=90&pcode=h5&pts=0&version=v2.1&mid=";
 	// 基础数据URL
-	public static final String url_bd = "https://bd-api.jdd.com/basedata/public/securityMobileHandler.do";
-	public static final String url_act = "https://activity-api.jdd.com/activity/public/mobileHandler.do";
-	public static final String url_master = "https://master-api.jdd.com/master/public/securityMobileHandler.do";
-	public static final String url_act_rain = "https://activity-api-rp-rain.jdd.com/activity/public/mobileHandler.do";
-	public static final String url_market = "https://market-api.jdd.com/market/public/safeMobileHandler.do";
-	public static final String url_chat = "http://chat.jdd.com/chat/public/receiveMatchMessage.do";
+	public static final String url_bd = "https://bd-api.baoying518.com/basedata/public/securityMobileHandler.do";
+	public static final String url_act = "https://activity-api.baoying518.com/activity/public/mobileHandler.do";
+	public static final String url_master = "https://master-api.baoying518.com/master/public/securityMobileHandler.do";
+	public static final String url_act_rain = "https://activity-api-rp-rain.baoying518.com/activity/public/mobileHandler.do";
+	public static final String url_market = "https://market-api.baoying518.com/market/public/safeMobileHandler.do";
+	public static final String url_chat = "http://chat.baoying518.com/chat/public/receiveMatchMessage.do";
 
 	// 竞足
 	public static final String url_jzissuelist = "https://smc.jdddata.com/api/matchlist/jzissuelist";
@@ -46,35 +46,35 @@ public class DataUrls {
 	public static final String params_matchlivelist = "{\"header\":{\"appVersion\":\"3.9.6\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"userID\":\"\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"0\",\"platformVersion\":\"7.0\",\"action\":\"\",\"imei\":\"356156074527318\",\"userType\":1,\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'issue':'2017-11-21'}\"}";
 
 	// 竞篮期次
-	public static final String jl_issue = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=lqissue&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0";
+	public static final String jl_issue = "https://dcds.baoying518.com/Api.Basket/Ajax/NBALive.ashx?action=lqissue&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0";
 	// 竞篮对阵 issue = 2017-09-04
-	public static final String jl_qlive = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0&issue=";
+	public static final String jl_qlive = "https://dcds.baoying518.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0&issue=";
 	// 竞篮实况
-	public static final String jl_live = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0&issue=";
+	public static final String jl_live = "https://dcds.baoying518.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryId=91&playId=9101&pts=0&pcode=android&cmsm=dz&version=v3.0&issue=";
 
-	public static final String url_user = "https://user-api.jdd.com/user/public/securityMobileHandler.do";
-	public static final String url_user_ay = "https://user-api.jdd.com/user/public/securityMobileHandler.do";
-	public static final String url_trade = "https://trade-api.jdd.com/trade/public/securityApiHandler.do";
-	public static final String url_order = "https://order-api.jdd.com/order/public/securityMobileHandler.do";
-	public static final String url_rp = "https://rp-api.jdd.com/redpacket/public/handselMobileHandler.do";
-	public static final String url_push = "https://push-server.jdd.com/jdd/public/safe/pushSet.do";
-//	public static final String url_pay = "http://pay-api.jdd.com/jddBankNotice/notifyTest.do?";
-	public static final String url_pay = "http://trade-api.jdd.com/trade/notice/testNotice.do?";
-	public static final String url_shop = "https://shop-api.jdd.com/shop/public/securityMobileHandler.do?";
+	public static final String url_user = "http://user-api.baoying518.com/user/public/securityMobileHandler.do";
+	public static final String url_user_ay = "https://user-api.baoying518.com/user/public/securityMobileHandler.do";
+	public static final String url_trade = "http://trade-api.baoying518.com/trade/public/securityApiHandler.do";
+	public static final String url_order = "http://order-api.baoying518.com/order/public/securityMobileHandler.do";
+	public static final String url_rp = "http://rp-api.baoying518.com/redpacket/public/handselMobileHandler.do";
+	public static final String url_push = "https://push-server.baoying518.com/jdd/public/safe/pushSet.do";
+//	public static final String url_pay = "http://pay-api.baoying518.com/jddBankNotice/notifyTest.do?";
+	public static final String url_pay = "http://trade-api.baoying518.com/trade/notice/testNotice.do?";
+	public static final String url_shop = "https://shop-api.baoying518.com/shop/public/securityMobileHandler.do?";
 
-	public static final String url_info = "https://info-api.jdd.com/info/public/safeMobileHandler.do";
-	public static final String url_appadmin = "https://appadmin-api.jdd.com/appadmin/public/safeMobileHandler.do";
+	public static final String url_info = "https://info-api.baoying518.com/info/public/safeMobileHandler.do";
+	public static final String url_appadmin = "https://appadmin-api.baoying518.com/appadmin/public/safeMobileHandler.do";
 
 	public static final String ft_head = "https://smc.jdddata.com/api/scoredetail/head?lotteryId=90&pts=0&pcode=h5&version=v2.1&matchid=";
 	public static final String ft_matchhis = "https://smc.jdddata.com/api/scoredetail/ssmatchhis?version=v2.1&pts=0&pcode=h5&lotteryId=90&mid=";
 	public static final String ft_sslive = "https://smc.jdddata.com/api/scoredetail/sslive?pcode=h5&version=v2.1&pts=1506665233025&lotteryId=90&isNotLoading=true&mid=";
-	public static final String ft_batteArray = "https://saishi.jdd.com/Ajax/Soccer.ashx?cmsm=teamCallback&action=getBattleArray&pcode=h5&lotteryId=90&callback=teamCallback&mid=11914100";
+	public static final String ft_batteArray = "https://saishi.baoying518.com/Ajax/Soccer.ashx?cmsm=teamCallback&action=getBattleArray&pcode=h5&lotteryId=90&callback=teamCallback&mid=11914100";
 	public static final String ft_teamRank = "https://smc.jdddata.com/api/scoredetail/getssmatchrankinginfo?version=v2.1&pts=0&pcode=h5&lotteryId=90&mid=";
 	public static final String ft_oddsPlateinfo_euro = "https://smc.jdddata.com/api/odds/getoddsplateinfo?pcode=h5&version=v2.1&pts=0&type=69&lotteryId=90&matchid=";
 	public static final String ft_oddsPlateinfo_asia = "https://smc.jdddata.com/api/odds/getoddsplateinfo?pcode=h5&version=v2.1&pts=0&type=48&lotteryId=90&matchid=";
 	public static final String ft_oddsPlateinfo_handicap = "https://smc.jdddata.com/api/odds/getoddsplateinfo?pcode=h5&version=v2.1&pts=0&type=8&lotteryId=90&matchid=";
 	public static final String ft_oddsPlateinfo_under = "https://smc.jdddata.com/api/odds/getoddsplateinfo?pcode=h5&version=v2.1&pts=0&type=47&lotteryId=90&matchid=";
-	public static final String ft_saishiSslive = "https://saishi.jdd.com/Ajax/Soccer.ashx?cmsm=sk_jsonpCallback&action=sslive&pcode=h5&lotteryId=90&isNotLoading=false&callback=sk_jsonpCallback&mid=";
+	public static final String ft_saishiSslive = "https://saishi.baoying518.com/Ajax/Soccer.ashx?cmsm=sk_jsonpCallback&action=sslive&pcode=h5&lotteryId=90&isNotLoading=false&callback=sk_jsonpCallback&mid=";
 	public static final String ft_matchAnalze = "https://forecast.databiger.com/odds/forecast/getSsMatchAnalyzeInfo?version=v2.1&pts=0&pcode=h5&lotteryId=90&platform=trade&matchId=";
 	public static final String ft_matchAnalze_B = "https://smc.jdddata.com/api/scoredetail/getSsMatchAnalyzeInfoVerB?version=v2.1&pts=0&pcode=h5&lotteryId=90&mid=";
 	public static final String ft_matchInfo = "https://smc.jdddata.com/api/scoredetail/getMatchFullViewInfo?version=v2.1&pts=0&pcode=h5&lotteryId=90&matchId=";
@@ -91,24 +91,24 @@ public class DataUrls {
 	public static final String ft_bifa = "https://smc.jdddata.com/api/betfair/getbftradeinfo?type=1&version=v2.1&pts=0&pcode=h5&lotteryId=90&matchid=";
 	public static final String ft_bifaBig = "https://smc.jdddata.com/api/betfair/getbfblocktradeinfo?version=v2.1&pts=0&pcode=h5&lotteryId=90&matchid=";
 
-	public static final String ft_teamInfo = "https://saishi.jdd.com/Ajax/Soccer.ashx?cmsm=teamDetailCallback&action=ssteam&pcode=h5&version=v1.0.0&lotteryId=90&callback=teamDetailCallback"; // &teamId=2530
+	public static final String ft_teamInfo = "https://saishi.baoying518.com/Ajax/Soccer.ashx?cmsm=teamDetailCallback&action=ssteam&pcode=h5&version=v1.0.0&lotteryId=90&callback=teamDetailCallback"; // &teamId=2530
 
-	public static final String bs_issue = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=lqissue&lotteryid=91&playid=9101"; // 竞篮期次
-	public static final String bs_match = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryid=91&playid=9101&pts=0&issue="; // 竞篮期次对阵
-	public static final String bs_qlive = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryid=91&playid=9101&pts=0&issue="; // 竞篮期次实况
-	public static final String bs_matchs = "https://dcds.jdd.com/Api.Basket/Ajax/NBALive.ashx?action=match&matchids=12460620&lotteryid=91&pts=0&r=1507691882278"; // 竞篮关注
-	public static final String bs_bsdetail = "https://smc.jdd.com/api/scoredetail/bsdetail?lotteryid=91&matchid=11483949&pcode=h5&pts=0&version=v2.1"; // NBA比赛详情
-	public static final String bs_bsmatchhis = "https://smc.jdd.com/api/scoredetail/bsmatchhis?lotteryid=91&matchid=11483949&pcode=h5&pts=0&version=v2.1&isNBA=1"; // NBA历史战绩
-	public static final String bs_bsteamrank = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsteamrank&pcode=h5&version=v1.0.0&cmsm=rankingListCallback&IsNBA=1&lotteryId=91&seasonId=10001&tournamentId=10000"; // NBA球队排名
-	public static final String bs_bsstats = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsstats&pcode=h5&version=v1.0.0&cmsm=pkCallback&IsNBA=1&lotteryId=91&matchId=11483949&pts=0"; // NBA实况
-	public static final String bs_bsbattlearray = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsbattlearray&pcode=h5&version=v1.0.0&cmsm=zrCallback&IsNBA=1&lotteryId=91&matchId=11483949"; // NBA球队阵容
-	public static final String bs_bsteam = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016"; // NBA球队详情
-	public static final String bs_overunder = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016"; // 胜负赔率
-	public static final String bs_overunderdetail = "https://saishi.jdd.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016"; // 胜负赔率详情
-	public static final String bs_asianodds = "https://saishi.jdd.com/ajax/soccer.ashx?action=asianodds&pcode=h5&version=v1.0.0&cmsm=asianOddsCallback&IsNBA=1&lotteryId=91&matchid=11483949"; // 让分赔率
-	public static final String bs_asianoddsdetail = "https://saishi.jdd.com/ajax/soccer.ashx?action=asianoddsdetail&pcode=h5&version=v1.0.0&cmsm=dzCallback&isnba=1&lotteryId=91&matchid=11483949&bookid=-99999"; // 让分赔率详情
-	public static final String bs_handicap = "https://saishi.jdd.com/ajax/soccer.ashx?action=handicap&pcode=h5&version=v1.0.0&cmsm=handicapCallback&IsNBA=1&lotteryId=91&matchid=11483949"; // 大小分赔率
-	public static final String bs_handicapdetail = "https://saishi.jdd.com/ajax/soccer.ashx?action=handicapdetail&pcode=h5&version=v1.0.0&cmsm=dzCallback&isnba=1&lotteryId=91&matchid=11483949&bookid=-99999&handicap=20"; // 大小分赔率
+	public static final String bs_issue = "https://dcds.baoying518.com/Api.Basket/Ajax/NBALive.ashx?action=lqissue&lotteryid=91&playid=9101"; // 竞篮期次
+	public static final String bs_match = "https://dcds.baoying518.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryid=91&playid=9101&pts=0&issue="; // 竞篮期次对阵
+	public static final String bs_qlive = "https://dcds.baoying518.com/Api.Basket/Ajax/NBALive.ashx?action=match&lotteryid=91&playid=9101&pts=0&issue="; // 竞篮期次实况
+	public static final String bs_matchs = "https://dcds.baoying518.com/Api.Basket/Ajax/NBALive.ashx?action=match&matchids=12460620&lotteryid=91&pts=0&r=1507691882278"; // 竞篮关注
+	public static final String bs_bsdetail = "https://smc.baoying518.com/api/scoredetail/bsdetail?lotteryid=91&matchid=11483949&pcode=h5&pts=0&version=v2.1"; // NBA比赛详情
+	public static final String bs_bsmatchhis = "https://smc.baoying518.com/api/scoredetail/bsmatchhis?lotteryid=91&matchid=11483949&pcode=h5&pts=0&version=v2.1&isNBA=1"; // NBA历史战绩
+	public static final String bs_bsteamrank = "https://saishi.baoying518.com/ajax/soccer.ashx?action=bsteamrank&pcode=h5&version=v1.0.0&cmsm=rankingListCallback&IsNBA=1&lotteryId=91&seasonId=10001&tournamentId=10000"; // NBA球队排名
+	public static final String bs_bsstats = "https://saishi.baoying518.com/ajax/soccer.ashx?action=bsstats&pcode=h5&version=v1.0.0&cmsm=pkCallback&IsNBA=1&lotteryId=91&matchId=11483949&pts=0"; // NBA实况
+	public static final String bs_bsbattlearray = "https://saishi.baoying518.com/ajax/soccer.ashx?action=bsbattlearray&pcode=h5&version=v1.0.0&cmsm=zrCallback&IsNBA=1&lotteryId=91&matchId=11483949"; // NBA球队阵容
+	public static final String bs_bsteam = "https://saishi.baoying518.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016"; // NBA球队详情
+	public static final String bs_overunder = "https://saishi.baoying518.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016"; // 胜负赔率
+	public static final String bs_overunderdetail = "https://saishi.baoying518.com/ajax/soccer.ashx?action=bsteam&pcode=h5&version=v1.0.0&cmsm=dzCallback&IsNBA=1&lotteryId=91&teamId=1024&year=2016"; // 胜负赔率详情
+	public static final String bs_asianodds = "https://saishi.baoying518.com/ajax/soccer.ashx?action=asianodds&pcode=h5&version=v1.0.0&cmsm=asianOddsCallback&IsNBA=1&lotteryId=91&matchid=11483949"; // 让分赔率
+	public static final String bs_asianoddsdetail = "https://saishi.baoying518.com/ajax/soccer.ashx?action=asianoddsdetail&pcode=h5&version=v1.0.0&cmsm=dzCallback&isnba=1&lotteryId=91&matchid=11483949&bookid=-99999"; // 让分赔率详情
+	public static final String bs_handicap = "https://saishi.baoying518.com/ajax/soccer.ashx?action=handicap&pcode=h5&version=v1.0.0&cmsm=handicapCallback&IsNBA=1&lotteryId=91&matchid=11483949"; // 大小分赔率
+	public static final String bs_handicapdetail = "https://saishi.baoying518.com/ajax/soccer.ashx?action=handicapdetail&pcode=h5&version=v1.0.0&cmsm=dzCallback&isnba=1&lotteryId=91&matchid=11483949&bookid=-99999&handicap=20"; // 大小分赔率
 
 	// 竞足202接口参数
 	public static final String params_202 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"202\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{}\"}";
@@ -123,6 +123,7 @@ public class DataUrls {
 
 	// 北单229接口参数
 	public static final String params_229 = "{\"header\":{\"appVersion\":\"3.8.9\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"229\",\"cmdName\":\"app_zz\",\"userType\":1,\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{}\"}";
+	public static final String params_1100 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":1100,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"4b434fcf560b417b8479cfd0ae2edd10\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'TimeRegion':0,'Type':0,'PageNo':1,'PageSize':10}\"}";
 	public static final String params_90332 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":90332,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3C075555N9M0\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{}\"}";
 	public static final String params_200_5 = "{\"header\":{\"appVersion\":\"3.9.0\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"200\",\"cmdName\":\"app_zz\",\"userType\":\"1\",\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{'LottID':5}\"}";
 	public static final String params_200_39 = "{\"header\":{\"appVersion\":\"3.9.0\",\"cmdID\":\"0\",\"platformVersion\":\"6.0\",\"action\":\"200\",\"cmdName\":\"app_zz\",\"userType\":\"1\",\"userID\":\"\",\"uuid\":\"00000000-7fc6-bc83-0ab8-a6690033c587\",\"platformCode\":\"Android\",\"phoneName\":\"HUAWEI\",\"token\":\"\"},\"body\":\"{'LottID':39}\"}";
@@ -145,7 +146,7 @@ public class DataUrls {
 	public static final String params_1032 = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"1032\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'id':'1000005034','verifycode':'014429','username':'13011110030'}\"}";
 	public static final String params_1061 = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"1061\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'username':'13011110030','id':'1000005034','mobile':'13011110030','newpwd':'aaaaaa'}\"}";
 	public static final String params_207 = "{\"header\":{\"appVersion\":\"3.9.3\",\"idfa\":\"\",\"cmdName\":\"app_xx\",\"userID\":\"\",\"uuid\":\"00000000-45fe-369b-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"5000081\",\"platformVersion\":\"7.0\",\"action\":\"207\",\"imei\":\"356156074527318\",\"userType\":\"1\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'SchemeType':1,'BetType':1,'BonusScale':0,'AssureShare':0,'Description':'','OpenUserList':'','SecrecyLevel':4,'BuyShare':2,'Multiple':1,'LotteryID':5,'IssueName':'2017135','Number':[{'number':'02 06 08 13 19 31 + 15 ','playid':501}],'Money':2,'choosetype':2}\"}";
-	public static final String params_207Jz = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"token\":\"\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"207\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'BonusScale':0,'Description':'','LotteryID':90,'appname':'金山奖多多','SchemeType':1,'clientinfo':'com.jiangduoduo.jsjdd','IssueName':20180519,'Multiple':5,'Number':[{'playid':9005,'number':'180519001=2_3|1*1|0|0'}],'Money':10,'OpenUserList':'','BetType':1,'recomtype':'0','BuyShare':10,'SecrecyLevel':4,'AssureShare':0}\"}";
+	public static final String params_207Jz = "{\"header\":{\"traceID\":\"\",\"appVersion\":\"5.1.6\",\"idfa\":\"D8060B8D-581D-4CF8-901F-92E720459B5F\",\"usertype\":1,\"cmdName\":\"app_ios_zz\",\"userGuid\":\"\",\"uuid\":\"04FCEE6BDE0F461FACD8594E994A6467\",\"token\":\"\",\"cmdId\":\"1\",\"UserID\":\"\",\"platformVersion\":\"10.2.1\",\"action\":\"207\",\"imei\":\"\",\"phoneName\":\"iPhone 5s\",\"platformCode\":\"IPHONE\",\"ts\":\"\"},\"body\":\"{'BonusScale':0,'Description':'','LotteryID':90,'appname':'金山奖多多','SchemeType':1,'clientinfo':'com.jiangduoduo.jsjdd','IssueName':20180526,'Multiple':5,'Number':[{'playid':9005,'number':'180526001=2_0|1*1|0|0'}],'Money':10,'OpenUserList':'','BetType':1,'recomtype':'0','BuyShare':10,'SecrecyLevel':4,'AssureShare':0}\"}";
 	public static final String params_8000 = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"action\":8000,\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"fca0389e4c3c452aaeaae7c15b5b8086\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actTypeId':'116'}\"}";
 	public static final String params_207JL = "{\"header\":{\"appVersion\":\"3.9.7\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"userID\":\"\",\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"0\",\"platformVersion\":\"7.0\",\"action\":\"207\",\"imei\":\"356156074527318\",\"userType\":\"1\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'SchemeType':1,'BetType':1,'BonusScale':0,'AssureShare':0,'Description':'','OpenUserList':'','SecrecyLevel':4,'BuyShare':20,'Multiple':10,'LotteryID':91,'IssueName':'20171220','Number':[{'playid':9105,'number':'180117301=3_12|1*1|0'}],'Money':50}\"}";
 	public static final String params_207_11x5 = "{\"header\":{\"appVersion\":\"3.9.8\",\"idfa\":\"\",\"cmdName\":\"app_zz\",\"userID\":\"\",\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"token\":\"\",\"cmdID\":\"0\",\"platformVersion\":\"7.0\",\"action\":\"207\",\"imei\":\"356156074527318\",\"userType\":\"1\",\"platformCode\":\"Android\",\"phoneName\":\"samsung\"},\"body\":\"{'SchemeType':1,'BetType':1,'BonusScale':0,'AssureShare':0,'Description':'','OpenUserList':'','SecrecyLevel':4,'BuyShare':2,'Multiple':1,'LotteryID':74,'IssueName':'18010413','Number':[{'number':'01|02|09','playid':7410}],'Money':2, 'HongBaoSelectID':'0'}\"}";
@@ -181,6 +182,7 @@ public class DataUrls {
 	public static final String params_getMasterList = "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"3a1c30310da84ce49b1b2313c533c1a8\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actId':'46'}\"}";
 	public static final String params_followOrder = "{\"header\":{\"appVersion\":\"5.0.5\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"13411110041\"},\"body\":\"{'actId':'46','schemeId':800698713,'recommendUserId':272}\"}";
 	public static final String params_lyhhl =   "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"cmdName\":\"h5_zz\",\"userType\":1,\"uuid\":\"\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actId':'NzczMTcyLTc3MzE3NS1lbmM='}\"}";
+	public static final String params_lyhhl2 =   "{\"header\":{\"appVersion\":\"4.0.2\",\"cmdId\":0,\"platformVersion\":\"4.0.2\",\"cmdName\":\"h5_tyf\",\"userType\":1,\"uuid\":\"9fe08a102b094b4486ed80ae1c9015f1\",\"userID\":\"\",\"platformCode\":\"h5mobile\",\"token\":\"\"},\"body\":\"{'actId':'NzczMTcyLTc3MzE3Ny1lbmM=','getQualifications':1}\"}";
 	public static final String params_remaind = "{\"header\":{\"appVersion\":\"5.0.5\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\",\"username\":\"13411140004\"},\"body\":\"{'actId':'NzczMTcyLTc3MzE3NS1lbmM=','status':1}\"}";
 	public static final String params_baseinfo = "{\"header\":{\"appVersion\":\"5.0.5\",\"cmdId\":0,\"platformVersion\":\"7.0\",\"cmdName\":\"app_zz\",\"userType\":1,\"uuid\":\"ffffffff-df00-aeda-0760-812f0033c587\",\"userID\":\"\",\"platformCode\":\"Android\",\"islogin\":true,\"token\":\"\"},\"body\":\"{'actId':''}\"}";
 

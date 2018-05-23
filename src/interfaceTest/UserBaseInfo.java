@@ -1,6 +1,8 @@
 package interfaceTest;
 
 import java.io.IOException;
+import java.util.Base64;
+
 import com.jdd.fm.core.exception.AesException;
 
 import activity.Test107;
@@ -1089,6 +1091,39 @@ public class UserBaseInfo {
 	 * @param userID
 	 * @param token
 	 * @param act
+	 * @return 
+	 * @throws Exception
+	 */
+	public static String getFirstOrderMoney(String userID, String token) throws Exception{
+		String url = DataUrls.url_trade;
+		String params = DataUrls.params_1100;
+		String suc = "操作成功";
+		
+		String hParams = "userID," + userID + ";token," + token;
+		String bParams = "";
+		
+		params = AppReq.setParmas(params, hParams, bParams);
+		String reString = AppReq.getResStr(url, params);
+		
+		String result = "";
+//		System.out.println(reString);
+		if (reString.contains(suc)) {
+			JSONObject obj = JSONObject.fromObject(reString);
+			JSONObject data = obj.getJSONObject("data");
+			JSONArray items = data.getJSONArray("item");
+			JSONObject item = (JSONObject) items.get(0);
+			String Name = item.getString("Name");
+			String Money = item.getString("Money");
+			result = Name + " " + Money;
+		}
+		return result;
+	}
+	
+	/**
+	 * 获取用户对于活动彩金卡
+	 * @param userID
+	 * @param token
+	 * @param act
 	 * @throws Exception
 	 */
 	public static void getUserRedpackage(String userID, String token, String act) throws Exception{
@@ -1102,7 +1137,7 @@ public class UserBaseInfo {
 		params = AppReq.setParmas(params, hParams, bParams);
 		String reString = AppReq.getResStr(url, params);
 		
-		System.out.println(reString);
+//		System.out.println(reString);
 		if (reString.contains(suc)) {
 			JSONObject obj = JSONObject.fromObject(reString);
 			JSONObject data = obj.getJSONObject("data");
@@ -1112,10 +1147,26 @@ public class UserBaseInfo {
 				String Name = item.getString("Name");
 				if (Name.equals(act)) {
 					String TotalMoney = item.getString("TotalMoney");
-					System.err.println(Name + " : " + TotalMoney);
+					
+					
+					String win = getFirstOrderMoney(userID, token);
+					
+					userID = get64Decoder(userID);
+					System.err.println(userID + " 彩金奖励 " +Name + " : " + TotalMoney + " *** " + win);
 				}
 			}
 		}
+	}
+	
+	/**
+	 * base 64 Decode
+	 * @param userID
+	 * @return
+	 * @throws Exception
+	 */
+	public static String get64Decoder (String userID) throws Exception{
+		final Base64.Decoder decoder = Base64.getDecoder();
+		return new String(decoder.decode(userID), "UTF-8");
 	}
 	
 	/**

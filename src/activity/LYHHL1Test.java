@@ -12,7 +12,7 @@ import interfaceTest.UserBaseInfo;
  * @author Alan
  *
  */
-public class LYHHLTest {
+public class LYHHL1Test {
 
 	private static String actTypeId = "NzczMTcyLTc3MzE3NS1lbmM=";
 	private static String pwd = "aaaaaa";
@@ -30,7 +30,7 @@ public class LYHHLTest {
 	 */
 	public static boolean getActQualify(String userID, String token) throws Exception {
 		String params = DataUrls.params_lyhhl;
-		String url = "https://act-api.jdd.com/api/v1/partitionSign";
+		String url = "https://act-api.baoying518.com/api/v1/partitionSign";
 		String suc = "success";
 
 		String hParams = "userID," + userID + ";token," + token;
@@ -58,7 +58,7 @@ public class LYHHLTest {
 	 */
 	public static boolean openRemaind(String userID, String token) throws Exception {
 		String params = DataUrls.params_remaind;
-		String url = "https://act-api.jdd.com/api/v1/remainderMe";
+		String url = "https://act-api.baoying518.com/api/v1/remainderMe";
 		String suc = "success";
 
 		String hParams = "userID," + userID + ";token," + token;
@@ -85,7 +85,7 @@ public class LYHHLTest {
 	 */
 	public static boolean getBaseInfo(String userID, String token) throws Exception {
 		String params = DataUrls.params_baseinfo;
-		String url = "https://act-api.jdd.com/api/v1/getActFlowOneInfo";
+		String url = "https://act-api.baoying518.com/api/v1/getActFlowOneInfo";
 		String suc = "success";
 		
 		String hParams = "userID," + userID + ";token," + token;
@@ -118,6 +118,8 @@ public class LYHHLTest {
 			
 //			UserBaseInfo.getMechartNo(userID, token, "2000");
 			getBaseInfo(userID, token);
+			getBaseInfo(userID, token);
+			getBaseInfo(userID, token);
 //			getActQualify(userID, token);
 //			openRemaind(userID, token);
 		}
@@ -142,8 +144,8 @@ public class LYHHLTest {
 	}
 
 	public static void main(String[] args) throws Exception {
-		int s = 50;
-		int e = 60;
+		int s = 60;
+		int e = 70;
 		
 		init(s, e);
 		

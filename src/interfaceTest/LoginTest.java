@@ -203,7 +203,7 @@ public class LoginTest {
 		String uuid = "57704EE8AE9070D06499A257";
 		String platformCode = "IPHONE";
 		
-		for (int i = 100; i < 999; i++) {
+		for (int i = 1000; i < 1501; i++) {
 			String mobile = "1350001";
 			if (i < 10) {
 				mobile = mobile + "000" + i;
@@ -214,11 +214,15 @@ public class LoginTest {
 			} else if (i < 10000) {
 				mobile = mobile + i;
 			}
+			registerUseCmdName(type, mobile, pwd, cmdName, uuid, platformCode);
 			UserInfo user = UserBaseInfo.getUserInfo(mobile, pwd);
 			String token = user.getToken();
 			String userID = user.getUserId();
 			UserBaseInfo.getMechartNo(userID, token, "2000");
-//			registerUseCmdName(type, mobile, pwd, cmdName, uuid, platformCode);
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, pwd);
+//			String token = user.getToken();
+//			String userID = user.getUserId();
+//			UserBaseInfo.getRpNum107(mobile, userID, token);;
 		}
 	}
 }

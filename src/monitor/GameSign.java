@@ -1,5 +1,6 @@
 package monitor;
 
+import activity.LYHHL1Test;
 import activity.SJBJGQ;
 import helper.AppReq;
 import helper.UserInfo;
@@ -260,7 +261,7 @@ public class GameSign {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String mobiles = "13911112222,18911112222,18917171717,18913131313,18919191919,18921212121,18924242424,18926262626,18925252525,18929292929,18928282828,18701639930,18601950610";
+		String mobiles = "13911112222,18911112222,18917171717,18913131313,18919191919,18921212121,18924242424,18926262626,18925252525,18929292929,18928282828,18931313131,18701639930,18601950610";
 		String pw = "aaaaaa";
 
 		String[] mList = mobiles.split(",");
@@ -272,7 +273,9 @@ public class GameSign {
 			String userID = user.getUserId();
 			
 
-			UserBaseInfo.push1000(userID, token);
+//			UserBaseInfo.push1000(userID, token);
+			LYHHL1Test.getBaseInfo(userID, token);
+			LYHHL1Test.getActQualify(userID, token);
 			SJBJGQ.useFlagCount(userID, token, "111941");
 			SJBJGQ.getFlagNum(mobile, userID, token, "111941");
 			UserBaseInfo.getRpNum107(mobile, userID, token);
