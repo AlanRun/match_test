@@ -1,6 +1,7 @@
 package monitor;
 
 import activity.LYHHL1Test;
+import activity.LYHHL2Test;
 import activity.SJBJGQ;
 import helper.AppReq;
 import helper.UserInfo;
@@ -274,8 +275,9 @@ public class GameSign {
 			
 
 //			UserBaseInfo.push1000(userID, token);
-			LYHHL1Test.getBaseInfo(userID, token);
-			LYHHL1Test.getActQualify(userID, token);
+//			LYHHL1Test.getBaseInfo(userID, token);
+//			LYHHL1Test.getActQualify(userID, token);
+			LYHHL2Test.getActQualify(userID, token);
 			SJBJGQ.useFlagCount(userID, token, "111941");
 			SJBJGQ.getFlagNum(mobile, userID, token, "111941");
 			UserBaseInfo.getRpNum107(mobile, userID, token);

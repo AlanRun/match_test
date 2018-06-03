@@ -1142,19 +1142,20 @@ public class UserBaseInfo {
 			JSONObject obj = JSONObject.fromObject(reString);
 			JSONObject data = obj.getJSONObject("data");
 			JSONArray items = data.getJSONArray("item");
-			for (int i = 0; i < items.size(); i++) {
-				JSONObject item = (JSONObject) items.get(i);
-				String Name = item.getString("Name");
-				if (Name.equals(act)) {
-					String TotalMoney = item.getString("TotalMoney");
-					
-					
-					String win = getFirstOrderMoney(userID, token);
-					
-					userID = get64Decoder(userID);
-					System.err.println(userID + " 彩金奖励 " +Name + " : " + TotalMoney + " *** " + win);
-				}
-			}
+			userID = get64Decoder(userID);
+			System.err.println(userID + " " + items.size());
+//			for (int i = 0; i < items.size(); i++) {
+//				JSONObject item = (JSONObject) items.get(i);
+//				String Name = item.getString("Name");
+//				if (Name.equals(act)) {
+//					String TotalMoney = item.getString("TotalMoney");
+//					
+//					String win = getFirstOrderMoney(userID, token);
+//					userID = get64Decoder(userID);
+//					System.err.println(userID + " 彩金奖励 " +Name + " : " + TotalMoney + " *** " + win);
+//					System.err.println(userID + " 彩金奖励 " +Name + " : " + TotalMoney);
+//				}
+//			}
 		}
 	}
 	
