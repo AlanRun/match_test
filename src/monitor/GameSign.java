@@ -277,9 +277,9 @@ public class GameSign {
 //			UserBaseInfo.push1000(userID, token);
 //			LYHHL1Test.getBaseInfo(userID, token);
 //			LYHHL1Test.getActQualify(userID, token);
-			LYHHL2Test.getActQualify(userID, token);
-			SJBJGQ.useFlagCount(userID, token, "111941");
-			SJBJGQ.getFlagNum(mobile, userID, token, "111941");
+//			LYHHL2Test.getActQualify(userID, token);
+//			SJBJGQ.useFlagCount(userID, token, "111941");
+//			SJBJGQ.getFlagNum(mobile, userID, token, "111941");
 			UserBaseInfo.getRpNum107(mobile, userID, token);
 			UserBaseInfo.getUserRedpackage(userID, token);
 			UserBaseInfo.sign20004(userID, token, mobile);
@@ -293,19 +293,19 @@ public class GameSign {
 			}
 		}
 		
-		for (int i = 0; i < mList.length; i++) {
-			String mobile = mList[i];
-
-			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
-			String token = user.getToken();
-			String userID = user.getUserId();
-
-			try {
-				playGame(token, userID);
-			} catch (Exception e) {
-				System.out.println("Play game failed.");
-			}
-		}
+//		for (int i = 0; i < mList.length; i++) {
+//			String mobile = mList[i];
+//
+//			UserInfo user = UserBaseInfo.getUserInfo(mobile, pw);
+//			String token = user.getToken();
+//			String userID = user.getUserId();
+//
+//			try {
+//				playGame(token, userID);
+//			} catch (Exception e) {
+//				System.out.println("Play game failed.");
+//			}
+//		}
 
 	}
 }
