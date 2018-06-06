@@ -90,7 +90,7 @@ public class AESUtils {
     public static void main(String[] args){
     	
     	String password = "uo0mc8+w/iSYAUvaG7yVOQ==";
-		String content = "{'uuid':'107','params':{}}";
+		String content = "{'uuid':'108','params':{}}";
 		String s = encryptAES(content, password);
 		
 		System.err.println(s);
